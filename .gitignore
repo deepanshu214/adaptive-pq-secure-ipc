@@ -1,0 +1,18 @@
+# private keys are generated locally on the first run
+secure_ipc/keys/
+
+# build output
+policy_engine/build/
+cmake-build-*/
+*.o
+*.exe
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store

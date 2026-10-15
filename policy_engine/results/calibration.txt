@@ -1,0 +1,5 @@
+calibrated alpha=0.844 beta=0.517 wI=0.473 wL=0.247 wX=0.280 thresholds=[0.078, 0.298, 0.514, 0.805]
+defaults   alpha=0.844 beta=0.517 wI=0.473 wL=0.247 wX=0.280 thresholds=[0.078, 0.298, 0.514, 0.805]
+test_accuracy 0.9760
+test_under_protection 0.0033
+anchors_satisfied 1

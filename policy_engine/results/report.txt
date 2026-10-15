@@ -1,0 +1,250 @@
+Adaptive Security Policy Engine 1.0.0 - full pipeline report
+
+==============================================================================
+  SYNTHETIC IPC DATASET
+==============================================================================
+  5000 records (seed 42) written to data/ipc_dataset.csv
+  +-----------------+---------+-------+
+  | Reference level | Records | Share |
+  +-----------------+---------+-------+
+  | L1-BASIC        | 592     | 11.8% |
+  | L2-CLASSICAL    | 1426    | 28.5% |
+  | L3-HYBRID       | 1295    | 25.9% |
+  | L4-PQ           | 1599    | 32.0% |
+  | L5-STRONG-PQ    | 88      | 1.8%  |
+  +-----------------+---------+-------+
+
+==============================================================================
+  PHASE 1 - IPC SECURITY ANALYSIS
+==============================================================================
+
+  IPC threat catalogue
+  --------------------
+  +---------------------------+--------------------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------+
+  | Threat                    | Violated property  | IPC attack vector                                                              | Countermeasure                                                             |
+  +---------------------------+--------------------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------+
+  | Process impersonation     | Authentication     | Squatting on a socket path / pipe name / bus name, PID reuse, spoofed endpoint | Peer authentication: HMAC (L1), Ed25519 (L2-L3), ML-DSA (L4-L5)            |
+  | Unauthorized access       | Access control     | World-readable shared memory, permissive message-queue ACLs, leaked handles    | Per-session keys: only authenticated peers hold the traffic key            |
+  | Message tampering         | Integrity          | Writable shared-memory ring buffer, compromised broker, ptrace injection       | MAC / AEAD authentication tag on every message                             |
+  | Replay attack             | Freshness          | Recorded socket traffic replayed by a local attacker                           | Monotonic sequence numbers, sliding replay window, periodic re-keying      |
+  | Eavesdropping             | Confidentiality    | Debug interfaces, /proc inspection, broker logs, side channels                 | AEAD encryption (AES-256-GCM) with ephemeral session keys                  |
+  | Harvest-now-decrypt-later | Quantum resistance | Exfiltrated captures of long-lived sensitive IPC traffic                       | ML-KEM (FIPS 203) key establishment, ML-DSA (FIPS 204) signatures, AES-256 |
+  +---------------------------+--------------------+--------------------------------------------------------------------------------+----------------------------------------------------------------------------+
+
+  Quantum threat model
+  --------------------
+  Shor's algorithm breaks X25519 / Ed25519 / RSA; Grover halves symmetric key
+  strength (AES-256 keeps ~128-bit). Mosca's inequality x + y > z decides
+  harvest-now-decrypt-later exposure with y = 5 years (migration) and z = 15 years (time to a
+  cryptographically relevant quantum computer): data that must stay secret for
+  more than 10 years needs quantum-safe key establishment today.
+
+  Requirement analysis of the specification scenarios
+  ---------------------------------------------------
+  +-----------+----------------------------------------------------------------------------------------------------------+--------------+----------------------------------+
+  | Message   | Required services                                                                                        | Floor        | Top threat (risk)                |
+  +-----------+----------------------------------------------------------------------------------------------------------+--------------+----------------------------------+
+  | Status    | integrity, origin-auth                                                                                   | L1-BASIC     | Process impersonation (0.00)     |
+  | Gaze      | integrity, origin-auth, anti-replay, confidentiality                                                     | L2-CLASSICAL | Harvest-now-decrypt-later (0.13) |
+  | Profile   | integrity, origin-auth, anti-replay, confidentiality, strong-auth                                        | L2-CLASSICAL | Harvest-now-decrypt-later (0.58) |
+  | Emergency | integrity, origin-auth, anti-replay, confidentiality, strong-auth, PQ-confidentiality, PQ-authentication | L4-PQ        | Harvest-now-decrypt-later (1.00) |
+  | Alert     | integrity, origin-auth, anti-replay, confidentiality, strong-auth, PQ-confidentiality, PQ-authentication | L4-PQ        | Harvest-now-decrypt-later (1.00) |
+  +-----------+----------------------------------------------------------------------------------------------------------+--------------+----------------------------------+
+
+==============================================================================
+  PHASE 2 - SECURITY PARAMETERS
+==============================================================================
+
+  Measurable parameters
+  ---------------------
+  +---------------------------+--------+--------------------------------------------------+--------------------------+--------------------------------------------------------+
+  | Parameter                 | Symbol | Domain                                           | Normalisation            | Role                                                   |
+  +---------------------------+--------+--------------------------------------------------+--------------------------+--------------------------------------------------------+
+  | Message sensitivity       | S      | LOW | MEDIUM | HIGH | CRITICAL                   | ordinal / 3              | Impact of disclosure (confidentiality)                 |
+  | Communication criticality | C      | LOW | MEDIUM | HIGH | CRITICAL                   | ordinal / 3              | Impact of tampering / loss (integrity, availability)   |
+  | Threat level              | H      | LOW | MEDIUM | HIGH | CRITICAL                   | ordinal / 3              | Likelihood of an active attack (from threat monitor)   |
+  | Process trust             | T      | [0, 1] score (LOW < 0.4 <= MEDIUM < 0.7 <= HIGH) | D = 1 - T                | Likelihood that the sender is malicious / impersonated |
+  | CPU utilisation           | U_cpu  | [0, 100] %                                       | value / 100              | Available compute budget for cryptography              |
+  | Memory utilisation        | U_mem  | [0, 100] %                                       | value / 100              | Available memory for key material and buffers          |
+  | Message size              | M      | bytes                                            | log2(M/16) / 16, clamped | Symmetric cost and wire overhead                       |
+  | Confidentiality lifetime  | x      | years                                            | Mosca: x + y > z         | Exposure to harvest-now-decrypt-later attacks          |
+  | Resource pressure         | P      | derived                                          | max(U_cpu, U_mem)        | Selects the resource state used by the adaptation step |
+  +---------------------------+--------+--------------------------------------------------+--------------------------+--------------------------------------------------------+
+
+  Normalised context vectors of the specification scenarios
+  ---------------------------------------------------------
+  +-----------+------+------+------+-------+------+------+------+------+---------+
+  | Message   | S    | C    | H    | D=1-T | CPU  | MEM  | Size | P    | Mosca   |
+  +-----------+------+------+------+-------+------+------+------+------+---------+
+  | Status    | 0.00 | 0.00 | 0.00 | 0.15  | 0.30 | 0.40 | 0.19 | 0.40 | safe    |
+  | Gaze      | 0.33 | 0.33 | 0.00 | 0.15  | 0.40 | 0.45 | 0.25 | 0.45 | safe    |
+  | Profile   | 0.67 | 0.67 | 0.33 | 0.45  | 0.50 | 0.50 | 0.50 | 0.50 | safe    |
+  | Emergency | 1.00 | 1.00 | 0.67 | 0.45  | 0.60 | 0.55 | 0.31 | 0.60 | exposed |
+  | Alert     | 1.00 | 1.00 | 0.67 | 0.80  | 0.80 | 0.60 | 0.25 | 0.80 | exposed |
+  +-----------+------+------+------+-------+------+------+------+------+---------+
+
+  Security levels and cryptographic suites
+  ----------------------------------------
+  +--------------+-----------------------------+----------------+------------------------------+-----------+-----------+-------+-------------+---------+
+  | Level        | Key establishment           | Authentication | Payload                      | PQ-safe   | NIST cat. | Rekey | Handshake B | State B |
+  +--------------+-----------------------------+----------------+------------------------------+-----------+-----------+-------+-------------+---------+
+  | L1-BASIC     | Pre-provisioned channel key | HMAC-SHA-256   | HMAC-SHA-256 (no encryption) | no        | -         | -     | 0           | 240     |
+  | L2-CLASSICAL | X25519 ECDHE                | Ed25519        | AES-256-GCM                  | no        | -         | 64    | 128         | 816     |
+  | L3-HYBRID    | X25519 + ML-KEM-512         | Ed25519        | AES-256-GCM                  | conf      | 1         | 32    | 1696        | 4016    |
+  | L4-PQ        | ML-KEM-768                  | ML-DSA-65      | AES-256-GCM                  | conf+auth | 3         | 16    | 5581        | 14525   |
+  | L5-STRONG-PQ | ML-KEM-1024                 | ML-DSA-87      | AES-256-GCM                  | conf+auth | 5         | 4     | 7763        | 18979   |
+  +--------------+-----------------------------+----------------+------------------------------+-----------+-----------+-------+-------------+---------+
+
+==============================================================================
+  PHASE 3 - SECURITY CLASSIFICATION ENGINE
+==============================================================================
+
+  Specification scenarios
+  -----------------------
+  +-----------+----------+--------+--------+----------+--------+--------------+--------------+--------------+--------------+-------+
+  | Message   | S        | Trust  | Threat | C        | Risk R | Band         | Floor        | Level        | Expected     | Match |
+  +-----------+----------+--------+--------+----------+--------+--------------+--------------+--------------+--------------+-------+
+  | Status    | LOW      | HIGH   | LOW    | LOW      | 0.018  | L1-BASIC     | L1-BASIC     | L1-BASIC     | L1-BASIC     | yes   |
+  | Gaze      | MEDIUM   | HIGH   | LOW    | MEDIUM   | 0.182  | L2-CLASSICAL | L2-CLASSICAL | L2-CLASSICAL | L2-CLASSICAL | yes   |
+  | Profile   | HIGH     | MEDIUM | MEDIUM | HIGH     | 0.484  | L3-HYBRID    | L2-CLASSICAL | L3-HYBRID    | L3-HYBRID    | yes   |
+  | Emergency | CRITICAL | MEDIUM | HIGH   | CRITICAL | 0.769  | L4-PQ        | L4-PQ        | L4-PQ        | L4-PQ        | yes   |
+  | Alert     | CRITICAL | LOW    | HIGH   | CRITICAL | 0.858  | L5-STRONG-PQ | L4-PQ        | L5-STRONG-PQ | L5-STRONG-PQ | yes   |
+  +-----------+----------+--------+--------+----------+--------+--------------+--------------+--------------+--------------+-------+
+
+  Classification trace - Alert
+  ----------------------------
+    Sensitivity analysis   : S=CRITICAL (1.00), lifetime 12.0 y, quantum-exposed (Mosca) = yes
+    Process trust analysis : trust=0.20 (LOW), distrust D=0.80
+    Threat assessment      : H=HIGH (0.67)
+    Criticality assessment : C=CRITICAL (1.00)
+    Requirements           : integrity, origin-auth, anti-replay, confidentiality, strong-auth, PQ-confidentiality, PQ-authentication -> floor L4-PQ
+    Risk model             : I=1.000 L=0.731 R=0.858 -> band L5-STRONG-PQ
+    Required level         : L5-STRONG-PQ
+
+  Agreement with the reference policy on the dataset
+  --------------------------------------------------
+  Records 5000 | accuracy 98.0% | within one level 100.0% | under-protection 0.2% | over-protection 1.8% | macro-F1 0.974
+  +--------------------+----------+--------------+-----------+-------+--------------+--------+-----------+-------+
+  | reference \ engine | L1-BASIC | L2-CLASSICAL | L3-HYBRID | L4-PQ | L5-STRONG-PQ | Recall | Precision | F1    |
+  +--------------------+----------+--------------+-----------+-------+--------------+--------+-----------+-------+
+  | L1-BASIC           | 590      | 2            | 0         | 0     | 0            | 0.997  | 1.000     | 0.998 |
+  | L2-CLASSICAL       | 0        | 1370         | 56        | 0     | 0            | 0.961  | 0.998     | 0.979 |
+  | L3-HYBRID          | 0        | 1            | 1270      | 24    | 0            | 0.981  | 0.955     | 0.968 |
+  | L4-PQ              | 0        | 0            | 4         | 1589  | 6            | 0.994  | 0.982     | 0.988 |
+  | L5-STRONG-PQ       | 0        | 0            | 0         | 5     | 83           | 0.943  | 0.933     | 0.938 |
+  +--------------------+----------+--------------+-----------+-------+--------------+--------+-----------+-------+
+  Per-record results written to results/classification.csv
+
+==============================================================================
+  PHASE 4 - EXPERIMENTAL CALIBRATION OF THE RISK MODEL
+==============================================================================
+  Objective      : mean asymmetric cost (under-protection x4, over-protection x1) + specification scenarios as hard constraints
+  Search         : 6000 random samples, best 8 refined by coordinate search (9845 evaluations, 1.68 s)
+  Split          : 3500 train / 1500 test (seed 7)
+
+  +------------+-------+----------+-------------+------------+----------+-------+
+  | Model      | Split | Accuracy | Under-prot. | Over-prot. | Macro-F1 | Cost  |
+  +------------+-------+----------+-------------+------------+----------+-------+
+  | neutral    | train | 72.5%    | 27.5%       | 0.0%       | 0.707    | 1.098 |
+  | neutral    | test  | 74.1%    | 25.9%       | 0.0%       | 0.724    | 1.037 |
+  | calibrated | train | 98.2%    | 0.1%        | 1.7%       | 0.974    | 0.023 |
+  | calibrated | test  | 97.6%    | 0.3%        | 2.1%       | 0.974    | 0.034 |
+  +------------+-------+----------+-------------+------------+----------+-------+
+
+  Calibrated parameters : alpha=0.844 beta=0.517 wI=0.473 wL=0.247 wX=0.280 thresholds=[0.078, 0.298, 0.514, 0.805]
+  Built-in defaults     : alpha=0.844 beta=0.517 wI=0.473 wL=0.247 wX=0.280 thresholds=[0.078, 0.298, 0.514, 0.805]
+  Specification scenarios satisfied: yes
+  Written to results/calibration.txt
+
+==============================================================================
+  PHASE 5 - PERFORMANCE-AWARE ADAPTATION
+==============================================================================
+  Resource states: IDLE < 30% <= NORMAL < 70% <= ELEVATED < 85% <= CONSTRAINED (P = max(CPU, memory))
+
+  Selected policy per scenario and CPU load (memory fixed at 20%)
+  ---------------------------------------------------------------
+  +-----------+--------------+------------------------+------------------------+---------------------------+---------------------------+
+  | Message   | Required     | CPU 20% (idle)         | CPU 50% (normal)       | CPU 75% (elevated)        | CPU 90% (constrained)     |
+  +-----------+--------------+------------------------+------------------------+---------------------------+---------------------------+
+  | Status    | L1-BASIC     | L1-BASIC (8 us)        | L1-BASIC (8 us)        | L1-BASIC (8 us)           | L1-BASIC (8 us)           |
+  | Gaze      | L2-CLASSICAL | L2-CLASSICAL (27 us)   | L2-CLASSICAL (27 us)   | L2-CLASSICAL opt (11 us)  | L2-CLASSICAL opt (11 us)  |
+  | Profile   | L3-HYBRID    | L3-HYBRID (94 us)      | L3-HYBRID (94 us)      | L3-HYBRID opt (54 us)     | L2-CLASSICAL opt (46 us)  |
+  | Emergency | L4-PQ        | L5-STRONG-PQ (4403 us) | L4-PQ (188 us)         | L4-PQ opt (53 us)         | L4-PQ opt (53 us)         |
+  | Alert     | L5-STRONG-PQ | L5-STRONG-PQ (4401 us) | L5-STRONG-PQ (4401 us) | L5-STRONG-PQ opt (265 us) | L5-STRONG-PQ opt (265 us) |
+  +-----------+--------------+------------------------+------------------------+---------------------------+---------------------------+
+  'opt' = same algorithms with optimized parameters (rekey x4, session-level authentication).
+  Costs are per message on the embedded ARM Cortex-A class device.
+
+  Adaptation rules confirmed by the sweep
+  ---------------------------------------
+    High risk + sufficient resources   -> required PQ / strong PQ applied
+    High risk + constrained resources  -> optimized policy (critical: never downgraded)
+    Low risk  + constrained resources  -> lightweight policy (one level, within floor)
+  Full sweep written to results/resource_sweep.csv
+
+==============================================================================
+  PHASE 6a - STATIC vs ADAPTIVE SECURITY (DATASET)
+==============================================================================
+  5000 messages, embedded ARM Cortex-A class device (2 crypto cores), reference rate 500 msg/s
+
+  +----------------------+------------+----------+-------------+------------+-------------+-------------+------------+------------+---------+-----------+-----------+
+  | Strategy             | Mean level | Req. met | Floor viol. | Over-prot. | PQ coverage | Mean CPU us | p95 CPU us | Overhead B | State B | Max msg/s | CPU @rate |
+  +----------------------+------------+----------+-------------+------------+-------------+-------------+------------+------------+---------+-----------+-----------+
+  | Static BASIC         | 1.00       | 11.8%    | 79.7%       | 0.0%       | 0.0%        | 34.2        | 146.2      | 40         | 240     | 58547     | 0.9%      |
+  | Static CLASSICAL     | 2.00       | 40.4%    | 43.0%       | 11.8%      | 0.0%        | 35.7        | 77.7       | 38         | 816     | 56016     | 0.9%      |
+  | Static HYBRID        | 3.00       | 66.3%    | 31.1%       | 40.4%      | 100.0%      | 68.0        | 110.1      | 89         | 4016    | 29391     | 1.7%      |
+  | Static POST_QUANTUM  | 4.00       | 98.2%    | 1.8%        | 66.3%      | 100.0%      | 194.6       | 236.6      | 385        | 14525   | 10277     | 4.9%      |
+  | Static STRONG_PQ     | 5.00       | 100.0%   | 0.0%        | 98.2%      | 100.0%      | 4409.6      | 4451.6     | 6604       | 18979   | 454       | 110.2%    |
+  | Adaptive (risk only) | 2.85       | 99.8%    | 0.1%        | 1.8%       | 100.0%      | 172.5       | 214.5      | 281        | 6359    | 11591     | 4.3%      |
+  | Adaptive (full)      | 2.79       | 93.7%    | 0.1%        | 1.5%       | 93.1%       | 107.5       | 197.1      | 180        | 6164    | 18609     | 2.7%      |
+  +----------------------+------------+----------+-------------+------------+-------------+-------------+------------+------------+---------+-----------+-----------+
+  Req. met    = provided level >= reference level
+  Floor viol. = provided level below the mandatory minimum (a security failure)
+  CPU @rate   = share of the crypto cores needed at the reference rate (>100% = overload)
+  Written to results/static_vs_adaptive.csv
+
+==============================================================================
+  PHASE 6b - CLOSED-LOOP SIMULATION (LOAD + INTRUSION)
+==============================================================================
+  11 IPC channels, ~865 msg/s, 300 s, deadline 50 ms, embedded ARM Cortex-A class device
+  Phases: [0-60s Baseline, bg CPU 30%, threat LOW] [60-120s Peak load, bg CPU 78%, threat LOW] [120-180s Intrusion, bg CPU 40%, threat HIGH] [180-240s Intrusion + overload, bg CPU 88%, threat CRITICAL] [240-300s Recovery, bg CPU 30%, threat LOW]
+
+  +----------------------+-----------+--------------+-------------+-------------+----------+----------+------------+----------+-------------+-------------+------------+
+  | Strategy             | Delivered | Mean lat. ms | p95 lat. ms | p99 lat. ms | Mean CPU | Peak CPU | Mean level | Req. met | Floor viol. | Crit. viol. | Overhead B |
+  +----------------------+-----------+--------------+-------------+-------------+----------+----------+------------+----------+-------------+-------------+------------+
+  | Static BASIC         | 100.0%    | 0.09         | 0.37        | 0.81        | 54.3%    | 89.2%    | 1.00       | 27.5%    | 63.2%       | 18693       | 40         |
+  | Static CLASSICAL     | 100.0%    | 0.12         | 0.29        | 0.49        | 54.6%    | 89.4%    | 2.00       | 72.6%    | 19.3%       | 18693       | 38         |
+  | Static HYBRID        | 100.0%    | 0.24         | 0.59        | 0.78        | 56.0%    | 90.8%    | 3.00       | 89.8%    | 9.5%        | 18693       | 89         |
+  | Static POST_QUANTUM  | 100.0%    | 0.88         | 2.49        | 2.68        | 61.5%    | 96.3%    | 4.00       | 98.7%    | 1.3%        | 3309        | 385        |
+  | Static STRONG_PQ     | 24.6%     | 59.38        | 86.66       | 86.67       | 100.0%   | 100.0%   | 5.00       | 100.0%   | 0.0%        | 0           | 6604       |
+  | Adaptive (risk only) | 96.5%     | 8.56         | 50.48       | 50.75       | 57.3%    | 100.0%   | 2.14       | 99.5%    | 0.4%        | 106         | 164        |
+  | Adaptive (full)      | 100.0%    | 0.14         | 0.40        | 2.21        | 55.1%    | 90.6%    | 2.14       | 99.5%    | 0.4%        | 106         | 74         |
+  +----------------------+-----------+--------------+-------------+-------------+----------+----------+------------+----------+-------------+-------------+------------+
+  Delivered   = messages processed within the 50 ms IPC deadline
+  Crit. viol. = critical messages protected below their mandatory minimum
+  Written to results/simulation_summary.csv and results/simulation_timeseries.csv
+
+==============================================================================
+  DECISION OVERHEAD BENCHMARK (measured)
+==============================================================================
+  200000 decisions in 50.1 ms on this machine
+  Mean decision time : 250 ns  (3.99 M decisions/s on one core)
+  Mean crypto cost of the selected policies (reference x86-64 model): 19.8 us
+  Decision overhead relative to that protection cost : 1.3%
+  Checksum           : 565478
+
+==============================================================================
+  INTEGRATION DEMO - SecureIpcFramework + ISecureChannel
+==============================================================================
+  Channel: modelled channel (embedded ARM Cortex-A class device)
+  The partner's PQC engine replaces ModelledSecureChannel by implementing ISecureChannel.
+
+  -- normal operation (threat LOW, plug-in trust 0.60)
+     {"message_id":1,"type":"Status","sender":10,"receiver":1,"risk_score":0.0119,"required_level":1,"floor_level":1,"selected_level":1,"policy":"BASIC","mode":"STANDARD","action":"NONE","resource_state":"NORMAL","key_establishment":"Pre-provisioned channel key","authentication":"HMAC-SHA-256","payload_protection":"HMAC-SHA-256 (no encryption)","rekey_interval":0,"per_message_signature":false,"replay_protection":true,"quantum_safe":false,"est_cpu_us":6.02,"est_overhead_bytes":40,"reason":"Required level applied (NORMAL resources)"}
+     {"message_id":2,"type":"Alert","sender":20,"receiver":1,"risk_score":0.5748,"required_level":4,"floor_level":4,"selected_level":4,"policy":"POST_QUANTUM","mode":"STANDARD","action":"NONE","resource_state":"NORMAL","key_establishment":"ML-KEM-768","authentication":"ML-DSA-65","payload_protection":"AES-256-GCM","rekey_interval":16,"per_message_signature":false,"replay_protection":true,"quantum_safe":true,"est_cpu_us":184.63,"est_overhead_bytes":385,"reason":"Required level applied (NORMAL resources)"}
+  -- after repeated authentication failures from the plug-in (threat CRITICAL, plug-in trust 0.01)
+     {"message_id":1,"type":"Status","sender":10,"receiver":1,"risk_score":0.1396,"required_level":2,"floor_level":2,"selected_level":2,"policy":"CLASSICAL","mode":"STANDARD","action":"NONE","resource_state":"NORMAL","key_establishment":"X25519 ECDHE","authentication":"Ed25519","payload_protection":"AES-256-GCM","rekey_interval":64,"per_message_signature":false,"replay_protection":true,"quantum_safe":false,"est_cpu_us":25.49,"est_overhead_bytes":38,"reason":"Required level applied (NORMAL resources)"}
+     {"message_id":2,"type":"Alert","sender":20,"receiver":1,"risk_score":0.9985,"required_level":5,"floor_level":5,"selected_level":5,"policy":"STRONG_PQ","mode":"STANDARD","action":"NONE","resource_state":"NORMAL","key_establishment":"ML-KEM-1024","authentication":"ML-DSA-87","payload_protection":"AES-256-GCM","rekey_interval":4,"per_message_signature":true,"replay_protection":true,"quantum_safe":true,"est_cpu_us":4403.41,"est_overhead_bytes":6604,"reason":"Required level applied (NORMAL resources)"}
+  -- same attack, system overloaded (threat CRITICAL, plug-in trust 0.01)
+     {"message_id":1,"type":"Status","sender":10,"receiver":1,"risk_score":0.1396,"required_level":2,"floor_level":2,"selected_level":2,"policy":"CLASSICAL","mode":"OPTIMIZED","action":"OPTIMIZED","resource_state":"CONSTRAINED","key_establishment":"X25519 ECDHE","authentication":"Ed25519","payload_protection":"AES-256-GCM","rekey_interval":256,"per_message_signature":false,"replay_protection":true,"quantum_safe":false,"est_cpu_us":9.40,"est_overhead_bytes":37,"reason":"Constrained, downgrade forbidden (critical): optimized in place"}
+     {"message_id":2,"type":"Alert","sender":20,"receiver":1,"risk_score":0.9977,"required_level":5,"floor_level":5,"selected_level":5,"policy":"STRONG_PQ","mode":"OPTIMIZED","action":"OPTIMIZED","resource_state":"CONSTRAINED","key_establishment":"ML-KEM-1024","authentication":"ML-DSA-87","payload_protection":"AES-256-GCM","rekey_interval":16,"per_message_signature":false,"replay_protection":true,"quantum_safe":true,"est_cpu_us":263.07,"est_overhead_bytes":522,"reason":"Constrained, downgrade forbidden (critical): optimized in place"}

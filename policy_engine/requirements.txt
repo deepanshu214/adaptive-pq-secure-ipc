@@ -1,0 +1,5 @@
+# Python packages for the analysis scripts (scripts/plot_results.py).
+# The engine itself is dependency-free C++14 - see README.md for the toolchain.
+#   python -m pip install -r requirements.txt
+matplotlib>=3.7
+numpy>=1.24

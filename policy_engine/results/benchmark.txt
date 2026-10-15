@@ -1,0 +1,3 @@
+iterations 200000
+mean_decision_ns 250.5
+mean_selected_crypto_us_reference 19.78

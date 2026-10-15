@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Review 2 Implementation Report</title>
+<style>
+  @page { size: A4; margin: 18mm 17mm 18mm 17mm; }
+  :root {
+    --ink: #1a1a19; --ink-2: #52514e; --ink-3: #8a8984; --rule: #dcdbd6;
+    --accent: #2a78d6; --accent-soft: #eaf2fc; --code-bg: #f4f3ef; --surface: #ffffff;
+  }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: var(--surface); color: var(--ink); font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+         font-size: 10.2pt; line-height: 1.5; margin: 0; }
+  h1, h2, h3 { color: var(--ink); line-height: 1.25; }
+  h2 { font-size: 15pt; margin: 0 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--accent); break-after: avoid; }
+  h3 { font-size: 11.5pt; margin: 16px 0 6px; break-after: avoid; }
+  p { margin: 0 0 8px; text-align: justify; }
+  section { break-before: auto; margin-top: 22px; }
+  section.first { break-before: page; margin-top: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 12px; font-size: 8.8pt; break-inside: avoid; }
+  th, td { border: 1px solid var(--rule); padding: 4px 6px; text-align: left; vertical-align: top; }
+  th { background: var(--code-bg); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr.hl td { background: var(--accent-soft); font-weight: 600; }
+  code, pre { font-family: Consolas, "Courier New", monospace; font-size: 8.6pt; }
+  pre { background: var(--code-bg); border-left: 3px solid var(--accent); padding: 8px 10px; margin: 6px 0 12px;
+        white-space: pre-wrap; break-inside: avoid; line-height: 1.38; }
+  .formula { background: var(--accent-soft); padding: 8px 12px; margin: 6px 0 12px; font-family: Cambria, Georgia, serif;
+             font-size: 10.5pt; break-inside: avoid; }
+  figure { margin: 8px 0 14px; break-inside: avoid; text-align: center; }
+  figure img { max-width: 100%; }
+  figcaption { font-size: 8.8pt; color: var(--ink-2); margin-top: 4px; text-align: left; }
+  .callout { border: 1px solid var(--rule); border-left: 4px solid var(--accent); padding: 8px 12px; margin: 8px 0 12px; break-inside: avoid; }
+  .muted { color: var(--ink-2); }
+  ul, ol { margin: 0 0 8px 18px; padding: 0; }
+  li { margin-bottom: 3px; }
+  /* Cover */
+  .cover { height: 245mm; display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .kicker { color: var(--accent); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: 10pt; }
+  .cover h1 { font-size: 25pt; margin: 10px 0 12px; }
+  .cover .sub { font-size: 13pt; color: var(--ink-2); }
+  .cover table { width: auto; font-size: 10pt; }
+  .cover td { border: none; padding: 3px 18px 3px 0; }
+  .toc { columns: 2; font-size: 9.6pt; }
+  .toc div { break-inside: avoid; }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0 12px; }
+  .kpi { border: 1px solid var(--rule); padding: 8px 10px; break-inside: avoid; }
+  .kpi b { display: block; font-size: 16pt; color: var(--accent); }
+  .kpi span { font-size: 8.6pt; color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<!-- ============================== COVER ============================== -->
+<div class="cover">
+  <div>
+    <div class="kicker">Review 2 &middot; Implementation Report</div>
+    <h1>Adaptive Post-Quantum Secure Inter-Process Communication Framework with Dynamic Security Policy Selection</h1>
+    <div class="sub">Module 1: Adaptive IPC Security Policy &amp; Threat Intelligence<br>
+      (Adaptive Security Policy Engine, ASPE)</div>
+  </div>
+  <div>
+    <table>
+      <tr><td class="muted">Student</td><td><b>Aditya</b>: Adaptive Security Policy Intelligence</td></tr>
+      <tr><td class="muted">Partner module</td><td>Deepanshu: Secure IPC &amp; PQC Engine</td></tr>
+      <tr><td class="muted">Implementation</td><td>C++14, dependency-free; Python for figures</td></tr>
+      <tr><td class="muted">Status</td><td>All six phases implemented, tested (29/29) and evaluated</td></tr>
+      <tr><td class="muted">Date</td><td>October 2026</td></tr>
+    </table>
+    <h3>Contents</h3>
+    <div class="toc">
+      <div>1. Problem statement and objectives</div>
+      <div>2. Scope and division of work</div>
+      <div>3. System architecture</div>
+      <div>4. Phase 1: IPC security analysis</div>
+      <div>5. Phase 2: Security parameters</div>
+      <div>6. Phase 3: Security classification engine</div>
+      <div>7. Phase 4: Adaptive policy engine and calibration</div>
+      <div>8. Phase 5: Performance-aware adaptation</div>
+      <div>9. Adaptive decision mechanism (runtime monitors)</div>
+      <div>10. Phase 6: Evaluation</div>
+      <div>11. Integration with the PQC engine</div>
+      <div>12. Software implementation and testing</div>
+      <div>13. Status, limitations and next steps</div>
+      <div>References</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== 1 ============================== -->
+<section class="first">
+<h2>1. Problem statement and objectives</h2>
+<p>Conventional Inter-Process Communication (IPC) mechanisms deliver messages but do not adapt their protection to
+the sensitivity of the data, the trustworthiness of the communicating processes, the current threat situation or the
+resources available. Applying one uniform mechanism to every message either wastes CPU, memory and bandwidth on
+low-value traffic, or leaves sensitive and critical messages exposed to unauthorized access, tampering, replay and
+future quantum attacks. Long-lived secrets face a <i>harvest-now-decrypt-later</i> threat: ciphertext recorded today can be
+decrypted once a cryptographically relevant quantum computer exists.</p>
+<p>The overall project builds an <b>Adaptive Quantum-Aware Secure IPC Framework</b> that selects classical, hybrid or
+post-quantum protection per message and measures the resulting security/performance trade-off. This report covers
+<b>Module 1</b>, the decision-making intelligence of the framework.</p>
+<div class="callout"><b>Problem given to Module 1.</b> Develop an intelligent policy engine that determines the required
+security level for an IPC message from message sensitivity, process trust, threat level, communication criticality and
+system resource conditions.</div>
+<h3>Objectives</h3>
+<ol>
+  <li>Analyse IPC vulnerabilities and derive the security services each message needs (Phase 1).</li>
+  <li>Define measurable, normalised security parameters (Phase 2).</li>
+  <li>Build a classification engine that maps a message to one of five security levels (Phase 3).</li>
+  <li>Build the adaptive policy-selection algorithm and determine its parameters experimentally (Phase 4).</li>
+  <li>Make the policy performance-aware without ever violating a mandatory security floor (Phase 5).</li>
+  <li>Compare static and adaptive security on security level, latency, CPU, memory, throughput and overhead (Phase 6).</li>
+  <li>Expose a clean interface so that the partner's cryptographic engine can be integrated without changes to this module.</li>
+</ol>
+<h3>Outcome summary</h3>
+<div class="kpis">
+  <div class="kpi"><b>5 / 5</b><span>specification scenarios (Status, Gaze, Profile, Emergency, Alert) classified exactly as specified</span></div>
+  <div class="kpi"><b>97.6 %</b><span>agreement with the reference policy on the held-out test split (74.1 % before calibration)</span></div>
+  <div class="kpi"><b>0.1 %</b><span>security failures for the adaptive engine vs 43.0 % static classical and 1.8 % static PQ</span></div>
+  <div class="kpi"><b>&minus;45 %</b><span>mean crypto CPU per message vs static post-quantum (107 vs 195 &micro;s)</span></div>
+  <div class="kpi"><b>100 %</b><span>messages delivered within the 50 ms deadline under overload + intrusion (static strong PQ: 24.6 %)</span></div>
+  <div class="kpi"><b>~0.25 &micro;s</b><span>measured cost of one policy decision (&asymp;1 % of the protection it selects)</span></div>
+</div>
+</section>
+
+<!-- ============================== 2 ============================== -->
+<section class="cont">
+<h2>2. Scope and division of work</h2>
+<table>
+  <tr><th style="width:50%">Module 1: Aditya (this report)</th><th>Module 2: Deepanshu</th></tr>
+  <tr><td>Threat analysis, security parameters, classification, risk model, policy selection, resource adaptation,
+  runtime threat/trust estimation, simulation and evaluation</td>
+  <td>Authentication, encryption, integrity, replay protection, classical / hybrid / post-quantum suites
+  (ML-KEM, ML-DSA), the actual IPC transport</td></tr>
+  <tr><td><b>Output:</b> a <code>SecurityProfile</code> per message (level, algorithms, mode, re-key interval,
+  signature policy)</td><td><b>Output:</b> a <code>TransmissionReport</code> (latency, bytes, authentication
+  result, detected attacks)</td></tr>
+</table>
+<p>Both modules start independently. Module 1 uses a <b>synthetic IPC dataset</b> and an <b>analytical cost model</b>
+of the cryptographic suites, so it does not need Module 2 to be finished. The two modules meet at a single
+interface, <code>ISecureChannel</code> (Section 11).</p>
+</section>
+
+<!-- ============================== 3 ============================== -->
+<section>
+<h2>3. System architecture</h2>
+<pre>
+                         IPC MESSAGE  (type, size, sensitivity S, criticality C, lifetime x)
+                               |
+   RUNTIME CONTEXT ------------+------------------------------------------------------------
+   trust T (TrustManager)      |
+   threat H (ThreatMonitor)    v
+   CPU / memory (ResourceMon.) +-------------------------------+
+                               | 1. Context extraction (Ph. 2) |  all inputs -> [0,1], Mosca test
+                               +---------------+---------------+
+                               +---------------v---------------+
+                               | 2. Requirement analysis (Ph.1)|  services needed -> requirement floor
+                               | 3. Risk assessment     (Ph.3) |  I, L, R -> risk band L1..L5
+                               +---------------+---------------+
+                               +---------------v---------------+
+                               | 4. Policy selection    (Ph.4) |  required = max(band, floor)
+                               |    mandatory floor            |  no-downgrade rules for critical
+                               +---------------+---------------+
+                               +---------------v---------------+
+                               | 5. Resource adaptation (Ph.5) |  harden/keep/optimize/light
+                               +---------------+---------------+
+                                               v
+                        SecurityProfile  ---------->  ISecureChannel::transmit()   [Module 2]
+                                                               |
+                        security events, auth results  <-------+  (feedback to the monitors)
+</pre>
+<p>The engine is <b>stateless per decision</b>: the same message and context always produce the same decision, which
+makes it testable and reproducible. All state that changes over time (trust, threat, smoothed utilisation) lives in
+three runtime monitors that feed the context. Each stage records a human-readable explanation, so every decision can
+be audited (<code>aspe decide</code>).</p>
+<h3>Five security levels</h3>
+<table>
+  <tr><th>Level</th><th>Key establishment</th><th>Authentication</th><th>Payload</th><th>Quantum-safe</th><th>NIST cat.</th><th class="num">Re-key</th><th class="num">Handshake B</th><th class="num">State B</th></tr>
+  <tr><td>L1 BASIC</td><td>pre-provisioned key</td><td>HMAC-SHA-256</td><td>integrity only</td><td>&ndash;</td><td>&ndash;</td><td class="num">&ndash;</td><td class="num">0</td><td class="num">240</td></tr>
+  <tr><td>L2 CLASSICAL</td><td>X25519 ECDHE</td><td>Ed25519</td><td>AES-256-GCM</td><td>no</td><td>&ndash;</td><td class="num">64</td><td class="num">128</td><td class="num">816</td></tr>
+  <tr><td>L3 HYBRID</td><td>X25519 + ML-KEM-512</td><td>Ed25519</td><td>AES-256-GCM</td><td>confidentiality</td><td>1</td><td class="num">32</td><td class="num">1,696</td><td class="num">4,016</td></tr>
+  <tr><td>L4 POST-QUANTUM</td><td>ML-KEM-768</td><td>ML-DSA-65</td><td>AES-256-GCM</td><td>conf. + auth.</td><td>3</td><td class="num">16</td><td class="num">5,581</td><td class="num">14,525</td></tr>
+  <tr><td>L5 STRONG PQ</td><td>ML-KEM-1024</td><td>ML-DSA-87, every message</td><td>AES-256-GCM</td><td>conf. + auth.</td><td>5</td><td class="num">4</td><td class="num">7,763</td><td class="num">18,979</td></tr>
+</table>
+<p class="muted">The five levels extend the four levels of the roadmap (Basic, Classical, Hybrid, PQ) with the "Strong PQ" class
+used in the specification's example dataset. Object sizes are exact values from FIPS 203/204 and RFC 7748/8032.
+<i>Optimized</i> mode keeps the algorithms of a level, multiplies its re-key interval by 4 and replaces per-message
+signatures with session-level authentication.</p>
+</section>
+
+<!-- ============================== 4 ============================== -->
+<section>
+<h2>4. Phase 1: IPC security analysis</h2>
+<p>Six IPC threats were analysed. Each one violates a security property and is countered by a mechanism provided at
+some level.</p>
+<table>
+  <tr><th>Threat</th><th>Property</th><th>IPC attack vector</th><th>Countermeasure</th></tr>
+  <tr><td>Process impersonation</td><td>Authentication</td><td>squatting on a socket path / pipe / bus name, PID reuse</td><td>HMAC (L1), Ed25519 (L2&ndash;L3), ML-DSA (L4&ndash;L5)</td></tr>
+  <tr><td>Unauthorized access</td><td>Access control</td><td>world-readable shared memory, permissive queue ACLs, leaked handles</td><td>per-session keys held only by authenticated peers</td></tr>
+  <tr><td>Message tampering</td><td>Integrity</td><td>writable ring buffer, compromised broker, ptrace injection</td><td>MAC / AEAD tag on every message</td></tr>
+  <tr><td>Replay attack</td><td>Freshness</td><td>recorded traffic re-injected by a local attacker</td><td>sequence numbers, replay window, re-keying</td></tr>
+  <tr><td>Eavesdropping</td><td>Confidentiality</td><td>debug interfaces, /proc inspection, broker logs</td><td>AES-256-GCM with ephemeral keys</td></tr>
+  <tr><td>Harvest-now-decrypt-later</td><td>Quantum resistance</td><td>recorded ciphertext of long-lived secrets</td><td>ML-KEM (FIPS 203), ML-DSA (FIPS 204)</td></tr>
+</table>
+<h3>Quantum threat model</h3>
+<p>Shor's algorithm breaks the discrete-logarithm problems behind X25519 and Ed25519. Grover's algorithm halves the
+effective strength of symmetric keys, so AES-256 keeps about 128-bit security. Exposure is decided with <b>Mosca's
+inequality</b>: data is at risk if <i>x + y &gt; z</i>, where <i>x</i> is how long the data must stay confidential,
+<i>y</i> = 5 years is the migration time and <i>z</i> = 15 years is a conservative estimate of the time to a
+cryptographically relevant quantum computer. Data that must stay secret for more than 10 years therefore needs
+quantum-safe key establishment today.</p>
+<h3>Requirement analysis &rarr; requirement floor</h3>
+<table>
+  <tr><th>Required service</th><th>Condition</th><th>Lowest level providing it</th></tr>
+  <tr><td>integrity, origin authentication</td><td>always</td><td>L1</td></tr>
+  <tr><td>anti-replay</td><td>C &ge; MEDIUM or H &ge; HIGH</td><td>L1 (all levels)</td></tr>
+  <tr><td>confidentiality</td><td>S &ge; MEDIUM</td><td>L2</td></tr>
+  <tr><td>strong (asymmetric) authentication</td><td>trust LOW, or H &ge; HIGH, or C &ge; HIGH</td><td>L2</td></tr>
+  <tr><td>quantum-safe confidentiality</td><td>confidential and (Mosca-exposed or critical asset)</td><td>L3</td></tr>
+  <tr><td>quantum-safe authentication</td><td>S or C = CRITICAL</td><td>L4</td></tr>
+</table>
+<p>The <b>requirement floor</b> is the lowest level that provides every required service. No later stage, including
+resource adaptation, may select a level below it. The suite selected for each message is checked against the
+requirements at run time.</p>
+</section>
+
+<!-- ============================== 5 ============================== -->
+<section class="cont">
+<h2>5. Phase 2: Security parameters</h2>
+<table>
+  <tr><th>Parameter</th><th>Symbol</th><th>Domain</th><th>Normalisation to [0,1]</th></tr>
+  <tr><td>Message sensitivity</td><td>S</td><td>LOW, MEDIUM, HIGH, CRITICAL</td><td>ordinal / 3</td></tr>
+  <tr><td>Communication criticality</td><td>C</td><td>LOW, MEDIUM, HIGH, CRITICAL</td><td>ordinal / 3</td></tr>
+  <tr><td>Threat level</td><td>H</td><td>LOW, MEDIUM, HIGH, CRITICAL (from the threat monitor)</td><td>ordinal / 3</td></tr>
+  <tr><td>Process trust</td><td>T</td><td>score in [0,1]; LOW &lt; 0.4 &le; MEDIUM &lt; 0.7 &le; HIGH</td><td>distrust D = 1 &minus; T</td></tr>
+  <tr><td>CPU utilisation</td><td>U<sub>cpu</sub></td><td>0&ndash;100 %</td><td>value / 100</td></tr>
+  <tr><td>Memory utilisation</td><td>U<sub>mem</sub></td><td>0&ndash;100 %</td><td>value / 100</td></tr>
+  <tr><td>Message size</td><td>M</td><td>bytes</td><td>log<sub>2</sub>(M/16)/16 (16 B &rarr; 0, 1 MiB &rarr; 1)</td></tr>
+  <tr><td>Confidentiality lifetime</td><td>x</td><td>years</td><td>Mosca test x + y &gt; z</td></tr>
+  <tr><td>Resource pressure (derived)</td><td>P</td><td>&ndash;</td><td>max(U<sub>cpu</sub>, U<sub>mem</sub>)</td></tr>
+</table>
+<p>Parameters are split into <i>message attributes</i> (S, C, M, x), which are known when the message is created, and the
+<i>runtime context</i> (T, H, U<sub>cpu</sub>, U<sub>mem</sub>), which is measured by the monitors at send time.
+Resource pressure takes the worse of CPU and memory, because either one can be the bottleneck.</p>
+</section>
+
+<!-- ============================== 6 ============================== -->
+<section>
+<h2>6. Phase 3: Security classification engine</h2>
+<p>The classification follows the roadmap pipeline: sensitivity analysis &rarr; process-trust analysis &rarr; threat
+assessment &rarr; criticality assessment &rarr; security level. Impact and likelihood are separated, following the
+NIST SP 800-30 view of risk:</p>
+<div class="formula">
+Impact &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I = a&middot;max(S, C) + (1 &minus; a)&middot;(S + C)/2<br>
+Likelihood &nbsp;L = b&middot;H + (1 &minus; b)&middot;(1 &minus; T)<br>
+Risk &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R = w<sub>I</sub>&middot;I + w<sub>L</sub>&middot;L + w<sub>X</sub>&middot;I&middot;L, &nbsp;&nbsp; w<sub>I</sub> + w<sub>L</sub> + w<sub>X</sub> = 1, &nbsp; R &isin; [0,1]<br>
+Band &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L1 if R &lt; &theta;<sub>1</sub>, L2 if R &lt; &theta;<sub>2</sub>, L3 if R &lt; &theta;<sub>3</sub>, L4 if R &lt; &theta;<sub>4</sub>, else L5<br>
+Required &nbsp;&nbsp;&nbsp;level = max(risk band, requirement floor)
+</div>
+<p>The max term lets one severe dimension dominate impact: a CRITICAL message stays critical even if its criticality is
+low. The interaction term w<sub>X</sub>&middot;I&middot;L raises risk sharply when high impact <i>and</i> high
+likelihood occur together. R is monotone in every input, and a property test verifies this on the full input grid.</p>
+<pre>Algorithm 1 - Classify(message m, context c)
+  v      <- ExtractContext(m, c)                 // Phase 2, every component in [0,1]
+  req    <- AnalyzeRequirements(v)               // Phase 1
+  floor  <- MinimumLevelProviding(req)
+  I      <- a*max(v.S, v.C) + (1-a)*(v.S + v.C)/2
+  L      <- b*v.H + (1-b)*v.D
+  R      <- wI*I + wL*L + wX*I*L
+  band   <- 1 + |{ k : R >= theta_k }|
+  return level = max(band, floor), with R, band, floor and an explanation trace</pre>
+<h3>Specification scenarios (from the problem statement)</h3>
+<table>
+  <tr><th>Message</th><th>S</th><th>Trust</th><th>Threat</th><th>C</th><th class="num">CPU</th><th class="num">Risk R</th><th>Band</th><th>Floor</th><th>Engine level</th><th>Specified</th></tr>
+  <tr><td>Status</td><td>LOW</td><td>HIGH</td><td>LOW</td><td>LOW</td><td class="num">30 %</td><td class="num">0.018</td><td>L1</td><td>L1</td><td><b>BASIC</b></td><td>Basic &#10003;</td></tr>
+  <tr><td>Gaze</td><td>MEDIUM</td><td>HIGH</td><td>LOW</td><td>MEDIUM</td><td class="num">40 %</td><td class="num">0.182</td><td>L2</td><td>L2</td><td><b>CLASSICAL</b></td><td>Secure &#10003;</td></tr>
+  <tr><td>Profile</td><td>HIGH</td><td>MEDIUM</td><td>MEDIUM</td><td>HIGH</td><td class="num">50 %</td><td class="num">0.484</td><td>L3</td><td>L2</td><td><b>HYBRID</b></td><td>Hybrid &#10003;</td></tr>
+  <tr><td>Emergency</td><td>CRITICAL</td><td>MEDIUM</td><td>HIGH</td><td>CRITICAL</td><td class="num">60 %</td><td class="num">0.769</td><td>L4</td><td>L4</td><td><b>POST-QUANTUM</b></td><td>PQ &#10003;</td></tr>
+  <tr><td>Alert</td><td>CRITICAL</td><td>LOW</td><td>HIGH</td><td>CRITICAL</td><td class="num">80 %</td><td class="num">0.858</td><td>L5</td><td>L4</td><td><b>STRONG PQ</b></td><td>Strong PQ &#10003;</td></tr>
+</table>
+<p class="muted">At 80 % CPU, Alert is in the ELEVATED resource state. The engine keeps STRONG PQ and switches to optimized
+parameters; it never downgrades a critical message (Section 8).</p>
+</section>
+
+<!-- ============================== 7 ============================== -->
+<section>
+<h2>7. Phase 4: Adaptive policy engine and experimental calibration</h2>
+<h3>Synthetic dataset and independent reference policy</h3>
+<p>Because no labelled IPC security dataset exists, a reproducible generator (seed 42) produces 5000 messages from 11
+application archetypes: Status, Heartbeat, Telemetry, Gaze, Configuration, Profile, Credential, Payment, Emergency,
+Alert and KeyMaterial. Each archetype has typical sensitivity, criticality, size and lifetime, and with probability
+0.25 these attributes are shifted by one step. Trust, threat and CPU/memory load are drawn independently. Each message
+is labelled by an <b>independent reference policy</b> that plays the role of an expert security officer. The reference
+policy is a qualitative 4&times;4 risk matrix (impact tier = max(S,C); likelihood tier = H + [trust LOW] &minus; [trust
+HIGH]) plus Mosca's rule. The engine never sees this policy. It is only used to measure and calibrate the engine,
+which makes the accuracy figures meaningful.</p>
+<table style="width:60%">
+  <tr><th>Reference level</th><th class="num">Records</th><th class="num">Share</th></tr>
+  <tr><td>L1 BASIC</td><td class="num">592</td><td class="num">11.8 %</td></tr>
+  <tr><td>L2 CLASSICAL</td><td class="num">1,426</td><td class="num">28.5 %</td></tr>
+  <tr><td>L3 HYBRID</td><td class="num">1,295</td><td class="num">25.9 %</td></tr>
+  <tr><td>L4 POST-QUANTUM</td><td class="num">1,599</td><td class="num">32.0 %</td></tr>
+  <tr><td>L5 STRONG PQ</td><td class="num">88</td><td class="num">1.8 %</td></tr>
+</table>
+<h3>Calibration: "the exact policy should be determined experimentally"</h3>
+<p>The eight model parameters (a, b, w<sub>I</sub>, w<sub>L</sub>, w<sub>X</sub>, &theta;<sub>1..4</sub>) are fitted on a
+70 % training split and evaluated on the remaining 30 %. The objective is <b>asymmetric</b>: protecting a message
+<i>k</i> levels too weakly costs 4<i>k</i>, protecting it too strongly costs <i>k</i>. The five specification
+scenarios are hard constraints.</p>
+<pre>Algorithm 3 - Calibrate(train set D, anchors A)
+  cost(p) = mean over D of 4*(required - predicted) if under-protected,
+                           (predicted - required)   otherwise
+            + 10 * |anchors in A misclassified|
+  sample 6000 parameter vectors (weights ~ Dirichlet(1,1,1), sorted thresholds)
+  keep the 8 best; refine each by coordinate search
+      (step 0.05, halved when no move improves, stop below 0.0025)
+  return the best refined vector; report test-split metrics</pre>
+<table>
+  <tr><th>Model</th><th>Split</th><th class="num">Accuracy</th><th class="num">Under-protection</th><th class="num">Over-protection</th><th class="num">Macro-F1</th></tr>
+  <tr><td>neutral (equal weights, even thresholds)</td><td>test</td><td class="num">74.1 %</td><td class="num">25.9 %</td><td class="num">0.0 %</td><td class="num">0.724</td></tr>
+  <tr class="hl"><td>calibrated</td><td>test</td><td class="num">97.6 %</td><td class="num">0.3 %</td><td class="num">2.1 %</td><td class="num">0.974</td></tr>
+  <tr><td>calibrated</td><td>train</td><td class="num">98.2 %</td><td class="num">0.1 %</td><td class="num">1.7 %</td><td class="num">0.974</td></tr>
+</table>
+<p>Result: <b>a = 0.844, b = 0.517, w<sub>I</sub> = 0.473, w<sub>L</sub> = 0.247, w<sub>X</sub> = 0.280,
+&theta; = (0.078, 0.298, 0.514, 0.805)</b>. These are the engine's built-in defaults. Train and test scores are close,
+so the model does not overfit. The asymmetric cost makes the remaining errors over-protections (2.1 %) rather than
+under-protections (0.3 %). Runs on 1000 and 3000 records gave 98.7 % and 99.3 % test accuracy with similar
+parameters, so the result is stable.</p>
+</section>
+
+<section class="cont">
+<figure>
+  <img src="../results/figures/fig_confusion_matrix.png" style="width:52%">
+  <figcaption><b>Figure 1.</b> Engine level vs reference level on all 5000 messages: 98.0 % agreement, every error within one level,
+  under-protection 0.2 %.</figcaption>
+</figure>
+</section>
+
+<!-- ============================== 8 ============================== -->
+<section>
+<h2>8. Phase 5: Performance-aware adaptation</h2>
+<p>After the required level is known, the engine computes a <b>mandatory floor</b> and then adapts to the resource state.</p>
+<div class="formula">
+floor = required &nbsp;&nbsp; if S = CRITICAL or C = CRITICAL or H = CRITICAL &nbsp; (no downgrade)<br>
+floor = max(requirement floor, required &minus; 1) &nbsp;&nbsp; otherwise
+</div>
+<table>
+  <tr><th>Resource state</th><th>Pressure P</th><th>Action</th></tr>
+  <tr><td>IDLE</td><td>&lt; 30 %</td><td><b>Harden</b> one level if the threat is HIGH or worse and R lies within 0.05 of the next band (spare capacity buys margin)</td></tr>
+  <tr><td>NORMAL</td><td>30&ndash;70 %</td><td>apply the required level unchanged</td></tr>
+  <tr><td>ELEVATED</td><td>70&ndash;85 %</td><td><b>Optimize</b>: same algorithms, re-key interval &times;4, session-level instead of per-message signatures</td></tr>
+  <tr><td>CONSTRAINED</td><td>&ge; 85 %</td><td><b>Lightweight</b>: one level down with optimized parameters, <i>only if above the floor and actually cheaper</i>; otherwise optimize in place</td></tr>
+</table>
+<pre>Algorithm 2 - SelectPolicy(m, c)
+  cls    <- Classify(m, c);  req <- cls.level
+  floor  <- (critical asset or H = CRITICAL) ? req : max(cls.floor, req - 1)
+  state  <- ResourceState(max(cpu, mem));  level <- req;  mode <- STANDARD
+  if state = IDLE and H >= HIGH and R near next band:
+       level <- req + 1                                   // harden
+  if state = ELEVATED:  mode <- OPTIMIZED                 // optimize
+  if state = CONSTRAINED:
+       keep  <- cost(req, OPTIMIZED);  light <- cost(req - 1, OPTIMIZED)
+       if req > floor and light < keep:
+            level <- req - 1;  mode <- OPTIMIZED          // lightweight
+       else mode <- OPTIMIZED
+  assert level >= floor and Suite(level) provides cls.requirements
+  return SecurityProfile(level, mode), estimated cost, explanation</pre>
+<p>The "only if cheaper" condition came out of testing. A property test found that dropping CLASSICAL to BASIC can cost
+<i>more</i> for large messages, because HMAC-SHA-256 is slower per byte than AES-GCM. A naive rule would give up
+security for nothing.</p>
+<table>
+  <tr><th>Message</th><th>Required</th><th>CPU 20 % (idle)</th><th>CPU 50 % (normal)</th><th>CPU 75 % (elevated)</th><th>CPU 90 % (constrained)</th></tr>
+  <tr><td>Status</td><td>BASIC</td><td>BASIC, 8 &micro;s</td><td>BASIC, 8 &micro;s</td><td>BASIC, 8 &micro;s</td><td>BASIC, 8 &micro;s</td></tr>
+  <tr><td>Gaze</td><td>CLASSICAL</td><td>CLASSICAL, 27 &micro;s</td><td>CLASSICAL, 27 &micro;s</td><td>CLASSICAL opt, 11 &micro;s</td><td>CLASSICAL opt, 11 &micro;s</td></tr>
+  <tr><td>Profile</td><td>HYBRID</td><td>HYBRID, 94 &micro;s</td><td>HYBRID, 94 &micro;s</td><td>HYBRID opt, 54 &micro;s</td><td>CLASSICAL opt, 46 &micro;s</td></tr>
+  <tr><td>Emergency</td><td>PQ</td><td>STRONG PQ, 4,403 &micro;s</td><td>PQ, 188 &micro;s</td><td>PQ opt, 53 &micro;s</td><td>PQ opt, 53 &micro;s</td></tr>
+  <tr><td>Alert</td><td>STRONG PQ</td><td>STRONG PQ, 4,401 &micro;s</td><td>STRONG PQ, 4,401 &micro;s</td><td>STRONG PQ opt, 265 &micro;s</td><td>STRONG PQ opt, 265 &micro;s</td></tr>
+</table>
+<p class="muted">Per-message cost on the embedded platform model. The sweep reproduces the three rules of the roadmap:
+high risk + sufficient resources &rarr; full PQ protection; high risk + constrained resources &rarr; optimized policy
+(never downgraded); low risk + constrained resources &rarr; lightweight protection.</p>
+<figure>
+  <img src="../results/figures/fig_resource_sweep.png">
+  <figcaption><b>Figure 2.</b> Protection cost chosen for each specification scenario as CPU load rises (memory fixed at 20 %).</figcaption>
+</figure>
+</section>
+
+<!-- ============================== 9 ============================== -->
+<section>
+<h2>9. Adaptive decision mechanism: runtime monitors</h2>
+<p>The dynamic inputs are not supplied by hand. Three monitors estimate them from what the secure IPC layer
+observes:</p>
+<ul>
+  <li><b>ThreatMonitor.</b> Security events are weighted (replay and integrity violations 1.5, authentication failure 1.0,
+  anomalous traffic 0.75, access denied 0.5) and summed per period. An EWMA (&alpha; = 0.3) smooths the score, and
+  separate raise/release thresholds give <b>hysteresis</b>, so the policy does not oscillate when the score sits near a
+  boundary.</li>
+  <li><b>TrustManager.</b> Trust = static prior (code signing, privilege, origin) &times; Beta reputation
+  (Jøsang &amp; Ismail) with forgetting factor 0.98. A failure counts as 4 observations, so trust is lost quickly and
+  regained slowly, and good behaviour can never lift a process above its prior.</li>
+  <li><b>ResourceMonitor.</b> EWMA-smoothed CPU and memory utilisation, so short spikes do not switch the policy.</li>
+</ul>
+<figure>
+  <img src="../results/figures/fig_runtime_monitors.png">
+  <figcaption><b>Figure 3.</b> Monitors during the simulated intrusion (Section 10). The threat level rises within 1&ndash;2 s of the
+  attack and decays in steps afterwards. The compromised process falls below the LOW-trust boundary as soon as its
+  forged messages fail authentication.</figcaption>
+</figure>
+</section>
+
+<!-- ============================== 10 ============================== -->
+<section>
+<h2>10. Phase 6: Evaluation</h2>
+<h3>Methodology</h3>
+<p>Seven strategies are compared: static BASIC, CLASSICAL, HYBRID, PQ and STRONG PQ (one level for every message),
+<b>Adaptive (risk only)</b> (Phases 1&ndash;4) and <b>Adaptive (full)</b> (with Phase 5). The metrics are those of
+the roadmap:</p>
+<table>
+  <tr><th>Roadmap metric</th><th>How it is measured</th></tr>
+  <tr><td>Security level</td><td>mean level; share meeting the reference level; <b>security failures</b> = share below the mandatory floor; PQ coverage</td></tr>
+  <tr><td>Latency</td><td>per-message crypto time (dataset); service + queueing delay with an M/D/1 fluid queue (simulation)</td></tr>
+  <tr><td>CPU utilisation</td><td>crypto CPU per message; total CPU = background + crypto load (simulation)</td></tr>
+  <tr><td>Memory</td><td>key material and context bytes per session</td></tr>
+  <tr><td>Throughput</td><td>sustainable messages/s; share delivered within the 50 ms IPC deadline</td></tr>
+  <tr><td>Message overhead</td><td>bytes added on the wire per message (framing + amortised handshake + signatures)</td></tr>
+</table>
+<p>Costs come from an analytical model: exact object sizes, and timing estimates for reference implementations on a
+3 GHz x86-64 core, scaled by 6 for an embedded ARM-class device with 2 crypto cores. These model values are replaced by
+measurements of the partner engine after integration (Section 13).</p>
+
+<h3>A. Static vs adaptive on the 5000-message dataset (embedded platform)</h3>
+<table>
+  <tr><th>Strategy</th><th class="num">Mean level</th><th class="num">Meets ref.</th><th class="num">Security failures</th><th class="num">PQ coverage</th><th class="num">CPU &micro;s/msg</th><th class="num">Overhead B</th><th class="num">State B</th><th class="num">Max msg/s</th></tr>
+  <tr><td>Static BASIC</td><td class="num">1.00</td><td class="num">11.8 %</td><td class="num">79.7 %</td><td class="num">0 %</td><td class="num">34</td><td class="num">40</td><td class="num">240</td><td class="num">58,547</td></tr>
+  <tr><td>Static CLASSICAL</td><td class="num">2.00</td><td class="num">40.4 %</td><td class="num">43.0 %</td><td class="num">0 %</td><td class="num">36</td><td class="num">38</td><td class="num">816</td><td class="num">56,016</td></tr>
+  <tr><td>Static HYBRID</td><td class="num">3.00</td><td class="num">66.3 %</td><td class="num">31.1 %</td><td class="num">100 %</td><td class="num">68</td><td class="num">89</td><td class="num">4,016</td><td class="num">29,391</td></tr>
+  <tr><td>Static POST-QUANTUM</td><td class="num">4.00</td><td class="num">98.2 %</td><td class="num">1.8 %</td><td class="num">100 %</td><td class="num">195</td><td class="num">385</td><td class="num">14,525</td><td class="num">10,277</td></tr>
+  <tr><td>Static STRONG PQ</td><td class="num">5.00</td><td class="num">100 %</td><td class="num">0.0 %</td><td class="num">100 %</td><td class="num">4,410</td><td class="num">6,604</td><td class="num">18,979</td><td class="num">454</td></tr>
+  <tr><td>Adaptive (risk only)</td><td class="num">2.85</td><td class="num">99.8 %</td><td class="num">0.1 %</td><td class="num">100 %</td><td class="num">173</td><td class="num">281</td><td class="num">6,359</td><td class="num">11,591</td></tr>
+  <tr class="hl"><td>Adaptive (full)</td><td class="num">2.79</td><td class="num">93.7 %</td><td class="num">0.1 %</td><td class="num">93.1 %</td><td class="num">107</td><td class="num">180</td><td class="num">6,164</td><td class="num">18,609</td></tr>
+</table>
+<p>Uniform security forces a bad choice. Cheap static policies fail 31&ndash;80 % of messages. Static PQ fails 1.8 % (it
+cannot provide STRONG PQ) and still costs 1.8&times; the CPU of the adaptive engine. Static STRONG PQ is safe but costs
+41&times; more CPU and 37&times; more wire overhead, and sustains only 454 msg/s. The adaptive engine fails 0.1 %
+(residual classification error) with 45 % less CPU than static PQ. Its lower "meets reference" score (93.7 %) comes from
+<i>sanctioned</i> lightweight decisions under CONSTRAINED load, which always stay at or above the mandatory floor.</p>
+<figure>
+  <img src="../results/figures/fig_static_vs_adaptive.png">
+  <figcaption><b>Figure 4.</b> Security failures (left) and crypto CPU per message (right, log scale). Only the adaptive engine is both safe and cheap.</figcaption>
+</figure>
+</section>
+
+<section>
+<h3>B. Closed-loop simulation: load peaks and an intrusion</h3>
+<p>Eleven IPC channels (&asymp;865 msg/s) run for 300 s on the embedded platform. The scenario has five phases:
+baseline (30 % background CPU), peak load (78 %), intrusion (a compromised telemetry agent injects forged messages,
+threat HIGH), intrusion under overload (88 %, threat CRITICAL), and recovery. The adaptive strategies only see the
+system through the monitors, so they react with a realistic detection lag. The reference uses the ground truth. All
+strategies get identical random input.</p>
+<table>
+  <tr><th>Strategy</th><th class="num">Delivered</th><th class="num">Mean lat. ms</th><th class="num">p95 ms</th><th class="num">p99 ms</th><th class="num">Mean CPU</th><th class="num">Peak CPU</th><th class="num">Mean level</th><th class="num">Meets ref.</th><th class="num">Failures</th><th class="num">Overhead B</th></tr>
+  <tr><td>Static BASIC</td><td class="num">100 %</td><td class="num">0.09</td><td class="num">0.37</td><td class="num">0.81</td><td class="num">54.3 %</td><td class="num">89.2 %</td><td class="num">1.00</td><td class="num">27.5 %</td><td class="num">63.2 %</td><td class="num">40</td></tr>
+  <tr><td>Static CLASSICAL</td><td class="num">100 %</td><td class="num">0.12</td><td class="num">0.29</td><td class="num">0.49</td><td class="num">54.6 %</td><td class="num">89.4 %</td><td class="num">2.00</td><td class="num">72.6 %</td><td class="num">19.3 %</td><td class="num">38</td></tr>
+  <tr><td>Static HYBRID</td><td class="num">100 %</td><td class="num">0.24</td><td class="num">0.59</td><td class="num">0.78</td><td class="num">56.0 %</td><td class="num">90.8 %</td><td class="num">3.00</td><td class="num">89.8 %</td><td class="num">9.5 %</td><td class="num">89</td></tr>
+  <tr><td>Static POST-QUANTUM</td><td class="num">100 %</td><td class="num">0.88</td><td class="num">2.49</td><td class="num">2.68</td><td class="num">61.5 %</td><td class="num">96.3 %</td><td class="num">4.00</td><td class="num">98.7 %</td><td class="num">1.3 %</td><td class="num">385</td></tr>
+  <tr><td>Static STRONG PQ</td><td class="num">24.6 %</td><td class="num">59.38</td><td class="num">86.66</td><td class="num">86.67</td><td class="num">100 %</td><td class="num">100 %</td><td class="num">5.00</td><td class="num">100 %</td><td class="num">0.0 %</td><td class="num">6,604</td></tr>
+  <tr><td>Adaptive (risk only)</td><td class="num">96.5 %</td><td class="num">8.56</td><td class="num">50.48</td><td class="num">50.75</td><td class="num">57.3 %</td><td class="num">100 %</td><td class="num">2.14</td><td class="num">99.5 %</td><td class="num">0.4 %</td><td class="num">164</td></tr>
+  <tr class="hl"><td>Adaptive (full)</td><td class="num">100 %</td><td class="num">0.14</td><td class="num">0.40</td><td class="num">2.21</td><td class="num">55.1 %</td><td class="num">90.6 %</td><td class="num">2.14</td><td class="num">99.5 %</td><td class="num">0.4 %</td><td class="num">74</td></tr>
+</table>
+<ul>
+  <li><b>Static STRONG PQ collapses</b>: per-message ML-DSA-87 signatures saturate the device, and 75 % of messages miss the deadline.</li>
+  <li><b>Phase 5 is what keeps the system responsive.</b> With identical security decisions (both adaptive variants have the
+  same mean level and 99.5 % reference match), resource adaptation raises delivery from 96.5 % to 100 % and cuts p95
+  latency from 50.5 ms to 0.40 ms during the overloaded intrusion.</li>
+  <li>Compared with static PQ, the full adaptive engine meets the reference more often (99.5 % vs 98.7 %), has lower latency
+  (p95 0.40 vs 2.49 ms) and adds 5&times; fewer bytes per message.</li>
+  <li>The remaining 0.4 % failures are honest: &asymp;95 % fall in the 1&ndash;3 s after each attack starts, before the
+  monitors detect it (Figure 3). The rest is residual classification error.</li>
+</ul>
+<figure>
+  <img src="../results/figures/fig_simulation_timeseries.png" style="width:92%">
+  <figcaption><b>Figure 5.</b> Total CPU, mean latency (log scale) and mean security level over the 300 s scenario (shaded bands alternate phases).
+  The adaptive engine raises protection during the intrusion and keeps latency low, while the risk-only variant saturates when overloaded.</figcaption>
+</figure>
+<h3>C. Decision overhead (measured, not modelled)</h3>
+<p>The policy decision itself was timed on the development machine (x86-64, MinGW g++ -O2) at
+<b>~0.2&ndash;0.3 &micro;s per decision</b> (3.5&ndash;5 million decisions/s on one core). That is about 1 % of the
+mean protection cost it selects, and the decision path performs no heap allocation.</p>
+</section>
+
+<!-- ============================== 11 ============================== -->
+<section>
+<h2>11. Integration with the Secure IPC &amp; PQC engine (Module 2)</h2>
+<p>Integration needs exactly one class on the partner side. Everything else, including policy selection, monitors
+and feedback, is already wired in <code>SecureIpcFramework</code>.</p>
+<pre>// Implemented by Module 2 (Deepanshu)
+class ISecureChannel {
+public:
+    virtual ~ISecureChannel() = default;
+    virtual std::string name() const = 0;
+    virtual TransmissionReport transmit(const IpcMessage&amp; message,
+                                        const SecurityProfile&amp; profile) = 0;
+};
+
+struct SecurityProfile {          // produced by Module 1 for every message
+    SecurityLevel  level;         // BASIC .. STRONG_PQ  -> algorithms via suite()
+    ProtectionMode mode;          // STANDARD | OPTIMIZED
+    uint32_t       rekeyInterval; // messages per session key
+    bool           perMessageSignature, replayProtection;
+};
+
+struct TransmissionReport {       // returned by Module 2, fed back into the monitors
+    bool delivered, peerAuthenticated;
+    double latencyMicros;  uint32_t wireBytes;
+    std::vector&lt;SecurityEvent&gt; events;   // replay, tampering, auth failures ...
+};</pre>
+<table>
+  <tr><th>Step</th><th>Integration task</th><th>Owner</th></tr>
+  <tr><td>1</td><td>Implement <code>ISecureChannel</code> on top of the PQC engine (e.g. liboqs for ML-KEM / ML-DSA, AES-256-GCM)</td><td>Deepanshu</td></tr>
+  <tr><td>2</td><td>Replace <code>ModelledSecureChannel</code> with the real channel in <code>SecureIpcFramework</code> (one line)</td><td>Aditya</td></tr>
+  <tr><td>3</td><td>Measure the real per-suite costs and load them into the cost model; re-run Phase 5 and 6</td><td>both</td></tr>
+  <tr><td>4</td><td>Map detected attacks (replay, MAC failure, failed handshake) to <code>SecurityEvent</code>s</td><td>Deepanshu</td></tr>
+  <tr><td>5</td><td>End-to-end test: <code>aspe demo</code> and the simulation scenario on the real channel</td><td>both</td></tr>
+</table>
+<p>A language-neutral path is also available: <code>aspe decide --json</code> emits each decision as JSON (level,
+algorithms, mode, re-key interval, signature flag, estimated cost), so a non-C++ engine can consume the policy.
+<code>aspe demo</code> already runs the complete loop through the interface with the modelled channel.</p>
+</section>
+
+<!-- ============================== 12 ============================== -->
+<section class="cont">
+<h2>12. Software implementation and testing</h2>
+<table>
+  <tr><th>Module (include/aspe/)</th><th>Responsibility</th></tr>
+  <tr><td><code>types.h</code>, <code>util.h</code></td><td>domain types; portable deterministic RNG, statistics, tables, file helpers</td></tr>
+  <tr><td><code>threat_analysis.h</code></td><td>Phase 1: threat catalogue, requirement analysis, requirement floor</td></tr>
+  <tr><td><code>parameters.h</code></td><td>Phase 2: parameter catalogue, context extraction, Mosca horizon</td></tr>
+  <tr><td><code>risk_model.h</code>, <code>classifier.h</code></td><td>Phase 3: risk model, classification with explanation trace</td></tr>
+  <tr><td><code>crypto_suite.h</code></td><td>suites per level, security services, cost model, platforms</td></tr>
+  <tr><td><code>policy_engine.h</code></td><td>Phases 4&ndash;5: mandatory floor, adaptive selection, JSON export</td></tr>
+  <tr><td><code>runtime_monitor.h</code></td><td>threat monitor, Beta-reputation trust, resource monitor</td></tr>
+  <tr><td><code>dataset.h</code>, <code>evaluation.h</code>, <code>simulation.h</code></td><td>dataset and reference policy, calibration, metrics, closed-loop simulation</td></tr>
+  <tr><td><code>integration.h</code></td><td><code>ISecureChannel</code>, <code>SecureIpcFramework</code>, modelled channel</td></tr>
+</table>
+<ul>
+  <li><b>Language and build:</b> portable C++14 with no third-party dependencies; builds with GCC, Clang or MSVC via
+  <code>make</code>, CMake or <code>build.bat</code>, and compiles warning-free with <code>-Wall -Wextra -Wpedantic -Wshadow</code>.</li>
+  <li><b>Reproducibility:</b> every experiment is seeded. The random distributions are implemented on top of the
+  standardised <code>std::mt19937</code>, so datasets and results are identical on every compiler.
+  <code>aspe all</code> regenerates every number in this report.</li>
+  <li><b>Testing:</b> 29 unit and property tests, all passing. They include monotonicity of the risk model on the full
+  input grid; floor and requirement invariants over 8,064 policy decisions; no downgrade of critical messages;
+  determinism of dataset and simulation; CSV round-trip; and calibration improvement on an unseen seed.</li>
+  <li><b>Tool:</b> one CLI, <code>aspe</code>, with a sub-command per phase (<code>analyze, params, generate, classify, calibrate,
+  decide, adapt, evaluate, simulate, bench, demo, all</code>).</li>
+</ul>
+</section>
+
+<!-- ============================== 13 ============================== -->
+<section>
+<h2>13. Status, limitations and next steps</h2>
+<table>
+  <tr><th>Phase</th><th>Deliverable</th><th>Status</th></tr>
+  <tr><td>1</td><td>IPC threat analysis, requirement analysis</td><td>complete</td></tr>
+  <tr><td>2</td><td>Measurable, normalised parameters</td><td>complete</td></tr>
+  <tr><td>3</td><td>Classification algorithm and threat/risk model</td><td>complete; 98.0 % agreement</td></tr>
+  <tr><td>4</td><td>Policy-selection algorithm, experimental calibration</td><td>complete; 97.6 % on test split</td></tr>
+  <tr><td>5</td><td>Adaptive, performance-aware decision mechanism</td><td>complete; invariants verified</td></tr>
+  <tr><td>6</td><td>Simulation results and performance analysis</td><td>complete (dataset + closed-loop simulation)</td></tr>
+  <tr><td>&ndash;</td><td>Integration interface for Module 2</td><td>complete; awaiting the partner channel</td></tr>
+</table>
+<h3>Limitations (stated openly)</h3>
+<ul>
+  <li><b>Cost model, not measurement.</b> Object sizes are exact, but timings are estimates. Absolute microseconds will
+  change after integration; the ordering of the suites and the conclusions are what the model is used for.</li>
+  <li><b>Synthetic ground truth.</b> The reference policy encodes one expert view. Another organisation may draw its risk
+  matrix differently; calibration then re-fits the engine automatically (Algorithm 3).</li>
+  <li><b>Detection lag.</b> The monitors need 1&ndash;3 s to recognise an attack, which causes most of the remaining failures.
+  Faster detectors (e.g. kernel audit hooks) would reduce it.</li>
+  <li><b>Declared sensitivity.</b> Sensitivity and criticality are declared by applications or system policy; message
+  content is not inspected.</li>
+</ul>
+<h3>Next steps before the final review</h3>
+<ol>
+  <li>Integrate the partner's <code>ISecureChannel</code> implementation and replace the modelled channel.</li>
+  <li>Measure real ML-KEM / ML-DSA / AES-GCM costs on the target device and re-run Phases 5&ndash;6.</li>
+  <li>Run the end-to-end demo with real attacks (replayed and forged messages) detected by the secure channel.</li>
+  <li>Sensitivity analysis of the adaptation thresholds (30 / 70 / 85 %) and of the Mosca horizon (z = 10&ndash;20 years).</li>
+</ol>
+
+<h3>References</h3>
+<ol style="font-size:9pt">
+  <li>NIST, <i>FIPS 203: Module-Lattice-Based Key-Encapsulation Mechanism Standard</i>, August 2024.</li>
+  <li>NIST, <i>FIPS 204: Module-Lattice-Based Digital Signature Standard</i>, August 2024.</li>
+  <li>NIST, <i>SP 800-30 Rev. 1: Guide for Conducting Risk Assessments</i>, 2012.</li>
+  <li>NIST, <i>IR 8547 (Initial Public Draft): Transition to Post-Quantum Cryptography Standards</i>, November 2024.</li>
+  <li>M. Mosca, "Cybersecurity in an era with quantum computers: will we be ready?", <i>IEEE Security &amp; Privacy</i>, 16(5), 2018.</li>
+  <li>P. W. Shor, "Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer", <i>SIAM J. Computing</i>, 26(5), 1997.</li>
+  <li>L. K. Grover, "A fast quantum mechanical algorithm for database search", <i>Proc. 28th ACM STOC</i>, 1996.</li>
+  <li>A. Jøsang and R. Ismail, "The Beta Reputation System", <i>15th Bled Electronic Commerce Conference</i>, 2002.</li>
+  <li>D. Stebila, S. Fluhrer, S. Gueron, "Hybrid key exchange in TLS 1.3", IETF Internet-Draft draft-ietf-tls-hybrid-design.</li>
+  <li>A. Langley, M. Hamburg, S. Turner, <i>RFC 7748: Elliptic Curves for Security</i>, 2016; S. Josefsson, I. Liusvaara, <i>RFC 8032: EdDSA</i>, 2017.</li>
+  <li>Open Quantum Safe project, <i>liboqs</i>, https://openquantumsafe.org.</li>
+</ol>
+</section>
+
+</body>
+</html>

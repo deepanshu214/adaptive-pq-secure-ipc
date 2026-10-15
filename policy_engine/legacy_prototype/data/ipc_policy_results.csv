@@ -1,0 +1,1001 @@
+ID  , Sensitivity, ProcessTrust, Threat  , Criticality, CPU, Memory, MessageSize, RiskScore, RiskLevel, Policy
+   1, HIGH       , HIGH        , MEDIUM  , CRITICAL   ,  10,     61,        3581,        10, HIGH     , POST_QUANTUM
+   2, HIGH       , HIGH        , CRITICAL, LOW        ,  66,     37,        2196,         9, HIGH     , CLASSICAL
+   3, HIGH       , HIGH        , MEDIUM  , LOW        ,  59,     38,        1427,         7, MEDIUM   , CLASSICAL
+   4, HIGH       , LOW         , LOW     , LOW        ,  89,     93,         143,         9, HIGH     , CLASSICAL
+   5, HIGH       , HIGH        , MEDIUM  , MEDIUM     ,  15,     39,         119,         8, MEDIUM   , CLASSICAL
+   6, MEDIUM     , HIGH        , CRITICAL, MEDIUM     ,  66,     89,        2365,         9, HIGH     , CLASSICAL
+   7, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  86,     72,          68,        13, CRITICAL , POST_QUANTUM
+   8, HIGH       , LOW         , MEDIUM  , MEDIUM     ,  29,     90,        3581,        11, HIGH     , CLASSICAL
+   9, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  76,     38,        2899,        11, HIGH     , POST_QUANTUM
+  10, HIGH       , LOW         , HIGH    , MEDIUM     ,  15,     65,        3162,        12, HIGH     , HYBRID
+  11, HIGH       , HIGH        , CRITICAL, LOW        ,  55,     10,        1298,         9, HIGH     , CLASSICAL
+  12, MEDIUM     , LOW         , LOW     , MEDIUM     ,  69,     58,        2584,         9, HIGH     , CLASSICAL
+  13, HIGH       , HIGH        , HIGH    , MEDIUM     ,  37,     76,        4074,         9, HIGH     , CLASSICAL
+  14, CRITICAL   , MEDIUM      , CRITICAL, MEDIUM     ,  25,     45,        1877,        12, HIGH     , POST_QUANTUM
+  15, LOW        , HIGH        , HIGH    , HIGH       ,  40,     44,         683,         8, MEDIUM   , CLASSICAL
+  16, CRITICAL   , LOW         , MEDIUM  , LOW        ,  56,     82,        3045,        11, HIGH     , CLASSICAL
+  17, HIGH       , LOW         , CRITICAL, LOW        ,  19,     75,        3301,        12, HIGH     , POST_QUANTUM
+  18, MEDIUM     , LOW         , LOW     , LOW        ,  86,     39,        1432,         8, MEDIUM   , CLASSICAL
+  19, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  42,     78,        1882,        11, HIGH     , POST_QUANTUM
+  20, MEDIUM     , LOW         , MEDIUM  , LOW        ,  21,     38,        1896,         9, HIGH     , CLASSICAL
+  21, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  49,     72,        1427,        10, HIGH     , POST_QUANTUM
+  22, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  61,     21,         790,        11, HIGH     , POST_QUANTUM
+  23, LOW        , MEDIUM      , HIGH    , CRITICAL   ,  57,     54,        1800,        10, HIGH     , POST_QUANTUM
+  24, CRITICAL   , MEDIUM      , MEDIUM  , LOW        ,  75,     21,         886,         9, HIGH     , CLASSICAL
+  25, CRITICAL   , MEDIUM      , LOW     , LOW        ,  46,     44,        1892,         8, MEDIUM   , CLASSICAL
+  26, LOW        , LOW         , HIGH    , HIGH       ,  60,     70,        3456,        11, HIGH     , HYBRID
+  27, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  67,     88,         142,         9, HIGH     , CLASSICAL
+  28, CRITICAL   , MEDIUM      , CRITICAL, LOW        ,  77,     92,        3652,        11, HIGH     , POST_QUANTUM
+  29, CRITICAL   , MEDIUM      , CRITICAL, MEDIUM     ,  26,     16,         946,        12, HIGH     , POST_QUANTUM
+  30, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  68,     29,        2801,        13, CRITICAL , POST_QUANTUM
+  31, CRITICAL   , LOW         , HIGH    , HIGH       ,  88,     35,        3336,        14, CRITICAL , POST_QUANTUM
+  32, CRITICAL   , LOW         , CRITICAL, LOW        ,  56,     42,         409,        13, CRITICAL , POST_QUANTUM
+  33, HIGH       , LOW         , LOW     , LOW        ,  45,     35,        1913,         9, HIGH     , CLASSICAL
+  34, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  39,     34,        1528,         7, MEDIUM   , CLASSICAL
+  35, LOW        , MEDIUM      , HIGH    , CRITICAL   ,  63,     76,        2067,        10, HIGH     , POST_QUANTUM
+  36, LOW        , HIGH        , MEDIUM  , LOW        ,  94,     45,        1317,         5, MEDIUM   , BASIC
+  37, HIGH       , MEDIUM      , MEDIUM  , LOW        ,  36,     70,        1722,         8, MEDIUM   , CLASSICAL
+  38, CRITICAL   , MEDIUM      , MEDIUM  , HIGH       ,  50,     26,        2370,        11, HIGH     , HYBRID
+  39, HIGH       , MEDIUM      , LOW     , LOW        ,  58,     18,        2915,         7, MEDIUM   , CLASSICAL
+  40, LOW        , HIGH        , CRITICAL, CRITICAL   ,  94,     23,        2280,        10, HIGH     , POST_QUANTUM
+  41, CRITICAL   , MEDIUM      , CRITICAL, CRITICAL   ,  74,     68,        2119,        14, CRITICAL , POST_QUANTUM
+  42, LOW        , MEDIUM      , LOW     , CRITICAL   ,  44,     14,        2984,         8, MEDIUM   , CLASSICAL
+  43, MEDIUM     , HIGH        , HIGH    , HIGH       ,  14,     75,         370,         9, HIGH     , CLASSICAL
+  44, MEDIUM     , MEDIUM      , CRITICAL, LOW        ,  85,     62,        2253,         9, HIGH     , CLASSICAL
+  45, CRITICAL   , LOW         , CRITICAL, HIGH       ,  12,     37,        3054,        15, CRITICAL , POST_QUANTUM
+  46, CRITICAL   , LOW         , LOW     , LOW        ,  22,     20,        4054,        10, HIGH     , HYBRID
+  47, MEDIUM     , MEDIUM      , LOW     , MEDIUM     ,  31,     92,        1608,         7, MEDIUM   , CLASSICAL
+  48, LOW        , MEDIUM      , LOW     , MEDIUM     ,  52,     81,        1402,         6, MEDIUM   , BASIC
+  49, CRITICAL   , HIGH        , MEDIUM  , HIGH       ,  65,     50,        2685,        10, HIGH     , HYBRID
+  50, MEDIUM     , HIGH        , HIGH    , CRITICAL   ,  56,     10,         736,        10, HIGH     , POST_QUANTUM
+  51, MEDIUM     , MEDIUM      , LOW     , CRITICAL   ,  91,     38,        1021,         9, HIGH     , CLASSICAL
+  52, HIGH       , HIGH        , CRITICAL, HIGH       ,  27,     95,        1922,        11, HIGH     , POST_QUANTUM
+  53, HIGH       , MEDIUM      , CRITICAL, LOW        ,  47,     94,        1495,        10, HIGH     , POST_QUANTUM
+  54, LOW        , LOW         , HIGH    , HIGH       ,  64,     57,        1123,        11, HIGH     , HYBRID
+  55, CRITICAL   , MEDIUM      , MEDIUM  , MEDIUM     ,  39,     55,        4023,        10, HIGH     , HYBRID
+  56, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  85,     26,         721,        11, HIGH     , CLASSICAL
+  57, CRITICAL   , LOW         , LOW     , LOW        ,  82,     76,        1677,        10, HIGH     , CLASSICAL
+  58, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  49,     38,        1288,         9, HIGH     , CLASSICAL
+  59, CRITICAL   , LOW         , MEDIUM  , MEDIUM     ,  74,     36,         130,        12, HIGH     , HYBRID
+  60, MEDIUM     , LOW         , MEDIUM  , MEDIUM     ,  55,     95,        2931,        10, HIGH     , CLASSICAL
+  61, LOW        , HIGH        , LOW     , HIGH       ,  39,     34,        2207,         6, MEDIUM   , BASIC
+  62, CRITICAL   , LOW         , CRITICAL, MEDIUM     ,  95,     41,        1274,        14, CRITICAL , POST_QUANTUM
+  63, LOW        , HIGH        , LOW     , CRITICAL   ,  65,     60,        3987,         7, MEDIUM   , CLASSICAL
+  64, HIGH       , HIGH        , LOW     , CRITICAL   ,  92,     12,         166,         9, HIGH     , CLASSICAL
+  65, CRITICAL   , LOW         , HIGH    , HIGH       ,  27,     74,        3353,        14, CRITICAL , POST_QUANTUM
+  66, LOW        , MEDIUM      , CRITICAL, HIGH       ,  87,     57,        1126,        10, HIGH     , POST_QUANTUM
+  67, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  26,     39,        3352,        11, HIGH     , POST_QUANTUM
+  68, CRITICAL   , MEDIUM      , CRITICAL, HIGH       ,  41,     71,        2811,        13, CRITICAL , POST_QUANTUM
+  69, CRITICAL   , MEDIUM      , HIGH    , MEDIUM     ,  24,     17,        1801,        11, HIGH     , HYBRID
+  70, LOW        , MEDIUM      , CRITICAL, HIGH       ,  53,     89,        2756,        10, HIGH     , POST_QUANTUM
+  71, HIGH       , LOW         , CRITICAL, MEDIUM     ,  77,     67,        2572,        13, CRITICAL , POST_QUANTUM
+  72, LOW        , LOW         , CRITICAL, LOW        ,  22,     35,         139,        10, HIGH     , POST_QUANTUM
+  73, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  51,     19,         629,        11, HIGH     , POST_QUANTUM
+  74, LOW        , HIGH        , LOW     , MEDIUM     ,  70,     16,        2649,         5, MEDIUM   , BASIC
+  75, MEDIUM     , MEDIUM      , LOW     , MEDIUM     ,  37,     35,        2551,         7, MEDIUM   , CLASSICAL
+  76, LOW        , LOW         , HIGH    , HIGH       ,  75,     94,        2719,        11, HIGH     , CLASSICAL
+  77, HIGH       , LOW         , MEDIUM  , HIGH       ,  67,     56,        1925,        12, HIGH     , HYBRID
+  78, HIGH       , MEDIUM      , MEDIUM  , LOW        ,  49,     45,        1990,         8, MEDIUM   , CLASSICAL
+  79, CRITICAL   , HIGH        , HIGH    , HIGH       ,  86,     42,         812,        11, HIGH     , CLASSICAL
+  80, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  14,     18,        3574,        11, HIGH     , POST_QUANTUM
+  81, HIGH       , LOW         , LOW     , HIGH       ,  63,     20,         533,        11, HIGH     , HYBRID
+  82, LOW        , MEDIUM      , HIGH    , CRITICAL   ,  81,     55,        1760,        10, HIGH     , POST_QUANTUM
+  83, CRITICAL   , HIGH        , HIGH    , CRITICAL   ,  81,     54,         690,        12, HIGH     , POST_QUANTUM
+  84, LOW        , MEDIUM      , HIGH    , LOW        ,  74,     49,        1595,         7, MEDIUM   , CLASSICAL
+  85, CRITICAL   , HIGH        , MEDIUM  , LOW        ,  90,     17,        3099,         8, MEDIUM   , CLASSICAL
+  86, HIGH       , MEDIUM      , LOW     , HIGH       ,  54,     58,        2887,         9, HIGH     , CLASSICAL
+  87, HIGH       , LOW         , MEDIUM  , HIGH       ,  31,     17,         984,        12, HIGH     , HYBRID
+  88, LOW        , LOW         , CRITICAL, HIGH       ,  10,     10,        4083,        12, HIGH     , POST_QUANTUM
+  89, CRITICAL   , HIGH        , LOW     , LOW        ,  23,     14,         667,         7, MEDIUM   , CLASSICAL
+  90, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  36,     21,        2821,        11, HIGH     , HYBRID
+  91, HIGH       , LOW         , CRITICAL, HIGH       ,  52,     27,         786,        14, CRITICAL , POST_QUANTUM
+  92, HIGH       , LOW         , LOW     , MEDIUM     ,  23,     95,         762,        10, HIGH     , CLASSICAL
+  93, LOW        , MEDIUM      , LOW     , CRITICAL   ,  56,     28,        3606,         8, MEDIUM   , CLASSICAL
+  94, LOW        , LOW         , LOW     , LOW        ,  67,     14,        2431,         7, MEDIUM   , CLASSICAL
+  95, HIGH       , MEDIUM      , HIGH    , LOW        ,  86,     66,        3860,         9, HIGH     , CLASSICAL
+  96, LOW        , LOW         , CRITICAL, HIGH       ,  45,     40,         744,        12, HIGH     , POST_QUANTUM
+  97, MEDIUM     , LOW         , MEDIUM  , LOW        ,  35,     88,        4061,         9, HIGH     , CLASSICAL
+  98, HIGH       , LOW         , LOW     , MEDIUM     ,  89,     16,        3023,        10, HIGH     , CLASSICAL
+  99, LOW        , LOW         , LOW     , LOW        ,  12,     36,        3435,         7, MEDIUM   , CLASSICAL
+ 100, LOW        , LOW         , HIGH    , CRITICAL   ,  44,     21,        2130,        12, HIGH     , POST_QUANTUM
+ 101, LOW        , MEDIUM      , MEDIUM  , HIGH       ,  10,     49,        1627,         8, MEDIUM   , CLASSICAL
+ 102, MEDIUM     , HIGH        , LOW     , MEDIUM     ,  78,     58,        3622,         6, MEDIUM   , BASIC
+ 103, CRITICAL   , LOW         , HIGH    , CRITICAL   ,  35,     25,          90,        15, CRITICAL , POST_QUANTUM
+ 104, CRITICAL   , LOW         , LOW     , MEDIUM     ,  72,     90,        3638,        11, HIGH     , CLASSICAL
+ 105, CRITICAL   , LOW         , CRITICAL, LOW        ,  94,     55,         772,        13, CRITICAL , POST_QUANTUM
+ 106, HIGH       , MEDIUM      , HIGH    , MEDIUM     ,  81,     65,        2714,        10, HIGH     , CLASSICAL
+ 107, LOW        , MEDIUM      , HIGH    , MEDIUM     ,  26,     12,        2510,         8, MEDIUM   , CLASSICAL
+ 108, CRITICAL   , MEDIUM      , CRITICAL, LOW        ,  25,     84,        1997,        11, HIGH     , POST_QUANTUM
+ 109, CRITICAL   , LOW         , CRITICAL, HIGH       ,  29,     74,        2554,        15, CRITICAL , POST_QUANTUM
+ 110, CRITICAL   , MEDIUM      , MEDIUM  , CRITICAL   ,  25,     28,        2308,        12, HIGH     , POST_QUANTUM
+ 111, LOW        , MEDIUM      , LOW     , LOW        ,  84,     84,        2350,         5, MEDIUM   , BASIC
+ 112, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  74,     84,        1052,        11, HIGH     , CLASSICAL
+ 113, MEDIUM     , HIGH        , LOW     , LOW        ,  37,     94,         466,         5, MEDIUM   , BASIC
+ 114, CRITICAL   , MEDIUM      , MEDIUM  , LOW        ,  84,     57,        2372,         9, HIGH     , CLASSICAL
+ 115, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  53,     34,        1155,        11, HIGH     , POST_QUANTUM
+ 116, HIGH       , LOW         , HIGH    , LOW        ,  92,     92,         607,        11, HIGH     , CLASSICAL
+ 117, CRITICAL   , MEDIUM      , HIGH    , CRITICAL   ,  34,     54,        3486,        13, CRITICAL , POST_QUANTUM
+ 118, CRITICAL   , MEDIUM      , HIGH    , HIGH       ,  76,     11,        3127,        12, HIGH     , HYBRID
+ 119, MEDIUM     , MEDIUM      , CRITICAL, MEDIUM     ,  32,     69,        1605,        10, HIGH     , POST_QUANTUM
+ 120, LOW        , MEDIUM      , HIGH    , LOW        ,  55,     24,        1624,         7, MEDIUM   , CLASSICAL
+ 121, LOW        , MEDIUM      , MEDIUM  , CRITICAL   ,  82,     43,        1133,         9, HIGH     , CLASSICAL
+ 122, CRITICAL   , HIGH        , CRITICAL, CRITICAL   ,  45,     54,        1506,        13, CRITICAL , POST_QUANTUM
+ 123, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  42,     69,         869,        12, HIGH     , POST_QUANTUM
+ 124, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  26,     58,        2485,        10, HIGH     , POST_QUANTUM
+ 125, MEDIUM     , LOW         , HIGH    , MEDIUM     ,  65,     74,        2419,        11, HIGH     , HYBRID
+ 126, LOW        , LOW         , CRITICAL, LOW        ,  46,     33,         631,        10, HIGH     , POST_QUANTUM
+ 127, MEDIUM     , HIGH        , HIGH    , HIGH       ,  64,     30,        1160,         9, HIGH     , CLASSICAL
+ 128, LOW        , MEDIUM      , LOW     , LOW        ,  74,     12,        1111,         5, MEDIUM   , BASIC
+ 129, MEDIUM     , MEDIUM      , CRITICAL, LOW        ,  71,     28,         578,         9, HIGH     , CLASSICAL
+ 130, HIGH       , MEDIUM      , HIGH    , LOW        ,  23,     52,        1065,         9, HIGH     , CLASSICAL
+ 131, HIGH       , HIGH        , MEDIUM  , LOW        ,  10,     32,        2421,         7, MEDIUM   , CLASSICAL
+ 132, CRITICAL   , HIGH        , CRITICAL, CRITICAL   ,  95,     84,        3017,        13, CRITICAL , POST_QUANTUM
+ 133, LOW        , LOW         , CRITICAL, CRITICAL   ,  94,     53,        1409,        13, CRITICAL , POST_QUANTUM
+ 134, MEDIUM     , HIGH        , MEDIUM  , LOW        ,  23,     51,        3844,         6, MEDIUM   , BASIC
+ 135, HIGH       , LOW         , HIGH    , HIGH       ,  20,     15,        1918,        13, CRITICAL , POST_QUANTUM
+ 136, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  46,     45,        2985,         7, MEDIUM   , CLASSICAL
+ 137, LOW        , HIGH        , CRITICAL, HIGH       ,  29,     16,        3992,         9, HIGH     , CLASSICAL
+ 138, HIGH       , MEDIUM      , CRITICAL, HIGH       ,  13,     10,        2268,        12, HIGH     , POST_QUANTUM
+ 139, CRITICAL   , MEDIUM      , HIGH    , HIGH       ,  81,     26,         957,        12, HIGH     , CLASSICAL
+ 140, HIGH       , MEDIUM      , CRITICAL, HIGH       ,  18,     58,        2899,        12, HIGH     , POST_QUANTUM
+ 141, HIGH       , LOW         , MEDIUM  , MEDIUM     ,  85,     65,        3189,        11, HIGH     , CLASSICAL
+ 142, LOW        , MEDIUM      , MEDIUM  , CRITICAL   ,  62,     75,        2888,         9, HIGH     , CLASSICAL
+ 143, LOW        , MEDIUM      , MEDIUM  , CRITICAL   ,  33,     42,        1566,         9, HIGH     , CLASSICAL
+ 144, LOW        , LOW         , CRITICAL, HIGH       ,  33,     50,        2795,        12, HIGH     , POST_QUANTUM
+ 145, CRITICAL   , LOW         , MEDIUM  , LOW        ,  26,     25,        2653,        11, HIGH     , HYBRID
+ 146, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  80,     39,        4043,        11, HIGH     , POST_QUANTUM
+ 147, CRITICAL   , MEDIUM      , LOW     , LOW        ,  86,     85,        3380,         8, MEDIUM   , CLASSICAL
+ 148, MEDIUM     , LOW         , HIGH    , MEDIUM     ,  83,     94,        1106,        11, HIGH     , CLASSICAL
+ 149, LOW        , LOW         , CRITICAL, HIGH       ,  64,     29,        2226,        12, HIGH     , POST_QUANTUM
+ 150, LOW        , LOW         , HIGH    , LOW        ,  87,     78,        3270,         9, HIGH     , CLASSICAL
+ 151, HIGH       , HIGH        , CRITICAL, HIGH       ,  80,     85,        1008,        11, HIGH     , POST_QUANTUM
+ 152, CRITICAL   , MEDIUM      , LOW     , LOW        ,  26,     47,        1407,         8, MEDIUM   , CLASSICAL
+ 153, LOW        , MEDIUM      , LOW     , HIGH       ,  57,     10,        1104,         7, MEDIUM   , CLASSICAL
+ 154, CRITICAL   , HIGH        , LOW     , LOW        ,  40,     54,        3949,         7, MEDIUM   , CLASSICAL
+ 155, HIGH       , LOW         , MEDIUM  , HIGH       ,  18,     60,        1426,        12, HIGH     , HYBRID
+ 156, LOW        , HIGH        , CRITICAL, MEDIUM     ,  33,     50,        1020,         8, MEDIUM   , CLASSICAL
+ 157, LOW        , MEDIUM      , HIGH    , MEDIUM     ,  86,     16,        2936,         8, MEDIUM   , CLASSICAL
+ 158, MEDIUM     , MEDIUM      , LOW     , MEDIUM     ,  41,     54,        3626,         7, MEDIUM   , CLASSICAL
+ 159, MEDIUM     , HIGH        , LOW     , LOW        ,  77,     66,        3475,         5, MEDIUM   , BASIC
+ 160, HIGH       , MEDIUM      , CRITICAL, MEDIUM     ,  71,     62,         816,        11, HIGH     , POST_QUANTUM
+ 161, HIGH       , LOW         , MEDIUM  , MEDIUM     ,  50,     42,        2010,        11, HIGH     , HYBRID
+ 162, CRITICAL   , LOW         , CRITICAL, MEDIUM     ,  74,     43,        4026,        14, CRITICAL , POST_QUANTUM
+ 163, MEDIUM     , HIGH        , HIGH    , HIGH       ,  25,     93,        2837,         9, HIGH     , CLASSICAL
+ 164, HIGH       , LOW         , MEDIUM  , MEDIUM     ,  67,     89,        2624,        11, HIGH     , CLASSICAL
+ 165, HIGH       , HIGH        , HIGH    , LOW        ,  47,     86,        3068,         8, MEDIUM   , CLASSICAL
+ 166, HIGH       , MEDIUM      , LOW     , HIGH       ,  19,     12,        2009,         9, HIGH     , CLASSICAL
+ 167, CRITICAL   , HIGH        , HIGH    , CRITICAL   ,  95,     49,        1274,        12, HIGH     , POST_QUANTUM
+ 168, HIGH       , HIGH        , MEDIUM  , HIGH       ,  92,     60,        3970,         9, HIGH     , CLASSICAL
+ 169, HIGH       , MEDIUM      , CRITICAL, HIGH       ,  73,     67,        2472,        12, HIGH     , POST_QUANTUM
+ 170, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  40,     64,         606,        11, HIGH     , POST_QUANTUM
+ 171, HIGH       , LOW         , CRITICAL, CRITICAL   ,  65,     10,        4091,        15, CRITICAL , POST_QUANTUM
+ 172, LOW        , HIGH        , LOW     , CRITICAL   ,  49,     62,        3946,         7, MEDIUM   , CLASSICAL
+ 173, MEDIUM     , MEDIUM      , HIGH    , MEDIUM     ,  82,     19,        1668,         9, HIGH     , CLASSICAL
+ 174, LOW        , LOW         , HIGH    , CRITICAL   ,  33,     15,        1254,        12, HIGH     , POST_QUANTUM
+ 175, CRITICAL   , LOW         , HIGH    , CRITICAL   ,  62,     16,        2293,        15, CRITICAL , POST_QUANTUM
+ 176, HIGH       , LOW         , LOW     , HIGH       ,  57,     52,        3884,        11, HIGH     , HYBRID
+ 177, CRITICAL   , LOW         , LOW     , CRITICAL   ,  72,     41,        2965,        13, CRITICAL , POST_QUANTUM
+ 178, LOW        , LOW         , CRITICAL, CRITICAL   ,  76,     94,        1233,        13, CRITICAL , POST_QUANTUM
+ 179, HIGH       , MEDIUM      , CRITICAL, LOW        ,  93,     39,        1133,        10, HIGH     , POST_QUANTUM
+ 180, HIGH       , LOW         , LOW     , MEDIUM     ,  33,     30,        1329,        10, HIGH     , HYBRID
+ 181, CRITICAL   , LOW         , HIGH    , CRITICAL   ,  57,     47,        2366,        15, CRITICAL , POST_QUANTUM
+ 182, MEDIUM     , MEDIUM      , LOW     , MEDIUM     ,  37,     75,        2478,         7, MEDIUM   , CLASSICAL
+ 183, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  56,     79,        1309,        13, CRITICAL , POST_QUANTUM
+ 184, LOW        , LOW         , CRITICAL, HIGH       ,  11,     10,         381,        12, HIGH     , POST_QUANTUM
+ 185, LOW        , MEDIUM      , LOW     , LOW        ,  54,     30,        1746,         5, MEDIUM   , BASIC
+ 186, LOW        , MEDIUM      , LOW     , HIGH       ,  61,     66,        1840,         7, MEDIUM   , CLASSICAL
+ 187, CRITICAL   , HIGH        , HIGH    , LOW        ,  50,     66,        1001,         9, HIGH     , CLASSICAL
+ 188, MEDIUM     , LOW         , CRITICAL, LOW        ,  16,     35,        2877,        11, HIGH     , POST_QUANTUM
+ 189, MEDIUM     , MEDIUM      , CRITICAL, CRITICAL   ,  87,     67,        2739,        12, HIGH     , POST_QUANTUM
+ 190, CRITICAL   , LOW         , CRITICAL, LOW        ,  23,     22,        2682,        13, CRITICAL , POST_QUANTUM
+ 191, MEDIUM     , HIGH        , LOW     , HIGH       ,  48,     46,        1535,         7, MEDIUM   , CLASSICAL
+ 192, HIGH       , MEDIUM      , HIGH    , HIGH       ,  94,     29,        2460,        11, HIGH     , CLASSICAL
+ 193, LOW        , MEDIUM      , MEDIUM  , MEDIUM     ,  72,     60,        1656,         7, MEDIUM   , CLASSICAL
+ 194, HIGH       , HIGH        , CRITICAL, LOW        ,  53,     25,        2465,         9, HIGH     , CLASSICAL
+ 195, CRITICAL   , HIGH        , LOW     , HIGH       ,  63,     37,         460,         9, HIGH     , CLASSICAL
+ 196, MEDIUM     , HIGH        , MEDIUM  , HIGH       ,  35,     42,         297,         8, MEDIUM   , CLASSICAL
+ 197, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  88,     38,        1834,        12, HIGH     , POST_QUANTUM
+ 198, HIGH       , MEDIUM      , HIGH    , LOW        ,  51,     21,        3728,         9, HIGH     , CLASSICAL
+ 199, HIGH       , LOW         , HIGH    , MEDIUM     ,  90,     23,        3345,        12, HIGH     , CLASSICAL
+ 200, MEDIUM     , HIGH        , LOW     , LOW        ,  48,     84,         240,         5, MEDIUM   , BASIC
+ 201, MEDIUM     , LOW         , HIGH    , MEDIUM     ,  30,     77,        2290,        11, HIGH     , HYBRID
+ 202, MEDIUM     , LOW         , CRITICAL, HIGH       ,  83,     73,        1935,        13, CRITICAL , POST_QUANTUM
+ 203, MEDIUM     , LOW         , CRITICAL, CRITICAL   ,  77,     31,         165,        14, CRITICAL , POST_QUANTUM
+ 204, MEDIUM     , MEDIUM      , MEDIUM  , CRITICAL   ,  62,     91,        1622,        10, HIGH     , POST_QUANTUM
+ 205, MEDIUM     , HIGH        , MEDIUM  , LOW        ,  33,     32,         144,         6, MEDIUM   , BASIC
+ 206, LOW        , MEDIUM      , MEDIUM  , LOW        ,  25,     88,         170,         6, MEDIUM   , BASIC
+ 207, MEDIUM     , HIGH        , CRITICAL, LOW        ,  25,     44,         170,         8, MEDIUM   , CLASSICAL
+ 208, HIGH       , HIGH        , LOW     , MEDIUM     ,  35,     44,         477,         7, MEDIUM   , CLASSICAL
+ 209, LOW        , HIGH        , LOW     , CRITICAL   ,  34,     18,        4017,         7, MEDIUM   , CLASSICAL
+ 210, MEDIUM     , HIGH        , HIGH    , HIGH       ,  73,     81,         765,         9, HIGH     , CLASSICAL
+ 211, LOW        , MEDIUM      , LOW     , CRITICAL   ,  31,     16,         758,         8, MEDIUM   , CLASSICAL
+ 212, CRITICAL   , HIGH        , LOW     , MEDIUM     ,  46,     73,        1759,         8, MEDIUM   , CLASSICAL
+ 213, MEDIUM     , LOW         , LOW     , LOW        ,  45,     62,        1314,         8, MEDIUM   , CLASSICAL
+ 214, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  10,     67,        2924,        11, HIGH     , POST_QUANTUM
+ 215, HIGH       , MEDIUM      , HIGH    , MEDIUM     ,  76,     26,        2235,        10, HIGH     , HYBRID
+ 216, CRITICAL   , MEDIUM      , MEDIUM  , LOW        ,  50,     54,        2662,         9, HIGH     , CLASSICAL
+ 217, CRITICAL   , MEDIUM      , HIGH    , MEDIUM     ,  70,     88,        1735,        11, HIGH     , CLASSICAL
+ 218, MEDIUM     , LOW         , MEDIUM  , CRITICAL   ,  20,     66,        3776,        12, HIGH     , POST_QUANTUM
+ 219, HIGH       , LOW         , MEDIUM  , CRITICAL   ,  26,     60,         501,        13, CRITICAL , POST_QUANTUM
+ 220, CRITICAL   , MEDIUM      , HIGH    , CRITICAL   ,  61,     95,        2659,        13, CRITICAL , POST_QUANTUM
+ 221, LOW        , LOW         , HIGH    , MEDIUM     ,  12,     32,        1059,        10, HIGH     , HYBRID
+ 222, HIGH       , MEDIUM      , HIGH    , MEDIUM     ,  27,     31,         186,        10, HIGH     , HYBRID
+ 223, HIGH       , LOW         , MEDIUM  , HIGH       ,  40,     81,        3569,        12, HIGH     , CLASSICAL
+ 224, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  63,     80,        3562,        11, HIGH     , CLASSICAL
+ 225, LOW        , HIGH        , HIGH    , LOW        ,  57,     70,         725,         6, MEDIUM   , BASIC
+ 226, CRITICAL   , HIGH        , CRITICAL, MEDIUM     ,  88,     68,        1943,        11, HIGH     , POST_QUANTUM
+ 227, CRITICAL   , HIGH        , LOW     , HIGH       ,  87,     89,        3590,         9, HIGH     , CLASSICAL
+ 228, CRITICAL   , LOW         , CRITICAL, CRITICAL   ,  86,     16,         125,        16, CRITICAL , POST_QUANTUM
+ 229, HIGH       , HIGH        , CRITICAL, LOW        ,  60,     32,        2073,         9, HIGH     , CLASSICAL
+ 230, HIGH       , LOW         , LOW     , MEDIUM     ,  66,     84,        1027,        10, HIGH     , CLASSICAL
+ 231, LOW        , HIGH        , HIGH    , CRITICAL   ,  19,     81,        3204,         9, HIGH     , CLASSICAL
+ 232, HIGH       , LOW         , HIGH    , MEDIUM     ,  37,     60,         599,        12, HIGH     , HYBRID
+ 233, LOW        , LOW         , MEDIUM  , LOW        ,  68,     56,        3981,         8, MEDIUM   , CLASSICAL
+ 234, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  55,     65,        1666,        11, HIGH     , HYBRID
+ 235, HIGH       , LOW         , MEDIUM  , MEDIUM     ,  90,     88,        2737,        11, HIGH     , CLASSICAL
+ 236, CRITICAL   , MEDIUM      , MEDIUM  , HIGH       ,  42,     36,        1621,        11, HIGH     , HYBRID
+ 237, LOW        , HIGH        , MEDIUM  , CRITICAL   ,  82,     11,         286,         8, MEDIUM   , CLASSICAL
+ 238, CRITICAL   , MEDIUM      , HIGH    , LOW        ,  32,     12,        1069,        10, HIGH     , HYBRID
+ 239, HIGH       , HIGH        , HIGH    , CRITICAL   ,  79,     88,        2142,        11, HIGH     , POST_QUANTUM
+ 240, MEDIUM     , HIGH        , CRITICAL, LOW        ,  16,     42,        2665,         8, MEDIUM   , CLASSICAL
+ 241, HIGH       , HIGH        , CRITICAL, MEDIUM     ,  77,     46,        2244,        10, HIGH     , POST_QUANTUM
+ 242, LOW        , HIGH        , LOW     , HIGH       ,  52,     60,        3837,         6, MEDIUM   , BASIC
+ 243, CRITICAL   , HIGH        , LOW     , LOW        ,  81,     15,         656,         7, MEDIUM   , CLASSICAL
+ 244, CRITICAL   , LOW         , MEDIUM  , CRITICAL   ,  25,     41,        1832,        14, CRITICAL , POST_QUANTUM
+ 245, HIGH       , HIGH        , HIGH    , HIGH       ,  12,     40,        3382,        10, HIGH     , HYBRID
+ 246, HIGH       , HIGH        , HIGH    , MEDIUM     ,  27,     79,        1311,         9, HIGH     , CLASSICAL
+ 247, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  35,     89,        1931,        10, HIGH     , POST_QUANTUM
+ 248, HIGH       , MEDIUM      , LOW     , HIGH       ,  81,     28,        2434,         9, HIGH     , CLASSICAL
+ 249, HIGH       , LOW         , LOW     , MEDIUM     ,  32,     49,        3617,        10, HIGH     , HYBRID
+ 250, HIGH       , HIGH        , LOW     , HIGH       ,  41,     30,        1626,         8, MEDIUM   , CLASSICAL
+ 251, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  10,     24,        3198,        13, CRITICAL , POST_QUANTUM
+ 252, LOW        , LOW         , CRITICAL, CRITICAL   ,  17,     57,        1284,        13, CRITICAL , POST_QUANTUM
+ 253, LOW        , MEDIUM      , CRITICAL, MEDIUM     ,  57,     20,        3998,         9, HIGH     , CLASSICAL
+ 254, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  37,     19,        1583,        12, HIGH     , POST_QUANTUM
+ 255, CRITICAL   , LOW         , LOW     , MEDIUM     ,  60,     58,        2087,        11, HIGH     , HYBRID
+ 256, LOW        , LOW         , MEDIUM  , HIGH       ,  30,     44,        3237,        10, HIGH     , HYBRID
+ 257, CRITICAL   , MEDIUM      , MEDIUM  , MEDIUM     ,  36,     93,         913,        10, HIGH     , CLASSICAL
+ 258, HIGH       , LOW         , MEDIUM  , LOW        ,  57,     57,        1239,        10, HIGH     , HYBRID
+ 259, CRITICAL   , LOW         , MEDIUM  , MEDIUM     ,  70,     12,         251,        12, HIGH     , HYBRID
+ 260, MEDIUM     , HIGH        , CRITICAL, LOW        ,  43,     69,         198,         8, MEDIUM   , CLASSICAL
+ 261, LOW        , LOW         , LOW     , HIGH       ,  95,     90,         926,         9, HIGH     , CLASSICAL
+ 262, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  18,     24,         201,        11, HIGH     , POST_QUANTUM
+ 263, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  55,     60,         510,        10, HIGH     , POST_QUANTUM
+ 264, HIGH       , MEDIUM      , LOW     , LOW        ,  68,     72,         398,         7, MEDIUM   , CLASSICAL
+ 265, MEDIUM     , HIGH        , HIGH    , MEDIUM     ,  18,     28,        1292,         8, MEDIUM   , CLASSICAL
+ 266, CRITICAL   , LOW         , CRITICAL, CRITICAL   ,  24,     52,         848,        16, CRITICAL , POST_QUANTUM
+ 267, MEDIUM     , MEDIUM      , HIGH    , CRITICAL   ,  94,     14,         843,        11, HIGH     , POST_QUANTUM
+ 268, HIGH       , LOW         , HIGH    , MEDIUM     ,  24,     34,        4015,        12, HIGH     , HYBRID
+ 269, HIGH       , MEDIUM      , MEDIUM  , MEDIUM     ,  18,     35,        3759,         9, HIGH     , CLASSICAL
+ 270, CRITICAL   , HIGH        , HIGH    , HIGH       ,  72,     55,        3159,        11, HIGH     , HYBRID
+ 271, LOW        , MEDIUM      , LOW     , LOW        ,  55,     79,         111,         5, MEDIUM   , BASIC
+ 272, MEDIUM     , HIGH        , CRITICAL, MEDIUM     ,  58,     32,         659,         9, HIGH     , CLASSICAL
+ 273, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  77,     68,        1929,         7, MEDIUM   , CLASSICAL
+ 274, HIGH       , LOW         , MEDIUM  , LOW        ,  36,     28,        3231,        10, HIGH     , HYBRID
+ 275, HIGH       , MEDIUM      , CRITICAL, HIGH       ,  69,     28,        3037,        12, HIGH     , POST_QUANTUM
+ 276, LOW        , HIGH        , HIGH    , CRITICAL   ,  61,     31,        2873,         9, HIGH     , CLASSICAL
+ 277, LOW        , LOW         , HIGH    , HIGH       ,  22,     89,        3905,        11, HIGH     , CLASSICAL
+ 278, HIGH       , MEDIUM      , HIGH    , CRITICAL   ,  20,     71,        2052,        12, HIGH     , POST_QUANTUM
+ 279, HIGH       , HIGH        , HIGH    , CRITICAL   ,  12,     22,        1942,        11, HIGH     , POST_QUANTUM
+ 280, MEDIUM     , LOW         , CRITICAL, MEDIUM     ,  82,     31,        3038,        12, HIGH     , POST_QUANTUM
+ 281, MEDIUM     , HIGH        , CRITICAL, MEDIUM     ,  43,     83,        1330,         9, HIGH     , CLASSICAL
+ 282, HIGH       , LOW         , CRITICAL, HIGH       ,  74,     27,        1312,        14, CRITICAL , POST_QUANTUM
+ 283, LOW        , LOW         , HIGH    , LOW        ,  77,     93,        2160,         9, HIGH     , CLASSICAL
+ 284, HIGH       , LOW         , HIGH    , HIGH       ,  23,     57,         524,        13, CRITICAL , POST_QUANTUM
+ 285, LOW        , MEDIUM      , LOW     , CRITICAL   ,  81,     39,        1168,         8, MEDIUM   , CLASSICAL
+ 286, LOW        , MEDIUM      , LOW     , CRITICAL   ,  93,     51,        1314,         8, MEDIUM   , CLASSICAL
+ 287, HIGH       , HIGH        , LOW     , HIGH       ,  81,     30,        1186,         8, MEDIUM   , CLASSICAL
+ 288, CRITICAL   , MEDIUM      , LOW     , MEDIUM     ,  65,     17,        2517,         9, HIGH     , CLASSICAL
+ 289, MEDIUM     , LOW         , LOW     , HIGH       ,  57,     38,        1114,        10, HIGH     , HYBRID
+ 290, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  25,     43,         752,        11, HIGH     , POST_QUANTUM
+ 291, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  23,     33,         195,        11, HIGH     , POST_QUANTUM
+ 292, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  33,     46,         200,        11, HIGH     , POST_QUANTUM
+ 293, LOW        , HIGH        , CRITICAL, LOW        ,  76,     80,        2499,         7, MEDIUM   , CLASSICAL
+ 294, MEDIUM     , HIGH        , HIGH    , HIGH       ,  48,     66,        1953,         9, HIGH     , CLASSICAL
+ 295, LOW        , LOW         , MEDIUM  , CRITICAL   ,  33,     43,        2351,        11, HIGH     , POST_QUANTUM
+ 296, CRITICAL   , MEDIUM      , HIGH    , CRITICAL   ,  24,     71,        1702,        13, CRITICAL , POST_QUANTUM
+ 297, LOW        , MEDIUM      , MEDIUM  , MEDIUM     ,  45,     34,        3400,         7, MEDIUM   , CLASSICAL
+ 298, HIGH       , LOW         , HIGH    , LOW        ,  68,     88,        3937,        11, HIGH     , CLASSICAL
+ 299, MEDIUM     , HIGH        , HIGH    , MEDIUM     ,  22,     80,        1400,         8, MEDIUM   , CLASSICAL
+ 300, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  80,     93,        1364,         7, MEDIUM   , CLASSICAL
+ 301, LOW        , MEDIUM      , HIGH    , HIGH       ,  86,     53,        2346,         9, HIGH     , CLASSICAL
+ 302, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  33,     83,        3181,        10, HIGH     , POST_QUANTUM
+ 303, CRITICAL   , LOW         , CRITICAL, CRITICAL   ,  20,     15,        2412,        16, CRITICAL , POST_QUANTUM
+ 304, LOW        , HIGH        , MEDIUM  , CRITICAL   ,  82,     40,         579,         8, MEDIUM   , CLASSICAL
+ 305, MEDIUM     , LOW         , HIGH    , HIGH       ,  31,     28,        3519,        12, HIGH     , HYBRID
+ 306, CRITICAL   , MEDIUM      , LOW     , HIGH       ,  29,     83,         117,        10, HIGH     , CLASSICAL
+ 307, LOW        , HIGH        , HIGH    , HIGH       ,  64,     85,        3865,         8, MEDIUM   , CLASSICAL
+ 308, MEDIUM     , HIGH        , MEDIUM  , LOW        ,  50,     38,         967,         6, MEDIUM   , BASIC
+ 309, LOW        , LOW         , MEDIUM  , LOW        ,  53,     24,        3831,         8, MEDIUM   , CLASSICAL
+ 310, HIGH       , LOW         , MEDIUM  , HIGH       ,  55,     17,        1070,        12, HIGH     , HYBRID
+ 311, MEDIUM     , HIGH        , CRITICAL, HIGH       ,  64,     85,        1966,        10, HIGH     , POST_QUANTUM
+ 312, CRITICAL   , HIGH        , MEDIUM  , LOW        ,  80,     48,        3552,         8, MEDIUM   , CLASSICAL
+ 313, HIGH       , LOW         , HIGH    , HIGH       ,  34,     65,        2892,        13, CRITICAL , POST_QUANTUM
+ 314, MEDIUM     , MEDIUM      , HIGH    , MEDIUM     ,  68,     30,        1514,         9, HIGH     , CLASSICAL
+ 315, HIGH       , LOW         , HIGH    , LOW        ,  47,     14,        3184,        11, HIGH     , HYBRID
+ 316, LOW        , HIGH        , MEDIUM  , LOW        ,  27,     77,         502,         5, MEDIUM   , BASIC
+ 317, MEDIUM     , MEDIUM      , LOW     , CRITICAL   ,  26,     47,        3108,         9, HIGH     , CLASSICAL
+ 318, LOW        , LOW         , LOW     , HIGH       ,  53,     33,         681,         9, HIGH     , CLASSICAL
+ 319, HIGH       , MEDIUM      , LOW     , HIGH       ,  84,     13,        1088,         9, HIGH     , CLASSICAL
+ 320, CRITICAL   , MEDIUM      , MEDIUM  , HIGH       ,  94,     33,        1961,        11, HIGH     , CLASSICAL
+ 321, HIGH       , HIGH        , HIGH    , MEDIUM     ,  64,     49,         559,         9, HIGH     , CLASSICAL
+ 322, MEDIUM     , LOW         , LOW     , MEDIUM     ,  40,     92,        2317,         9, HIGH     , CLASSICAL
+ 323, CRITICAL   , LOW         , LOW     , HIGH       ,  37,     11,         757,        12, HIGH     , HYBRID
+ 324, HIGH       , HIGH        , LOW     , MEDIUM     ,  23,     26,        2635,         7, MEDIUM   , CLASSICAL
+ 325, CRITICAL   , LOW         , HIGH    , LOW        ,  71,     29,        3159,        12, HIGH     , HYBRID
+ 326, CRITICAL   , HIGH        , CRITICAL, LOW        ,  36,     56,        3012,        10, HIGH     , POST_QUANTUM
+ 327, LOW        , LOW         , CRITICAL, CRITICAL   ,  67,     76,        2543,        13, CRITICAL , POST_QUANTUM
+ 328, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  21,     89,        1144,        10, HIGH     , CLASSICAL
+ 329, HIGH       , LOW         , MEDIUM  , CRITICAL   ,  22,     78,        3421,        13, CRITICAL , POST_QUANTUM
+ 330, HIGH       , MEDIUM      , HIGH    , CRITICAL   ,  73,     53,        2850,        12, HIGH     , POST_QUANTUM
+ 331, HIGH       , MEDIUM      , MEDIUM  , HIGH       ,  73,     65,         835,        10, HIGH     , HYBRID
+ 332, LOW        , MEDIUM      , MEDIUM  , CRITICAL   ,  32,     66,        2463,         9, HIGH     , CLASSICAL
+ 333, HIGH       , HIGH        , HIGH    , HIGH       ,  80,     86,          95,        10, HIGH     , CLASSICAL
+ 334, CRITICAL   , HIGH        , MEDIUM  , CRITICAL   ,  70,     78,        1973,        11, HIGH     , POST_QUANTUM
+ 335, MEDIUM     , MEDIUM      , LOW     , HIGH       ,  30,     90,        3399,         8, MEDIUM   , CLASSICAL
+ 336, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  41,     55,         198,         7, MEDIUM   , CLASSICAL
+ 337, CRITICAL   , MEDIUM      , LOW     , LOW        ,  22,     41,        1993,         8, MEDIUM   , CLASSICAL
+ 338, MEDIUM     , HIGH        , CRITICAL, LOW        ,  39,     47,         864,         8, MEDIUM   , CLASSICAL
+ 339, LOW        , MEDIUM      , LOW     , MEDIUM     ,  65,     33,         632,         6, MEDIUM   , BASIC
+ 340, LOW        , LOW         , CRITICAL, HIGH       ,  58,     68,        2073,        12, HIGH     , POST_QUANTUM
+ 341, MEDIUM     , MEDIUM      , LOW     , LOW        ,  90,     85,        1416,         6, MEDIUM   , BASIC
+ 342, LOW        , MEDIUM      , LOW     , HIGH       ,  70,     17,        2130,         7, MEDIUM   , CLASSICAL
+ 343, MEDIUM     , MEDIUM      , HIGH    , MEDIUM     ,  79,     53,         254,         9, HIGH     , CLASSICAL
+ 344, MEDIUM     , LOW         , LOW     , CRITICAL   ,  73,     79,        1330,        11, HIGH     , POST_QUANTUM
+ 345, CRITICAL   , MEDIUM      , CRITICAL, CRITICAL   ,  87,     53,        1108,        14, CRITICAL , POST_QUANTUM
+ 346, MEDIUM     , LOW         , CRITICAL, HIGH       ,  79,     32,        2260,        13, CRITICAL , POST_QUANTUM
+ 347, CRITICAL   , MEDIUM      , HIGH    , MEDIUM     ,  34,     82,         545,        11, HIGH     , CLASSICAL
+ 348, MEDIUM     , LOW         , LOW     , HIGH       ,  82,     93,         531,        10, HIGH     , CLASSICAL
+ 349, CRITICAL   , LOW         , MEDIUM  , HIGH       ,  67,     58,        3076,        13, CRITICAL , POST_QUANTUM
+ 350, LOW        , LOW         , LOW     , HIGH       ,  29,     86,        1499,         9, HIGH     , CLASSICAL
+ 351, CRITICAL   , HIGH        , HIGH    , HIGH       ,  86,     89,        3516,        11, HIGH     , CLASSICAL
+ 352, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  29,     37,         741,        13, CRITICAL , POST_QUANTUM
+ 353, HIGH       , LOW         , LOW     , HIGH       ,  48,     14,        3827,        11, HIGH     , HYBRID
+ 354, MEDIUM     , LOW         , MEDIUM  , LOW        ,  50,     63,        1032,         9, HIGH     , CLASSICAL
+ 355, MEDIUM     , MEDIUM      , MEDIUM  , HIGH       ,  89,     11,        1835,         9, HIGH     , CLASSICAL
+ 356, CRITICAL   , MEDIUM      , LOW     , MEDIUM     ,  31,     32,        1229,         9, HIGH     , CLASSICAL
+ 357, HIGH       , LOW         , MEDIUM  , CRITICAL   ,  50,     30,        1318,        13, CRITICAL , POST_QUANTUM
+ 358, CRITICAL   , LOW         , MEDIUM  , CRITICAL   ,  44,     66,        3603,        14, CRITICAL , POST_QUANTUM
+ 359, HIGH       , MEDIUM      , LOW     , HIGH       ,  94,     59,        2232,         9, HIGH     , CLASSICAL
+ 360, MEDIUM     , LOW         , HIGH    , MEDIUM     ,  48,     49,         595,        11, HIGH     , HYBRID
+ 361, LOW        , MEDIUM      , CRITICAL, CRITICAL   ,  24,     82,        1206,        11, HIGH     , POST_QUANTUM
+ 362, MEDIUM     , HIGH        , MEDIUM  , HIGH       ,  22,     44,        1134,         8, MEDIUM   , CLASSICAL
+ 363, LOW        , MEDIUM      , HIGH    , CRITICAL   ,  83,     27,        1326,        10, HIGH     , POST_QUANTUM
+ 364, HIGH       , MEDIUM      , HIGH    , HIGH       ,  82,     29,        3721,        11, HIGH     , CLASSICAL
+ 365, CRITICAL   , LOW         , CRITICAL, HIGH       ,  11,     24,        1077,        15, CRITICAL , POST_QUANTUM
+ 366, MEDIUM     , HIGH        , LOW     , CRITICAL   ,  40,     93,        2657,         8, MEDIUM   , CLASSICAL
+ 367, MEDIUM     , LOW         , CRITICAL, HIGH       ,  21,     75,        3296,        13, CRITICAL , POST_QUANTUM
+ 368, MEDIUM     , MEDIUM      , MEDIUM  , CRITICAL   ,  17,     59,        1719,        10, HIGH     , POST_QUANTUM
+ 369, MEDIUM     , LOW         , MEDIUM  , LOW        ,  73,     12,         997,         9, HIGH     , CLASSICAL
+ 370, HIGH       , LOW         , LOW     , HIGH       ,  88,     75,        3843,        11, HIGH     , CLASSICAL
+ 371, HIGH       , MEDIUM      , HIGH    , LOW        ,  88,     83,        2646,         9, HIGH     , CLASSICAL
+ 372, LOW        , LOW         , LOW     , HIGH       ,  59,     48,        3620,         9, HIGH     , CLASSICAL
+ 373, HIGH       , LOW         , MEDIUM  , MEDIUM     ,  46,     78,        2176,        11, HIGH     , HYBRID
+ 374, CRITICAL   , MEDIUM      , CRITICAL, CRITICAL   ,  28,     26,        3366,        14, CRITICAL , POST_QUANTUM
+ 375, MEDIUM     , LOW         , HIGH    , HIGH       ,  12,     22,         351,        12, HIGH     , HYBRID
+ 376, LOW        , HIGH        , CRITICAL, HIGH       ,  30,     54,        1548,         9, HIGH     , CLASSICAL
+ 377, CRITICAL   , LOW         , HIGH    , LOW        ,  64,     73,        1985,        12, HIGH     , HYBRID
+ 378, LOW        , HIGH        , CRITICAL, CRITICAL   ,  27,     37,        3664,        10, HIGH     , POST_QUANTUM
+ 379, MEDIUM     , MEDIUM      , HIGH    , CRITICAL   ,  27,     49,        3964,        11, HIGH     , POST_QUANTUM
+ 380, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  95,     43,        1965,        11, HIGH     , POST_QUANTUM
+ 381, CRITICAL   , MEDIUM      , MEDIUM  , CRITICAL   ,  75,     57,        1670,        12, HIGH     , POST_QUANTUM
+ 382, LOW        , LOW         , MEDIUM  , HIGH       ,  92,     83,        1679,        10, HIGH     , CLASSICAL
+ 383, HIGH       , MEDIUM      , HIGH    , HIGH       ,  18,     60,        1006,        11, HIGH     , HYBRID
+ 384, CRITICAL   , HIGH        , LOW     , LOW        ,  57,     29,         470,         7, MEDIUM   , CLASSICAL
+ 385, HIGH       , HIGH        , CRITICAL, HIGH       ,  13,     16,        2821,        11, HIGH     , POST_QUANTUM
+ 386, HIGH       , HIGH        , HIGH    , HIGH       ,  11,     75,        2341,        10, HIGH     , HYBRID
+ 387, MEDIUM     , MEDIUM      , CRITICAL, LOW        ,  83,     40,        1582,         9, HIGH     , CLASSICAL
+ 388, MEDIUM     , HIGH        , LOW     , LOW        ,  15,     14,        1257,         5, MEDIUM   , BASIC
+ 389, LOW        , HIGH        , HIGH    , CRITICAL   ,  72,     30,        3585,         9, HIGH     , CLASSICAL
+ 390, MEDIUM     , LOW         , HIGH    , LOW        ,  17,     10,         305,        10, HIGH     , HYBRID
+ 391, HIGH       , HIGH        , LOW     , CRITICAL   ,  57,     86,        3468,         9, HIGH     , CLASSICAL
+ 392, HIGH       , LOW         , HIGH    , HIGH       ,  14,     10,        1765,        13, CRITICAL , POST_QUANTUM
+ 393, LOW        , LOW         , MEDIUM  , MEDIUM     ,  37,     46,        2963,         9, HIGH     , CLASSICAL
+ 394, LOW        , HIGH        , HIGH    , MEDIUM     ,  64,     23,        1742,         7, MEDIUM   , CLASSICAL
+ 395, CRITICAL   , MEDIUM      , CRITICAL, MEDIUM     ,  60,     81,        2365,        12, HIGH     , POST_QUANTUM
+ 396, CRITICAL   , HIGH        , LOW     , CRITICAL   ,  41,     56,        2352,        10, HIGH     , POST_QUANTUM
+ 397, HIGH       , MEDIUM      , HIGH    , CRITICAL   ,  33,     18,        2260,        12, HIGH     , POST_QUANTUM
+ 398, CRITICAL   , MEDIUM      , LOW     , HIGH       ,  22,     49,        2076,        10, HIGH     , HYBRID
+ 399, LOW        , LOW         , MEDIUM  , CRITICAL   ,  73,     94,         800,        11, HIGH     , POST_QUANTUM
+ 400, HIGH       , MEDIUM      , HIGH    , CRITICAL   ,  86,     25,        4055,        12, HIGH     , POST_QUANTUM
+ 401, MEDIUM     , LOW         , MEDIUM  , MEDIUM     ,  62,     92,         436,        10, HIGH     , CLASSICAL
+ 402, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  69,     11,        3941,         8, MEDIUM   , CLASSICAL
+ 403, CRITICAL   , LOW         , LOW     , MEDIUM     ,  72,     79,        2328,        11, HIGH     , HYBRID
+ 404, MEDIUM     , MEDIUM      , CRITICAL, MEDIUM     ,  58,     69,        3855,        10, HIGH     , POST_QUANTUM
+ 405, MEDIUM     , MEDIUM      , LOW     , MEDIUM     ,  72,     40,        1977,         7, MEDIUM   , CLASSICAL
+ 406, HIGH       , HIGH        , HIGH    , CRITICAL   ,  60,     75,         545,        11, HIGH     , POST_QUANTUM
+ 407, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  73,     67,         991,        10, HIGH     , HYBRID
+ 408, HIGH       , MEDIUM      , HIGH    , MEDIUM     ,  91,     35,        1258,        10, HIGH     , CLASSICAL
+ 409, LOW        , LOW         , LOW     , LOW        ,  14,     18,        3311,         7, MEDIUM   , CLASSICAL
+ 410, MEDIUM     , LOW         , CRITICAL, HIGH       ,  18,     10,        1487,        13, CRITICAL , POST_QUANTUM
+ 411, LOW        , MEDIUM      , HIGH    , CRITICAL   ,  21,     62,         178,        10, HIGH     , POST_QUANTUM
+ 412, LOW        , MEDIUM      , CRITICAL, HIGH       ,  51,     13,        1376,        10, HIGH     , POST_QUANTUM
+ 413, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  10,     88,        2184,        11, HIGH     , POST_QUANTUM
+ 414, CRITICAL   , MEDIUM      , CRITICAL, LOW        ,  62,     62,        4027,        11, HIGH     , POST_QUANTUM
+ 415, LOW        , HIGH        , LOW     , LOW        ,  17,     89,        1619,         4, LOW      , BASIC
+ 416, LOW        , LOW         , MEDIUM  , MEDIUM     ,  31,     18,        3379,         9, HIGH     , CLASSICAL
+ 417, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  48,     93,        2600,        11, HIGH     , CLASSICAL
+ 418, CRITICAL   , HIGH        , LOW     , CRITICAL   ,  60,     85,        3138,        10, HIGH     , POST_QUANTUM
+ 419, HIGH       , LOW         , HIGH    , HIGH       ,  22,     80,        2598,        13, CRITICAL , POST_QUANTUM
+ 420, LOW        , LOW         , LOW     , MEDIUM     ,  32,     80,        3812,         8, MEDIUM   , CLASSICAL
+ 421, HIGH       , LOW         , CRITICAL, CRITICAL   ,  82,     43,        1651,        15, CRITICAL , POST_QUANTUM
+ 422, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  14,     10,        3625,        11, HIGH     , POST_QUANTUM
+ 423, HIGH       , LOW         , LOW     , MEDIUM     ,  76,     91,        2529,        10, HIGH     , CLASSICAL
+ 424, CRITICAL   , LOW         , LOW     , MEDIUM     ,  39,     40,         744,        11, HIGH     , HYBRID
+ 425, LOW        , LOW         , HIGH    , HIGH       ,  72,     35,        1146,        11, HIGH     , HYBRID
+ 426, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  62,     37,        3168,        12, HIGH     , POST_QUANTUM
+ 427, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  12,     82,        2450,         8, MEDIUM   , CLASSICAL
+ 428, MEDIUM     , LOW         , HIGH    , MEDIUM     ,  45,     72,        3149,        11, HIGH     , HYBRID
+ 429, HIGH       , MEDIUM      , MEDIUM  , LOW        ,  81,     13,        2557,         8, MEDIUM   , CLASSICAL
+ 430, HIGH       , MEDIUM      , HIGH    , MEDIUM     ,  23,     52,         305,        10, HIGH     , HYBRID
+ 431, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  74,     63,        2919,         7, MEDIUM   , CLASSICAL
+ 432, CRITICAL   , MEDIUM      , MEDIUM  , MEDIUM     ,  30,     62,        1616,        10, HIGH     , HYBRID
+ 433, MEDIUM     , HIGH        , CRITICAL, LOW        ,  12,     15,        3052,         8, MEDIUM   , CLASSICAL
+ 434, HIGH       , MEDIUM      , LOW     , HIGH       ,  37,     64,        1473,         9, HIGH     , CLASSICAL
+ 435, CRITICAL   , HIGH        , HIGH    , CRITICAL   ,  43,     29,        2636,        12, HIGH     , POST_QUANTUM
+ 436, MEDIUM     , LOW         , CRITICAL, LOW        ,  32,     89,         858,        11, HIGH     , POST_QUANTUM
+ 437, LOW        , LOW         , LOW     , LOW        ,  53,     50,        2615,         7, MEDIUM   , CLASSICAL
+ 438, CRITICAL   , HIGH        , CRITICAL, HIGH       ,  29,     39,        3342,        12, HIGH     , POST_QUANTUM
+ 439, LOW        , LOW         , MEDIUM  , LOW        ,  32,     67,         384,         8, MEDIUM   , CLASSICAL
+ 440, MEDIUM     , LOW         , MEDIUM  , MEDIUM     ,  71,     70,         166,        10, HIGH     , HYBRID
+ 441, MEDIUM     , LOW         , HIGH    , LOW        ,  29,     22,         903,        10, HIGH     , HYBRID
+ 442, LOW        , LOW         , LOW     , LOW        ,  43,     71,        2618,         7, MEDIUM   , CLASSICAL
+ 443, MEDIUM     , MEDIUM      , MEDIUM  , CRITICAL   ,  88,     45,        1672,        10, HIGH     , POST_QUANTUM
+ 444, MEDIUM     , LOW         , HIGH    , MEDIUM     ,  92,     69,        3624,        11, HIGH     , CLASSICAL
+ 445, HIGH       , MEDIUM      , HIGH    , CRITICAL   ,  82,     78,        2616,        12, HIGH     , POST_QUANTUM
+ 446, MEDIUM     , LOW         , LOW     , LOW        ,  87,     63,        2014,         8, MEDIUM   , CLASSICAL
+ 447, LOW        , MEDIUM      , MEDIUM  , MEDIUM     ,  32,     52,        2687,         7, MEDIUM   , CLASSICAL
+ 448, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  90,     71,        2322,        13, CRITICAL , POST_QUANTUM
+ 449, LOW        , MEDIUM      , MEDIUM  , MEDIUM     ,  28,     50,        1409,         7, MEDIUM   , CLASSICAL
+ 450, HIGH       , LOW         , CRITICAL, CRITICAL   ,  77,     83,        3835,        15, CRITICAL , POST_QUANTUM
+ 451, MEDIUM     , MEDIUM      , HIGH    , CRITICAL   ,  28,     69,         154,        11, HIGH     , POST_QUANTUM
+ 452, MEDIUM     , LOW         , LOW     , LOW        ,  12,     84,         619,         8, MEDIUM   , CLASSICAL
+ 453, MEDIUM     , MEDIUM      , MEDIUM  , LOW        ,  51,     34,        3684,         7, MEDIUM   , CLASSICAL
+ 454, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  22,     63,        3624,        12, HIGH     , POST_QUANTUM
+ 455, MEDIUM     , MEDIUM      , LOW     , MEDIUM     ,  63,     38,        1223,         7, MEDIUM   , CLASSICAL
+ 456, HIGH       , LOW         , CRITICAL, LOW        ,  86,     72,        3285,        12, HIGH     , POST_QUANTUM
+ 457, LOW        , HIGH        , MEDIUM  , MEDIUM     ,  87,     83,        4039,         6, MEDIUM   , BASIC
+ 458, CRITICAL   , LOW         , MEDIUM  , MEDIUM     ,  22,     42,        2376,        12, HIGH     , HYBRID
+ 459, MEDIUM     , LOW         , CRITICAL, LOW        ,  23,     23,         368,        11, HIGH     , POST_QUANTUM
+ 460, CRITICAL   , MEDIUM      , CRITICAL, CRITICAL   ,  55,     67,        1485,        14, CRITICAL , POST_QUANTUM
+ 461, MEDIUM     , MEDIUM      , MEDIUM  , CRITICAL   ,  46,     81,        3158,        10, HIGH     , POST_QUANTUM
+ 462, CRITICAL   , HIGH        , MEDIUM  , CRITICAL   ,  75,     41,        1170,        11, HIGH     , POST_QUANTUM
+ 463, LOW        , HIGH        , MEDIUM  , HIGH       ,  80,     42,        3155,         7, MEDIUM   , CLASSICAL
+ 464, MEDIUM     , MEDIUM      , HIGH    , LOW        ,  64,     95,        2419,         8, MEDIUM   , CLASSICAL
+ 465, CRITICAL   , LOW         , MEDIUM  , LOW        ,  25,     91,        1766,        11, HIGH     , CLASSICAL
+ 466, LOW        , HIGH        , MEDIUM  , CRITICAL   ,  64,     12,        1136,         8, MEDIUM   , CLASSICAL
+ 467, LOW        , HIGH        , CRITICAL, CRITICAL   ,  86,     95,        2943,        10, HIGH     , POST_QUANTUM
+ 468, LOW        , LOW         , MEDIUM  , CRITICAL   ,  58,     17,        3522,        11, HIGH     , POST_QUANTUM
+ 469, CRITICAL   , LOW         , MEDIUM  , LOW        ,  59,     90,         708,        11, HIGH     , CLASSICAL
+ 470, HIGH       , HIGH        , HIGH    , HIGH       ,  66,     93,        2462,        10, HIGH     , CLASSICAL
+ 471, LOW        , HIGH        , CRITICAL, CRITICAL   ,  70,     20,        3893,        10, HIGH     , POST_QUANTUM
+ 472, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  73,     92,        1536,        13, CRITICAL , POST_QUANTUM
+ 473, MEDIUM     , LOW         , MEDIUM  , CRITICAL   ,  15,     16,        4071,        12, HIGH     , POST_QUANTUM
+ 474, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  76,     36,        3144,        10, HIGH     , HYBRID
+ 475, HIGH       , HIGH        , HIGH    , CRITICAL   ,  75,     37,        3335,        11, HIGH     , POST_QUANTUM
+ 476, HIGH       , HIGH        , CRITICAL, MEDIUM     ,  79,     59,         391,        10, HIGH     , POST_QUANTUM
+ 477, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  33,     50,         282,        11, HIGH     , POST_QUANTUM
+ 478, LOW        , MEDIUM      , LOW     , HIGH       ,  12,     29,        1532,         7, MEDIUM   , CLASSICAL
+ 479, MEDIUM     , MEDIUM      , CRITICAL, LOW        ,  61,     22,        1107,         9, HIGH     , CLASSICAL
+ 480, HIGH       , LOW         , MEDIUM  , CRITICAL   ,  25,     53,        3308,        13, CRITICAL , POST_QUANTUM
+ 481, HIGH       , HIGH        , HIGH    , CRITICAL   ,  66,     65,         937,        11, HIGH     , POST_QUANTUM
+ 482, MEDIUM     , HIGH        , LOW     , CRITICAL   ,  81,     42,         680,         8, MEDIUM   , CLASSICAL
+ 483, HIGH       , HIGH        , HIGH    , MEDIUM     ,  18,     41,        3487,         9, HIGH     , CLASSICAL
+ 484, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  47,     41,         699,        13, CRITICAL , POST_QUANTUM
+ 485, HIGH       , LOW         , LOW     , LOW        ,  50,     50,        3668,         9, HIGH     , CLASSICAL
+ 486, HIGH       , LOW         , LOW     , LOW        ,  63,     34,         431,         9, HIGH     , CLASSICAL
+ 487, LOW        , HIGH        , LOW     , CRITICAL   ,  80,     95,        2061,         7, MEDIUM   , CLASSICAL
+ 488, CRITICAL   , MEDIUM      , MEDIUM  , CRITICAL   ,  34,     75,         815,        12, HIGH     , POST_QUANTUM
+ 489, MEDIUM     , MEDIUM      , MEDIUM  , LOW        ,  14,     28,         494,         7, MEDIUM   , CLASSICAL
+ 490, LOW        , MEDIUM      , MEDIUM  , CRITICAL   ,  85,     21,        1525,         9, HIGH     , CLASSICAL
+ 491, CRITICAL   , LOW         , CRITICAL, LOW        ,  12,     45,         845,        13, CRITICAL , POST_QUANTUM
+ 492, HIGH       , MEDIUM      , MEDIUM  , HIGH       ,  37,     61,         898,        10, HIGH     , HYBRID
+ 493, LOW        , HIGH        , LOW     , MEDIUM     ,  78,     30,         695,         5, MEDIUM   , BASIC
+ 494, LOW        , MEDIUM      , CRITICAL, HIGH       ,  59,     75,         828,        10, HIGH     , POST_QUANTUM
+ 495, LOW        , MEDIUM      , CRITICAL, LOW        ,  17,     30,        2893,         8, MEDIUM   , CLASSICAL
+ 496, MEDIUM     , MEDIUM      , LOW     , CRITICAL   ,  30,     76,        1504,         9, HIGH     , CLASSICAL
+ 497, LOW        , HIGH        , CRITICAL, LOW        ,  60,     55,        3924,         7, MEDIUM   , CLASSICAL
+ 498, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  90,     34,        3332,        13, CRITICAL , POST_QUANTUM
+ 499, HIGH       , HIGH        , HIGH    , HIGH       ,  15,     92,        2207,        10, HIGH     , CLASSICAL
+ 500, LOW        , LOW         , LOW     , MEDIUM     ,  85,     58,        3905,         8, MEDIUM   , CLASSICAL
+ 501, CRITICAL   , LOW         , LOW     , LOW        ,  64,     75,        2135,        10, HIGH     , HYBRID
+ 502, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  29,     44,        2221,        12, HIGH     , POST_QUANTUM
+ 503, HIGH       , MEDIUM      , MEDIUM  , MEDIUM     ,  94,     52,         133,         9, HIGH     , CLASSICAL
+ 504, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  69,     48,        1798,        13, CRITICAL , POST_QUANTUM
+ 505, LOW        , LOW         , HIGH    , LOW        ,  89,     55,        3446,         9, HIGH     , CLASSICAL
+ 506, LOW        , MEDIUM      , CRITICAL, CRITICAL   ,  36,     47,        3416,        11, HIGH     , POST_QUANTUM
+ 507, HIGH       , HIGH        , CRITICAL, MEDIUM     ,  46,     23,        3831,        10, HIGH     , POST_QUANTUM
+ 508, HIGH       , HIGH        , MEDIUM  , MEDIUM     ,  90,     12,         434,         8, MEDIUM   , CLASSICAL
+ 509, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  20,     45,        3323,        13, CRITICAL , POST_QUANTUM
+ 510, CRITICAL   , LOW         , MEDIUM  , HIGH       ,  16,     18,        2615,        13, CRITICAL , POST_QUANTUM
+ 511, MEDIUM     , MEDIUM      , HIGH    , LOW        ,  15,     44,        2051,         8, MEDIUM   , CLASSICAL
+ 512, HIGH       , MEDIUM      , MEDIUM  , MEDIUM     ,  11,     49,        1572,         9, HIGH     , CLASSICAL
+ 513, CRITICAL   , HIGH        , CRITICAL, CRITICAL   ,  66,     60,        1909,        13, CRITICAL , POST_QUANTUM
+ 514, LOW        , HIGH        , CRITICAL, CRITICAL   ,  59,     86,         698,        10, HIGH     , POST_QUANTUM
+ 515, HIGH       , HIGH        , MEDIUM  , CRITICAL   ,  93,     82,        2834,        10, HIGH     , POST_QUANTUM
+ 516, LOW        , MEDIUM      , CRITICAL, MEDIUM     ,  73,     50,        2239,         9, HIGH     , CLASSICAL
+ 517, LOW        , LOW         , CRITICAL, LOW        ,  77,     60,        1757,        10, HIGH     , POST_QUANTUM
+ 518, LOW        , MEDIUM      , LOW     , HIGH       ,  36,     61,        2915,         7, MEDIUM   , CLASSICAL
+ 519, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  60,     74,        2160,        13, CRITICAL , POST_QUANTUM
+ 520, CRITICAL   , HIGH        , LOW     , HIGH       ,  19,     88,        3476,         9, HIGH     , CLASSICAL
+ 521, LOW        , LOW         , HIGH    , CRITICAL   ,  74,     23,        2007,        12, HIGH     , POST_QUANTUM
+ 522, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  77,     24,        3776,        10, HIGH     , HYBRID
+ 523, CRITICAL   , MEDIUM      , HIGH    , CRITICAL   ,  38,     72,        2773,        13, CRITICAL , POST_QUANTUM
+ 524, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  61,     33,        3507,        11, HIGH     , POST_QUANTUM
+ 525, HIGH       , HIGH        , MEDIUM  , CRITICAL   ,  70,     45,        3328,        10, HIGH     , POST_QUANTUM
+ 526, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  13,     32,         455,        10, HIGH     , POST_QUANTUM
+ 527, MEDIUM     , HIGH        , HIGH    , CRITICAL   ,  52,     62,        1171,        10, HIGH     , POST_QUANTUM
+ 528, CRITICAL   , MEDIUM      , CRITICAL, LOW        ,  82,     69,         381,        11, HIGH     , POST_QUANTUM
+ 529, MEDIUM     , MEDIUM      , CRITICAL, CRITICAL   ,  90,     92,        3454,        12, HIGH     , POST_QUANTUM
+ 530, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  57,     95,        4057,        13, CRITICAL , POST_QUANTUM
+ 531, HIGH       , MEDIUM      , MEDIUM  , LOW        ,  54,     90,        3731,         8, MEDIUM   , CLASSICAL
+ 532, LOW        , LOW         , LOW     , LOW        ,  15,     29,         968,         7, MEDIUM   , CLASSICAL
+ 533, LOW        , HIGH        , MEDIUM  , MEDIUM     ,  30,     30,         173,         6, MEDIUM   , BASIC
+ 534, LOW        , LOW         , CRITICAL, MEDIUM     ,  16,     65,        1622,        11, HIGH     , POST_QUANTUM
+ 535, HIGH       , LOW         , LOW     , CRITICAL   ,  10,     85,        3802,        12, HIGH     , POST_QUANTUM
+ 536, CRITICAL   , LOW         , LOW     , MEDIUM     ,  87,     88,        3058,        11, HIGH     , CLASSICAL
+ 537, HIGH       , LOW         , CRITICAL, LOW        ,  85,     90,        4018,        12, HIGH     , POST_QUANTUM
+ 538, CRITICAL   , MEDIUM      , MEDIUM  , HIGH       ,  24,     26,        3846,        11, HIGH     , HYBRID
+ 539, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  62,     50,        3371,        10, HIGH     , POST_QUANTUM
+ 540, MEDIUM     , LOW         , MEDIUM  , LOW        ,  72,     69,         847,         9, HIGH     , CLASSICAL
+ 541, HIGH       , LOW         , CRITICAL, CRITICAL   ,  48,     89,        3153,        15, CRITICAL , POST_QUANTUM
+ 542, MEDIUM     , MEDIUM      , CRITICAL, HIGH       ,  79,     61,         840,        11, HIGH     , POST_QUANTUM
+ 543, MEDIUM     , LOW         , LOW     , HIGH       ,  19,     56,         489,        10, HIGH     , HYBRID
+ 544, HIGH       , LOW         , LOW     , LOW        ,  40,     49,        1971,         9, HIGH     , CLASSICAL
+ 545, MEDIUM     , MEDIUM      , MEDIUM  , CRITICAL   ,  67,     67,        1268,        10, HIGH     , POST_QUANTUM
+ 546, LOW        , LOW         , CRITICAL, LOW        ,  54,     52,        3029,        10, HIGH     , POST_QUANTUM
+ 547, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  45,     70,        1123,        13, CRITICAL , POST_QUANTUM
+ 548, LOW        , HIGH        , MEDIUM  , MEDIUM     ,  53,     72,        3567,         6, MEDIUM   , BASIC
+ 549, HIGH       , LOW         , HIGH    , CRITICAL   ,  84,     20,        3880,        14, CRITICAL , POST_QUANTUM
+ 550, LOW        , LOW         , LOW     , HIGH       ,  55,     50,         295,         9, HIGH     , CLASSICAL
+ 551, LOW        , LOW         , LOW     , MEDIUM     ,  26,     48,        2438,         8, MEDIUM   , CLASSICAL
+ 552, CRITICAL   , HIGH        , HIGH    , HIGH       ,  74,     18,          73,        11, HIGH     , HYBRID
+ 553, MEDIUM     , MEDIUM      , LOW     , LOW        ,  91,     70,        1236,         6, MEDIUM   , BASIC
+ 554, CRITICAL   , LOW         , MEDIUM  , HIGH       ,  64,     59,          81,        13, CRITICAL , POST_QUANTUM
+ 555, MEDIUM     , MEDIUM      , LOW     , HIGH       ,  33,     85,        2827,         8, MEDIUM   , CLASSICAL
+ 556, MEDIUM     , HIGH        , MEDIUM  , HIGH       ,  60,     65,        2259,         8, MEDIUM   , CLASSICAL
+ 557, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  32,     89,        1005,        13, CRITICAL , POST_QUANTUM
+ 558, HIGH       , LOW         , HIGH    , MEDIUM     ,  84,     29,        3475,        12, HIGH     , CLASSICAL
+ 559, CRITICAL   , MEDIUM      , LOW     , HIGH       ,  31,     87,        1505,        10, HIGH     , CLASSICAL
+ 560, CRITICAL   , MEDIUM      , HIGH    , CRITICAL   ,  69,     16,          70,        13, CRITICAL , POST_QUANTUM
+ 561, MEDIUM     , MEDIUM      , LOW     , LOW        ,  27,     40,        2911,         6, MEDIUM   , BASIC
+ 562, CRITICAL   , LOW         , HIGH    , HIGH       ,  87,     55,         500,        14, CRITICAL , POST_QUANTUM
+ 563, LOW        , MEDIUM      , CRITICAL, MEDIUM     ,  93,     30,        4015,         9, HIGH     , CLASSICAL
+ 564, HIGH       , LOW         , CRITICAL, LOW        ,  10,     79,        3788,        12, HIGH     , POST_QUANTUM
+ 565, MEDIUM     , LOW         , MEDIUM  , LOW        ,  88,     23,         892,         9, HIGH     , CLASSICAL
+ 566, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  13,     52,        1131,         9, HIGH     , CLASSICAL
+ 567, HIGH       , HIGH        , HIGH    , MEDIUM     ,  26,     84,        2560,         9, HIGH     , CLASSICAL
+ 568, HIGH       , LOW         , LOW     , LOW        ,  28,     71,        3773,         9, HIGH     , CLASSICAL
+ 569, HIGH       , HIGH        , MEDIUM  , MEDIUM     ,  54,     22,        1600,         8, MEDIUM   , CLASSICAL
+ 570, HIGH       , HIGH        , LOW     , HIGH       ,  54,     68,         672,         8, MEDIUM   , CLASSICAL
+ 571, LOW        , HIGH        , MEDIUM  , HIGH       ,  29,     90,         447,         7, MEDIUM   , CLASSICAL
+ 572, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  13,     55,        2629,        10, HIGH     , HYBRID
+ 573, HIGH       , LOW         , MEDIUM  , HIGH       ,  19,     71,        2903,        12, HIGH     , HYBRID
+ 574, LOW        , MEDIUM      , LOW     , HIGH       ,  64,     69,         122,         7, MEDIUM   , CLASSICAL
+ 575, LOW        , LOW         , CRITICAL, MEDIUM     ,  82,     67,        2131,        11, HIGH     , POST_QUANTUM
+ 576, CRITICAL   , LOW         , MEDIUM  , CRITICAL   ,  39,     80,        3429,        14, CRITICAL , POST_QUANTUM
+ 577, MEDIUM     , LOW         , HIGH    , HIGH       ,  79,     38,        3896,        12, HIGH     , HYBRID
+ 578, HIGH       , LOW         , LOW     , LOW        ,  37,     86,        3542,         9, HIGH     , CLASSICAL
+ 579, MEDIUM     , HIGH        , MEDIUM  , HIGH       ,  61,     56,        1848,         8, MEDIUM   , CLASSICAL
+ 580, MEDIUM     , LOW         , HIGH    , LOW        ,  52,     23,        1225,        10, HIGH     , HYBRID
+ 581, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  60,     22,        2798,        11, HIGH     , POST_QUANTUM
+ 582, HIGH       , LOW         , MEDIUM  , LOW        ,  11,     94,        3036,        10, HIGH     , CLASSICAL
+ 583, CRITICAL   , MEDIUM      , HIGH    , LOW        ,  95,     58,        2488,        10, HIGH     , CLASSICAL
+ 584, HIGH       , MEDIUM      , MEDIUM  , HIGH       ,  61,     43,        3813,        10, HIGH     , HYBRID
+ 585, MEDIUM     , MEDIUM      , LOW     , HIGH       ,  40,     23,        2156,         8, MEDIUM   , CLASSICAL
+ 586, LOW        , MEDIUM      , HIGH    , LOW        ,  73,     25,        1284,         7, MEDIUM   , CLASSICAL
+ 587, HIGH       , LOW         , MEDIUM  , CRITICAL   ,  75,     55,        1369,        13, CRITICAL , POST_QUANTUM
+ 588, CRITICAL   , LOW         , MEDIUM  , HIGH       ,  87,     77,        2801,        13, CRITICAL , POST_QUANTUM
+ 589, CRITICAL   , LOW         , CRITICAL, CRITICAL   ,  15,     56,        3627,        16, CRITICAL , POST_QUANTUM
+ 590, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  38,     44,        3965,        11, HIGH     , POST_QUANTUM
+ 591, HIGH       , MEDIUM      , HIGH    , MEDIUM     ,  36,     14,        3199,        10, HIGH     , HYBRID
+ 592, MEDIUM     , LOW         , HIGH    , LOW        ,  35,     21,        3509,        10, HIGH     , HYBRID
+ 593, HIGH       , HIGH        , LOW     , HIGH       ,  41,     73,        1240,         8, MEDIUM   , CLASSICAL
+ 594, MEDIUM     , LOW         , CRITICAL, CRITICAL   ,  46,     12,        2003,        14, CRITICAL , POST_QUANTUM
+ 595, HIGH       , LOW         , HIGH    , MEDIUM     ,  30,     78,         155,        12, HIGH     , HYBRID
+ 596, CRITICAL   , HIGH        , LOW     , MEDIUM     ,  11,     21,        1435,         8, MEDIUM   , CLASSICAL
+ 597, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  49,     44,        4062,        13, CRITICAL , POST_QUANTUM
+ 598, MEDIUM     , LOW         , LOW     , MEDIUM     ,  38,     45,        3597,         9, HIGH     , CLASSICAL
+ 599, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  39,     45,        3492,        11, HIGH     , POST_QUANTUM
+ 600, MEDIUM     , HIGH        , MEDIUM  , LOW        ,  19,     44,        2984,         6, MEDIUM   , BASIC
+ 601, LOW        , HIGH        , HIGH    , MEDIUM     ,  29,     72,         462,         7, MEDIUM   , CLASSICAL
+ 602, LOW        , MEDIUM      , MEDIUM  , MEDIUM     ,  24,     15,        3133,         7, MEDIUM   , CLASSICAL
+ 603, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  81,     42,        1988,         9, HIGH     , CLASSICAL
+ 604, HIGH       , MEDIUM      , HIGH    , LOW        ,  31,     79,         705,         9, HIGH     , CLASSICAL
+ 605, CRITICAL   , MEDIUM      , MEDIUM  , CRITICAL   ,  90,     87,        2697,        12, HIGH     , POST_QUANTUM
+ 606, HIGH       , LOW         , LOW     , HIGH       ,  33,     36,        3707,        11, HIGH     , HYBRID
+ 607, HIGH       , HIGH        , MEDIUM  , HIGH       ,  29,     70,        2294,         9, HIGH     , CLASSICAL
+ 608, HIGH       , LOW         , MEDIUM  , HIGH       ,  76,     18,        2458,        12, HIGH     , HYBRID
+ 609, LOW        , MEDIUM      , MEDIUM  , LOW        ,  65,     46,         641,         6, MEDIUM   , BASIC
+ 610, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  85,     52,        1184,        13, CRITICAL , POST_QUANTUM
+ 611, HIGH       , HIGH        , LOW     , MEDIUM     ,  30,     57,        1238,         7, MEDIUM   , CLASSICAL
+ 612, LOW        , MEDIUM      , MEDIUM  , LOW        ,  95,     48,        3805,         6, MEDIUM   , BASIC
+ 613, HIGH       , HIGH        , LOW     , HIGH       ,  52,     49,         440,         8, MEDIUM   , CLASSICAL
+ 614, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  67,     20,        2255,        11, HIGH     , POST_QUANTUM
+ 615, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  68,     74,        3375,        11, HIGH     , POST_QUANTUM
+ 616, MEDIUM     , HIGH        , MEDIUM  , HIGH       ,  95,     46,        2576,         8, MEDIUM   , CLASSICAL
+ 617, CRITICAL   , HIGH        , HIGH    , CRITICAL   ,  60,     35,        1552,        12, HIGH     , POST_QUANTUM
+ 618, CRITICAL   , LOW         , CRITICAL, HIGH       ,  73,     19,        1275,        15, CRITICAL , POST_QUANTUM
+ 619, LOW        , LOW         , MEDIUM  , MEDIUM     ,  70,     29,        3583,         9, HIGH     , CLASSICAL
+ 620, MEDIUM     , LOW         , LOW     , LOW        ,  74,     58,        2348,         8, MEDIUM   , CLASSICAL
+ 621, CRITICAL   , LOW         , HIGH    , HIGH       ,  92,     40,        2851,        14, CRITICAL , POST_QUANTUM
+ 622, HIGH       , MEDIUM      , MEDIUM  , MEDIUM     ,  50,     14,        2505,         9, HIGH     , CLASSICAL
+ 623, MEDIUM     , MEDIUM      , LOW     , LOW        ,  11,     37,        1261,         6, MEDIUM   , BASIC
+ 624, LOW        , HIGH        , HIGH    , HIGH       ,  94,     93,        2958,         8, MEDIUM   , CLASSICAL
+ 625, HIGH       , LOW         , CRITICAL, HIGH       ,  80,     30,        3105,        14, CRITICAL , POST_QUANTUM
+ 626, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  41,     28,         377,        13, CRITICAL , POST_QUANTUM
+ 627, LOW        , LOW         , MEDIUM  , HIGH       ,  49,     42,        1589,        10, HIGH     , HYBRID
+ 628, LOW        , HIGH        , CRITICAL, MEDIUM     ,  69,     60,        3299,         8, MEDIUM   , CLASSICAL
+ 629, CRITICAL   , LOW         , LOW     , HIGH       ,  76,     19,        3097,        12, HIGH     , HYBRID
+ 630, HIGH       , LOW         , LOW     , CRITICAL   ,  14,     92,        2608,        12, HIGH     , POST_QUANTUM
+ 631, LOW        , LOW         , LOW     , CRITICAL   ,  14,     94,        2367,        10, HIGH     , POST_QUANTUM
+ 632, CRITICAL   , MEDIUM      , HIGH    , MEDIUM     ,  42,     95,         835,        11, HIGH     , CLASSICAL
+ 633, MEDIUM     , MEDIUM      , MEDIUM  , LOW        ,  26,     60,        2266,         7, MEDIUM   , CLASSICAL
+ 634, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  25,     59,         169,        13, CRITICAL , POST_QUANTUM
+ 635, CRITICAL   , MEDIUM      , HIGH    , LOW        ,  65,     57,         441,        10, HIGH     , HYBRID
+ 636, CRITICAL   , HIGH        , LOW     , HIGH       ,  89,     13,         441,         9, HIGH     , CLASSICAL
+ 637, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  73,     69,        3444,        12, HIGH     , POST_QUANTUM
+ 638, HIGH       , LOW         , CRITICAL, HIGH       ,  41,     51,        1200,        14, CRITICAL , POST_QUANTUM
+ 639, MEDIUM     , HIGH        , LOW     , CRITICAL   ,  90,     57,        2256,         8, MEDIUM   , CLASSICAL
+ 640, HIGH       , HIGH        , CRITICAL, LOW        ,  26,     16,        3849,         9, HIGH     , CLASSICAL
+ 641, MEDIUM     , MEDIUM      , LOW     , HIGH       ,  79,     59,        1338,         8, MEDIUM   , CLASSICAL
+ 642, MEDIUM     , MEDIUM      , HIGH    , CRITICAL   ,  53,     86,        2103,        11, HIGH     , POST_QUANTUM
+ 643, CRITICAL   , MEDIUM      , CRITICAL, HIGH       ,  87,     95,        3496,        13, CRITICAL , POST_QUANTUM
+ 644, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  10,     86,        3401,        10, HIGH     , CLASSICAL
+ 645, HIGH       , MEDIUM      , CRITICAL, LOW        ,  72,     85,        1097,        10, HIGH     , POST_QUANTUM
+ 646, HIGH       , MEDIUM      , LOW     , HIGH       ,  64,     63,        3862,         9, HIGH     , CLASSICAL
+ 647, HIGH       , MEDIUM      , LOW     , LOW        ,  87,     72,        2173,         7, MEDIUM   , CLASSICAL
+ 648, CRITICAL   , MEDIUM      , CRITICAL, MEDIUM     ,  32,     53,         473,        12, HIGH     , POST_QUANTUM
+ 649, MEDIUM     , LOW         , MEDIUM  , LOW        ,  81,     48,        1146,         9, HIGH     , CLASSICAL
+ 650, HIGH       , MEDIUM      , HIGH    , HIGH       ,  21,     14,        3940,        11, HIGH     , HYBRID
+ 651, HIGH       , MEDIUM      , CRITICAL, MEDIUM     ,  18,     48,        2128,        11, HIGH     , POST_QUANTUM
+ 652, HIGH       , MEDIUM      , MEDIUM  , LOW        ,  69,     85,        1164,         8, MEDIUM   , CLASSICAL
+ 653, LOW        , LOW         , MEDIUM  , CRITICAL   ,  69,     94,        3094,        11, HIGH     , POST_QUANTUM
+ 654, CRITICAL   , MEDIUM      , MEDIUM  , CRITICAL   ,  26,     50,        2908,        12, HIGH     , POST_QUANTUM
+ 655, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  48,     18,         770,        12, HIGH     , POST_QUANTUM
+ 656, CRITICAL   , LOW         , MEDIUM  , CRITICAL   ,  36,     65,        2234,        14, CRITICAL , POST_QUANTUM
+ 657, CRITICAL   , HIGH        , MEDIUM  , CRITICAL   ,  66,     85,        3910,        11, HIGH     , POST_QUANTUM
+ 658, CRITICAL   , HIGH        , LOW     , CRITICAL   ,  11,     77,        2140,        10, HIGH     , POST_QUANTUM
+ 659, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  68,     79,         988,         7, MEDIUM   , CLASSICAL
+ 660, LOW        , MEDIUM      , HIGH    , LOW        ,  63,     22,        3572,         7, MEDIUM   , CLASSICAL
+ 661, LOW        , LOW         , HIGH    , MEDIUM     ,  25,     11,         171,        10, HIGH     , HYBRID
+ 662, LOW        , MEDIUM      , MEDIUM  , CRITICAL   ,  27,     80,        1840,         9, HIGH     , CLASSICAL
+ 663, LOW        , MEDIUM      , LOW     , MEDIUM     ,  21,     15,        3931,         6, MEDIUM   , BASIC
+ 664, HIGH       , HIGH        , CRITICAL, HIGH       ,  23,     82,        3980,        11, HIGH     , POST_QUANTUM
+ 665, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  67,     25,        2600,        11, HIGH     , POST_QUANTUM
+ 666, LOW        , LOW         , CRITICAL, CRITICAL   ,  31,     48,        2811,        13, CRITICAL , POST_QUANTUM
+ 667, LOW        , HIGH        , LOW     , CRITICAL   ,  17,     41,        2276,         7, MEDIUM   , CLASSICAL
+ 668, MEDIUM     , LOW         , CRITICAL, LOW        ,  47,     69,        1278,        11, HIGH     , POST_QUANTUM
+ 669, HIGH       , MEDIUM      , LOW     , LOW        ,  14,     42,        2702,         7, MEDIUM   , CLASSICAL
+ 670, CRITICAL   , HIGH        , MEDIUM  , LOW        ,  88,     26,        1479,         8, MEDIUM   , CLASSICAL
+ 671, CRITICAL   , MEDIUM      , CRITICAL, CRITICAL   ,  69,     64,        3414,        14, CRITICAL , POST_QUANTUM
+ 672, MEDIUM     , LOW         , CRITICAL, MEDIUM     ,  23,     26,        2915,        12, HIGH     , POST_QUANTUM
+ 673, CRITICAL   , HIGH        , LOW     , HIGH       ,  53,     95,        3554,         9, HIGH     , CLASSICAL
+ 674, HIGH       , MEDIUM      , LOW     , LOW        ,  16,     48,        3607,         7, MEDIUM   , CLASSICAL
+ 675, LOW        , HIGH        , LOW     , CRITICAL   ,  58,     70,        2236,         7, MEDIUM   , CLASSICAL
+ 676, LOW        , HIGH        , CRITICAL, MEDIUM     ,  36,     23,         111,         8, MEDIUM   , CLASSICAL
+ 677, CRITICAL   , HIGH        , LOW     , LOW        ,  36,     12,        1706,         7, MEDIUM   , CLASSICAL
+ 678, HIGH       , LOW         , CRITICAL, MEDIUM     ,  21,     49,        3993,        13, CRITICAL , POST_QUANTUM
+ 679, CRITICAL   , MEDIUM      , MEDIUM  , MEDIUM     ,  39,     77,        1723,        10, HIGH     , HYBRID
+ 680, CRITICAL   , MEDIUM      , CRITICAL, CRITICAL   ,  11,     40,         802,        14, CRITICAL , POST_QUANTUM
+ 681, HIGH       , LOW         , CRITICAL, HIGH       ,  27,     56,        2271,        14, CRITICAL , POST_QUANTUM
+ 682, MEDIUM     , LOW         , LOW     , CRITICAL   ,  85,     35,        3498,        11, HIGH     , POST_QUANTUM
+ 683, CRITICAL   , MEDIUM      , CRITICAL, LOW        ,  82,     40,        3125,        11, HIGH     , POST_QUANTUM
+ 684, MEDIUM     , MEDIUM      , CRITICAL, LOW        ,  12,     73,         356,         9, HIGH     , CLASSICAL
+ 685, MEDIUM     , LOW         , HIGH    , HIGH       ,  80,     56,         705,        12, HIGH     , CLASSICAL
+ 686, LOW        , MEDIUM      , HIGH    , CRITICAL   ,  13,     25,        3995,        10, HIGH     , POST_QUANTUM
+ 687, MEDIUM     , HIGH        , LOW     , CRITICAL   ,  84,     11,        3086,         8, MEDIUM   , CLASSICAL
+ 688, HIGH       , LOW         , LOW     , LOW        ,  34,     82,        3680,         9, HIGH     , CLASSICAL
+ 689, LOW        , MEDIUM      , MEDIUM  , LOW        ,  10,     29,        1740,         6, MEDIUM   , BASIC
+ 690, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  79,     48,        3010,         8, MEDIUM   , CLASSICAL
+ 691, HIGH       , MEDIUM      , CRITICAL, LOW        ,  16,     87,        3277,        10, HIGH     , POST_QUANTUM
+ 692, LOW        , HIGH        , HIGH    , LOW        ,  26,     81,        1525,         6, MEDIUM   , BASIC
+ 693, HIGH       , MEDIUM      , HIGH    , LOW        ,  33,     87,         346,         9, HIGH     , CLASSICAL
+ 694, LOW        , MEDIUM      , MEDIUM  , HIGH       ,  61,     84,        3185,         8, MEDIUM   , CLASSICAL
+ 695, HIGH       , LOW         , LOW     , LOW        ,  27,     88,        1484,         9, HIGH     , CLASSICAL
+ 696, LOW        , MEDIUM      , LOW     , LOW        ,  90,     37,        2565,         5, MEDIUM   , BASIC
+ 697, CRITICAL   , MEDIUM      , MEDIUM  , HIGH       ,  37,     42,        2035,        11, HIGH     , HYBRID
+ 698, HIGH       , LOW         , MEDIUM  , HIGH       ,  68,     13,         395,        12, HIGH     , HYBRID
+ 699, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  94,     51,        3567,         7, MEDIUM   , CLASSICAL
+ 700, HIGH       , LOW         , CRITICAL, MEDIUM     ,  74,     63,        2939,        13, CRITICAL , POST_QUANTUM
+ 701, CRITICAL   , HIGH        , LOW     , MEDIUM     ,  59,     29,        3083,         8, MEDIUM   , CLASSICAL
+ 702, CRITICAL   , HIGH        , HIGH    , MEDIUM     ,  60,     51,        2372,        10, HIGH     , HYBRID
+ 703, LOW        , LOW         , HIGH    , MEDIUM     ,  77,     44,         274,        10, HIGH     , HYBRID
+ 704, LOW        , LOW         , CRITICAL, LOW        ,  71,     34,        1703,        10, HIGH     , POST_QUANTUM
+ 705, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  80,     26,        4081,         9, HIGH     , CLASSICAL
+ 706, CRITICAL   , HIGH        , HIGH    , HIGH       ,  45,     69,        3752,        11, HIGH     , HYBRID
+ 707, LOW        , LOW         , CRITICAL, HIGH       ,  46,     73,        1079,        12, HIGH     , POST_QUANTUM
+ 708, MEDIUM     , MEDIUM      , CRITICAL, CRITICAL   ,  77,     42,        3859,        12, HIGH     , POST_QUANTUM
+ 709, HIGH       , MEDIUM      , MEDIUM  , LOW        ,  49,     58,        1609,         8, MEDIUM   , CLASSICAL
+ 710, LOW        , HIGH        , HIGH    , MEDIUM     ,  93,     37,         957,         7, MEDIUM   , CLASSICAL
+ 711, LOW        , LOW         , HIGH    , CRITICAL   ,  10,     61,         211,        12, HIGH     , POST_QUANTUM
+ 712, LOW        , LOW         , HIGH    , HIGH       ,  75,     83,         398,        11, HIGH     , CLASSICAL
+ 713, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  18,     86,         729,        11, HIGH     , POST_QUANTUM
+ 714, LOW        , MEDIUM      , MEDIUM  , HIGH       ,  51,     18,        3855,         8, MEDIUM   , CLASSICAL
+ 715, MEDIUM     , MEDIUM      , CRITICAL, MEDIUM     ,  40,     83,        4070,        10, HIGH     , POST_QUANTUM
+ 716, MEDIUM     , MEDIUM      , MEDIUM  , CRITICAL   ,  86,     27,        3322,        10, HIGH     , POST_QUANTUM
+ 717, CRITICAL   , HIGH        , CRITICAL, HIGH       ,  77,     44,         328,        12, HIGH     , POST_QUANTUM
+ 718, LOW        , HIGH        , HIGH    , LOW        ,  86,     33,         577,         6, MEDIUM   , BASIC
+ 719, CRITICAL   , HIGH        , LOW     , MEDIUM     ,  84,     26,        1063,         8, MEDIUM   , CLASSICAL
+ 720, CRITICAL   , MEDIUM      , MEDIUM  , CRITICAL   ,  35,     76,        3704,        12, HIGH     , POST_QUANTUM
+ 721, CRITICAL   , LOW         , HIGH    , CRITICAL   ,  10,     18,        2520,        15, CRITICAL , POST_QUANTUM
+ 722, HIGH       , LOW         , HIGH    , HIGH       ,  66,     52,        3710,        13, CRITICAL , POST_QUANTUM
+ 723, LOW        , HIGH        , LOW     , CRITICAL   ,  53,     87,         850,         7, MEDIUM   , CLASSICAL
+ 724, CRITICAL   , MEDIUM      , HIGH    , LOW        ,  59,     30,        2202,        10, HIGH     , HYBRID
+ 725, MEDIUM     , LOW         , LOW     , CRITICAL   ,  24,     94,        3816,        11, HIGH     , POST_QUANTUM
+ 726, LOW        , MEDIUM      , CRITICAL, CRITICAL   ,  62,     15,        1382,        11, HIGH     , POST_QUANTUM
+ 727, HIGH       , HIGH        , CRITICAL, LOW        ,  91,     90,         995,         9, HIGH     , CLASSICAL
+ 728, HIGH       , MEDIUM      , CRITICAL, HIGH       ,  24,     55,        2151,        12, HIGH     , POST_QUANTUM
+ 729, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  25,     31,         155,         9, HIGH     , CLASSICAL
+ 730, CRITICAL   , HIGH        , CRITICAL, MEDIUM     ,  36,     59,        1550,        11, HIGH     , POST_QUANTUM
+ 731, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  36,     84,        1015,        10, HIGH     , POST_QUANTUM
+ 732, MEDIUM     , LOW         , LOW     , LOW        ,  13,     55,        1023,         8, MEDIUM   , CLASSICAL
+ 733, LOW        , HIGH        , CRITICAL, HIGH       ,  34,     64,        2851,         9, HIGH     , CLASSICAL
+ 734, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  52,     33,        4078,        13, CRITICAL , POST_QUANTUM
+ 735, MEDIUM     , LOW         , CRITICAL, CRITICAL   ,  47,     36,        2754,        14, CRITICAL , POST_QUANTUM
+ 736, CRITICAL   , LOW         , LOW     , MEDIUM     ,  44,     64,         369,        11, HIGH     , HYBRID
+ 737, CRITICAL   , LOW         , CRITICAL, HIGH       ,  43,     74,         550,        15, CRITICAL , POST_QUANTUM
+ 738, LOW        , MEDIUM      , LOW     , LOW        ,  78,     46,        2669,         5, MEDIUM   , BASIC
+ 739, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  59,     77,        2978,        12, HIGH     , POST_QUANTUM
+ 740, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  17,     88,        1583,        10, HIGH     , CLASSICAL
+ 741, LOW        , HIGH        , HIGH    , MEDIUM     ,  46,     74,         614,         7, MEDIUM   , CLASSICAL
+ 742, MEDIUM     , HIGH        , CRITICAL, LOW        ,  70,     24,         351,         8, MEDIUM   , CLASSICAL
+ 743, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  74,     14,        1046,         7, MEDIUM   , CLASSICAL
+ 744, HIGH       , LOW         , HIGH    , CRITICAL   ,  46,     34,        2013,        14, CRITICAL , POST_QUANTUM
+ 745, MEDIUM     , MEDIUM      , MEDIUM  , MEDIUM     ,  55,     93,        2058,         8, MEDIUM   , CLASSICAL
+ 746, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  36,     23,        2431,         7, MEDIUM   , CLASSICAL
+ 747, MEDIUM     , LOW         , LOW     , CRITICAL   ,  41,     91,        1091,        11, HIGH     , POST_QUANTUM
+ 748, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  23,     39,        1667,        13, CRITICAL , POST_QUANTUM
+ 749, MEDIUM     , HIGH        , HIGH    , CRITICAL   ,  45,     11,        1901,        10, HIGH     , POST_QUANTUM
+ 750, CRITICAL   , MEDIUM      , LOW     , CRITICAL   ,  49,     59,        1632,        11, HIGH     , POST_QUANTUM
+ 751, HIGH       , LOW         , CRITICAL, HIGH       ,  12,     59,        3474,        14, CRITICAL , POST_QUANTUM
+ 752, HIGH       , HIGH        , HIGH    , HIGH       ,  52,     53,        3223,        10, HIGH     , HYBRID
+ 753, LOW        , HIGH        , CRITICAL, CRITICAL   ,  38,     19,        2707,        10, HIGH     , POST_QUANTUM
+ 754, MEDIUM     , HIGH        , HIGH    , MEDIUM     ,  17,     87,        2940,         8, MEDIUM   , CLASSICAL
+ 755, HIGH       , HIGH        , MEDIUM  , HIGH       ,  17,     31,        3648,         9, HIGH     , CLASSICAL
+ 756, HIGH       , MEDIUM      , HIGH    , LOW        ,  56,     72,         397,         9, HIGH     , CLASSICAL
+ 757, HIGH       , HIGH        , LOW     , CRITICAL   ,  86,     25,        2210,         9, HIGH     , CLASSICAL
+ 758, CRITICAL   , LOW         , HIGH    , CRITICAL   ,  35,     34,        1483,        15, CRITICAL , POST_QUANTUM
+ 759, HIGH       , LOW         , HIGH    , HIGH       ,  13,     80,         672,        13, CRITICAL , POST_QUANTUM
+ 760, MEDIUM     , MEDIUM      , LOW     , LOW        ,  95,     59,        1003,         6, MEDIUM   , BASIC
+ 761, CRITICAL   , LOW         , CRITICAL, CRITICAL   ,  63,     94,         948,        16, CRITICAL , POST_QUANTUM
+ 762, CRITICAL   , MEDIUM      , HIGH    , HIGH       ,  90,     35,         854,        12, HIGH     , CLASSICAL
+ 763, CRITICAL   , LOW         , LOW     , HIGH       ,  80,     51,        4016,        12, HIGH     , CLASSICAL
+ 764, HIGH       , HIGH        , LOW     , CRITICAL   ,  93,     24,         219,         9, HIGH     , CLASSICAL
+ 765, MEDIUM     , HIGH        , HIGH    , LOW        ,  22,     74,        1001,         7, MEDIUM   , CLASSICAL
+ 766, CRITICAL   , MEDIUM      , MEDIUM  , HIGH       ,  95,     83,        3405,        11, HIGH     , CLASSICAL
+ 767, LOW        , HIGH        , LOW     , LOW        ,  19,     72,        4003,         4, LOW      , BASIC
+ 768, HIGH       , LOW         , LOW     , MEDIUM     ,  74,     77,        1662,        10, HIGH     , HYBRID
+ 769, LOW        , MEDIUM      , MEDIUM  , MEDIUM     ,  10,     63,        1059,         7, MEDIUM   , CLASSICAL
+ 770, MEDIUM     , MEDIUM      , HIGH    , LOW        ,  76,     91,        1041,         8, MEDIUM   , CLASSICAL
+ 771, CRITICAL   , HIGH        , HIGH    , LOW        ,  78,     15,        3034,         9, HIGH     , CLASSICAL
+ 772, LOW        , LOW         , HIGH    , HIGH       ,  28,     16,        1397,        11, HIGH     , HYBRID
+ 773, HIGH       , MEDIUM      , CRITICAL, HIGH       ,  45,     47,        1597,        12, HIGH     , POST_QUANTUM
+ 774, LOW        , HIGH        , CRITICAL, HIGH       ,  26,     62,        1939,         9, HIGH     , CLASSICAL
+ 775, CRITICAL   , LOW         , LOW     , CRITICAL   ,  25,     82,        2488,        13, CRITICAL , POST_QUANTUM
+ 776, MEDIUM     , LOW         , CRITICAL, HIGH       ,  66,     50,        2617,        13, CRITICAL , POST_QUANTUM
+ 777, LOW        , MEDIUM      , MEDIUM  , MEDIUM     ,  73,     88,        3951,         7, MEDIUM   , CLASSICAL
+ 778, MEDIUM     , LOW         , MEDIUM  , CRITICAL   ,  83,     92,        1413,        12, HIGH     , POST_QUANTUM
+ 779, CRITICAL   , LOW         , MEDIUM  , HIGH       ,  69,     93,        2288,        13, CRITICAL , POST_QUANTUM
+ 780, LOW        , LOW         , CRITICAL, MEDIUM     ,  70,     16,        2781,        11, HIGH     , POST_QUANTUM
+ 781, MEDIUM     , LOW         , HIGH    , LOW        ,  44,     87,        2026,        10, HIGH     , CLASSICAL
+ 782, CRITICAL   , LOW         , MEDIUM  , LOW        ,  28,     67,        2452,        11, HIGH     , HYBRID
+ 783, LOW        , HIGH        , MEDIUM  , HIGH       ,  11,     44,         796,         7, MEDIUM   , CLASSICAL
+ 784, HIGH       , LOW         , HIGH    , LOW        ,  57,     55,        2674,        11, HIGH     , HYBRID
+ 785, HIGH       , HIGH        , MEDIUM  , HIGH       ,  38,     36,        1268,         9, HIGH     , CLASSICAL
+ 786, CRITICAL   , HIGH        , HIGH    , LOW        ,  82,     70,        2402,         9, HIGH     , CLASSICAL
+ 787, CRITICAL   , LOW         , MEDIUM  , LOW        ,  56,     90,         874,        11, HIGH     , CLASSICAL
+ 788, MEDIUM     , MEDIUM      , LOW     , LOW        ,  47,     90,        2761,         6, MEDIUM   , BASIC
+ 789, CRITICAL   , MEDIUM      , CRITICAL, LOW        ,  52,     50,         831,        11, HIGH     , POST_QUANTUM
+ 790, LOW        , HIGH        , CRITICAL, HIGH       ,  84,     40,        3666,         9, HIGH     , CLASSICAL
+ 791, LOW        , HIGH        , LOW     , LOW        ,  50,     64,        3884,         4, LOW      , BASIC
+ 792, LOW        , MEDIUM      , LOW     , LOW        ,  61,     63,         221,         5, MEDIUM   , BASIC
+ 793, HIGH       , LOW         , LOW     , MEDIUM     ,  12,     17,        1926,        10, HIGH     , HYBRID
+ 794, CRITICAL   , LOW         , MEDIUM  , HIGH       ,  58,     78,        1376,        13, CRITICAL , POST_QUANTUM
+ 795, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  44,     17,        3936,         9, HIGH     , CLASSICAL
+ 796, CRITICAL   , MEDIUM      , LOW     , MEDIUM     ,  51,     28,        1830,         9, HIGH     , CLASSICAL
+ 797, HIGH       , HIGH        , HIGH    , HIGH       ,  18,     62,         442,        10, HIGH     , HYBRID
+ 798, CRITICAL   , LOW         , MEDIUM  , MEDIUM     ,  90,     88,         441,        12, HIGH     , CLASSICAL
+ 799, LOW        , HIGH        , HIGH    , HIGH       ,  45,     12,        3622,         8, MEDIUM   , CLASSICAL
+ 800, LOW        , LOW         , MEDIUM  , CRITICAL   ,  93,     47,        2248,        11, HIGH     , POST_QUANTUM
+ 801, HIGH       , HIGH        , LOW     , HIGH       ,  31,     59,        4081,         8, MEDIUM   , CLASSICAL
+ 802, CRITICAL   , HIGH        , HIGH    , CRITICAL   ,  42,     93,        2890,        12, HIGH     , POST_QUANTUM
+ 803, CRITICAL   , HIGH        , CRITICAL, CRITICAL   ,  17,     62,         455,        13, CRITICAL , POST_QUANTUM
+ 804, HIGH       , HIGH        , MEDIUM  , CRITICAL   ,  47,     52,        3940,        10, HIGH     , POST_QUANTUM
+ 805, HIGH       , HIGH        , CRITICAL, LOW        ,  21,     11,        3352,         9, HIGH     , CLASSICAL
+ 806, LOW        , MEDIUM      , CRITICAL, LOW        ,  53,     94,        4035,         8, MEDIUM   , CLASSICAL
+ 807, CRITICAL   , HIGH        , HIGH    , MEDIUM     ,  32,     36,         539,        10, HIGH     , HYBRID
+ 808, HIGH       , LOW         , LOW     , MEDIUM     ,  59,     39,        2243,        10, HIGH     , HYBRID
+ 809, LOW        , HIGH        , LOW     , LOW        ,  42,     10,        2653,         4, LOW      , BASIC
+ 810, LOW        , MEDIUM      , HIGH    , HIGH       ,  51,     64,        3513,         9, HIGH     , CLASSICAL
+ 811, CRITICAL   , HIGH        , CRITICAL, CRITICAL   ,  48,     49,         148,        13, CRITICAL , POST_QUANTUM
+ 812, CRITICAL   , HIGH        , LOW     , MEDIUM     ,  88,     62,        1867,         8, MEDIUM   , CLASSICAL
+ 813, MEDIUM     , LOW         , CRITICAL, CRITICAL   ,  66,     40,         737,        14, CRITICAL , POST_QUANTUM
+ 814, LOW        , HIGH        , MEDIUM  , MEDIUM     ,  35,     13,        3162,         6, MEDIUM   , BASIC
+ 815, HIGH       , MEDIUM      , CRITICAL, LOW        ,  67,     63,         606,        10, HIGH     , POST_QUANTUM
+ 816, HIGH       , HIGH        , MEDIUM  , HIGH       ,  46,     45,        1363,         9, HIGH     , CLASSICAL
+ 817, MEDIUM     , MEDIUM      , MEDIUM  , MEDIUM     ,  54,     26,        1551,         8, MEDIUM   , CLASSICAL
+ 818, HIGH       , HIGH        , HIGH    , CRITICAL   ,  93,     15,        3128,        11, HIGH     , POST_QUANTUM
+ 819, CRITICAL   , MEDIUM      , HIGH    , HIGH       ,  38,     15,        4014,        12, HIGH     , HYBRID
+ 820, LOW        , MEDIUM      , HIGH    , LOW        ,  93,     77,        2663,         7, MEDIUM   , CLASSICAL
+ 821, LOW        , MEDIUM      , HIGH    , MEDIUM     ,  92,     27,        2996,         8, MEDIUM   , CLASSICAL
+ 822, LOW        , MEDIUM      , LOW     , LOW        ,  16,     49,        3441,         5, MEDIUM   , BASIC
+ 823, MEDIUM     , HIGH        , MEDIUM  , LOW        ,  48,     89,        1632,         6, MEDIUM   , BASIC
+ 824, CRITICAL   , HIGH        , MEDIUM  , LOW        ,  72,     31,        1946,         8, MEDIUM   , CLASSICAL
+ 825, CRITICAL   , MEDIUM      , CRITICAL, HIGH       ,  92,     29,         231,        13, CRITICAL , POST_QUANTUM
+ 826, CRITICAL   , HIGH        , HIGH    , MEDIUM     ,  94,     81,        3275,        10, HIGH     , CLASSICAL
+ 827, CRITICAL   , HIGH        , CRITICAL, MEDIUM     ,  50,     72,        1675,        11, HIGH     , POST_QUANTUM
+ 828, LOW        , HIGH        , HIGH    , HIGH       ,  12,     85,          72,         8, MEDIUM   , CLASSICAL
+ 829, HIGH       , MEDIUM      , CRITICAL, CRITICAL   ,  52,     85,        3199,        13, CRITICAL , POST_QUANTUM
+ 830, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  54,     70,         334,        10, HIGH     , HYBRID
+ 831, MEDIUM     , LOW         , LOW     , LOW        ,  49,     56,         880,         8, MEDIUM   , CLASSICAL
+ 832, CRITICAL   , LOW         , MEDIUM  , CRITICAL   ,  10,     17,         496,        14, CRITICAL , POST_QUANTUM
+ 833, LOW        , HIGH        , MEDIUM  , MEDIUM     ,  29,     68,        1784,         6, MEDIUM   , BASIC
+ 834, HIGH       , MEDIUM      , CRITICAL, MEDIUM     ,  67,     28,        1104,        11, HIGH     , POST_QUANTUM
+ 835, MEDIUM     , LOW         , MEDIUM  , CRITICAL   ,  19,     27,        1308,        12, HIGH     , POST_QUANTUM
+ 836, LOW        , LOW         , LOW     , CRITICAL   ,  90,     74,        3407,        10, HIGH     , POST_QUANTUM
+ 837, MEDIUM     , HIGH        , HIGH    , HIGH       ,  18,     13,        2159,         9, HIGH     , CLASSICAL
+ 838, CRITICAL   , LOW         , MEDIUM  , MEDIUM     ,  59,     51,         998,        12, HIGH     , HYBRID
+ 839, LOW        , HIGH        , HIGH    , HIGH       ,  92,     85,        3203,         8, MEDIUM   , CLASSICAL
+ 840, LOW        , LOW         , MEDIUM  , CRITICAL   ,  14,     37,        3678,        11, HIGH     , POST_QUANTUM
+ 841, MEDIUM     , HIGH        , HIGH    , HIGH       ,  80,     24,        2788,         9, HIGH     , CLASSICAL
+ 842, LOW        , MEDIUM      , CRITICAL, HIGH       ,  77,     52,        3661,        10, HIGH     , POST_QUANTUM
+ 843, HIGH       , MEDIUM      , LOW     , LOW        ,  26,     58,        1750,         7, MEDIUM   , CLASSICAL
+ 844, LOW        , MEDIUM      , LOW     , CRITICAL   ,  71,     74,        1417,         8, MEDIUM   , CLASSICAL
+ 845, HIGH       , HIGH        , MEDIUM  , LOW        ,  56,     34,        3576,         7, MEDIUM   , CLASSICAL
+ 846, CRITICAL   , MEDIUM      , MEDIUM  , CRITICAL   ,  64,     91,          90,        12, HIGH     , POST_QUANTUM
+ 847, LOW        , LOW         , HIGH    , MEDIUM     ,  29,     13,        2591,        10, HIGH     , HYBRID
+ 848, LOW        , HIGH        , LOW     , HIGH       ,  59,     74,        3675,         6, MEDIUM   , BASIC
+ 849, HIGH       , HIGH        , MEDIUM  , CRITICAL   ,  32,     66,          82,        10, HIGH     , POST_QUANTUM
+ 850, MEDIUM     , MEDIUM      , CRITICAL, LOW        ,  51,     90,         377,         9, HIGH     , CLASSICAL
+ 851, LOW        , LOW         , HIGH    , LOW        ,  95,     15,        3449,         9, HIGH     , CLASSICAL
+ 852, LOW        , HIGH        , CRITICAL, LOW        ,  28,     39,        1761,         7, MEDIUM   , CLASSICAL
+ 853, MEDIUM     , LOW         , MEDIUM  , LOW        ,  17,     22,        1044,         9, HIGH     , CLASSICAL
+ 854, CRITICAL   , LOW         , HIGH    , MEDIUM     ,  11,     40,        2939,        13, CRITICAL , POST_QUANTUM
+ 855, HIGH       , LOW         , CRITICAL, HIGH       ,  93,     76,        2658,        14, CRITICAL , POST_QUANTUM
+ 856, MEDIUM     , LOW         , MEDIUM  , LOW        ,  81,     44,        3729,         9, HIGH     , CLASSICAL
+ 857, CRITICAL   , LOW         , MEDIUM  , HIGH       ,  54,     44,        3230,        13, CRITICAL , POST_QUANTUM
+ 858, CRITICAL   , HIGH        , MEDIUM  , LOW        ,  19,     67,        1151,         8, MEDIUM   , CLASSICAL
+ 859, LOW        , LOW         , MEDIUM  , MEDIUM     ,  69,     12,        3047,         9, HIGH     , CLASSICAL
+ 860, CRITICAL   , HIGH        , CRITICAL, LOW        ,  17,     32,        1069,        10, HIGH     , POST_QUANTUM
+ 861, MEDIUM     , LOW         , HIGH    , HIGH       ,  93,     12,        2062,        12, HIGH     , CLASSICAL
+ 862, MEDIUM     , MEDIUM      , CRITICAL, HIGH       ,  80,     44,        2334,        11, HIGH     , POST_QUANTUM
+ 863, LOW        , LOW         , CRITICAL, MEDIUM     ,  33,     20,        3901,        11, HIGH     , POST_QUANTUM
+ 864, CRITICAL   , MEDIUM      , CRITICAL, CRITICAL   ,  73,     12,        2774,        14, CRITICAL , POST_QUANTUM
+ 865, MEDIUM     , HIGH        , MEDIUM  , MEDIUM     ,  12,     87,         159,         7, MEDIUM   , CLASSICAL
+ 866, HIGH       , HIGH        , CRITICAL, CRITICAL   ,  87,     24,        2659,        12, HIGH     , POST_QUANTUM
+ 867, LOW        , HIGH        , LOW     , LOW        ,  88,     63,         819,         4, LOW      , BASIC
+ 868, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  23,     47,        2446,        13, CRITICAL , POST_QUANTUM
+ 869, HIGH       , LOW         , LOW     , MEDIUM     ,  75,     89,        4000,        10, HIGH     , CLASSICAL
+ 870, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  84,     57,        2149,         8, MEDIUM   , CLASSICAL
+ 871, MEDIUM     , HIGH        , CRITICAL, LOW        ,  15,     67,        1355,         8, MEDIUM   , CLASSICAL
+ 872, LOW        , HIGH        , HIGH    , MEDIUM     ,  29,     77,        1089,         7, MEDIUM   , CLASSICAL
+ 873, HIGH       , MEDIUM      , CRITICAL, LOW        ,  23,     71,        3065,        10, HIGH     , POST_QUANTUM
+ 874, MEDIUM     , HIGH        , CRITICAL, CRITICAL   ,  89,     46,        3267,        11, HIGH     , POST_QUANTUM
+ 875, MEDIUM     , LOW         , LOW     , MEDIUM     ,  57,     13,        3451,         9, HIGH     , CLASSICAL
+ 876, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  60,     56,        1997,        11, HIGH     , POST_QUANTUM
+ 877, HIGH       , LOW         , LOW     , HIGH       ,  95,     55,        3731,        11, HIGH     , CLASSICAL
+ 878, LOW        , LOW         , CRITICAL, CRITICAL   ,  45,     86,        3033,        13, CRITICAL , POST_QUANTUM
+ 879, CRITICAL   , MEDIUM      , LOW     , LOW        ,  33,     42,        1172,         8, MEDIUM   , CLASSICAL
+ 880, MEDIUM     , HIGH        , CRITICAL, LOW        ,  19,     43,        1910,         8, MEDIUM   , CLASSICAL
+ 881, LOW        , MEDIUM      , LOW     , CRITICAL   ,  37,     32,        3501,         8, MEDIUM   , CLASSICAL
+ 882, CRITICAL   , MEDIUM      , LOW     , HIGH       ,  77,     49,        3465,        10, HIGH     , HYBRID
+ 883, CRITICAL   , MEDIUM      , LOW     , MEDIUM     ,  24,     71,        1686,         9, HIGH     , CLASSICAL
+ 884, HIGH       , LOW         , CRITICAL, LOW        ,  16,     14,        2001,        12, HIGH     , POST_QUANTUM
+ 885, HIGH       , MEDIUM      , LOW     , LOW        ,  59,     45,        3528,         7, MEDIUM   , CLASSICAL
+ 886, LOW        , HIGH        , HIGH    , CRITICAL   ,  86,     16,        2621,         9, HIGH     , CLASSICAL
+ 887, CRITICAL   , LOW         , CRITICAL, CRITICAL   ,  42,     92,        3124,        16, CRITICAL , POST_QUANTUM
+ 888, LOW        , MEDIUM      , CRITICAL, LOW        ,  35,     23,          75,         8, MEDIUM   , CLASSICAL
+ 889, HIGH       , HIGH        , HIGH    , HIGH       ,  44,     15,        3959,        10, HIGH     , HYBRID
+ 890, HIGH       , MEDIUM      , LOW     , HIGH       ,  23,     41,        2321,         9, HIGH     , CLASSICAL
+ 891, CRITICAL   , LOW         , CRITICAL, LOW        ,  94,     36,        2606,        13, CRITICAL , POST_QUANTUM
+ 892, HIGH       , LOW         , CRITICAL, LOW        ,  89,     23,        4089,        12, HIGH     , POST_QUANTUM
+ 893, CRITICAL   , HIGH        , HIGH    , HIGH       ,  78,     79,        3598,        11, HIGH     , HYBRID
+ 894, LOW        , MEDIUM      , CRITICAL, CRITICAL   ,  19,     17,        1433,        11, HIGH     , POST_QUANTUM
+ 895, CRITICAL   , LOW         , CRITICAL, MEDIUM     ,  62,     34,        3797,        14, CRITICAL , POST_QUANTUM
+ 896, CRITICAL   , LOW         , LOW     , LOW        ,  16,     22,         694,        10, HIGH     , HYBRID
+ 897, CRITICAL   , LOW         , LOW     , MEDIUM     ,  21,     75,        1052,        11, HIGH     , HYBRID
+ 898, CRITICAL   , HIGH        , MEDIUM  , HIGH       ,  88,     48,        2897,        10, HIGH     , CLASSICAL
+ 899, CRITICAL   , LOW         , LOW     , LOW        ,  74,     62,        1772,        10, HIGH     , HYBRID
+ 900, CRITICAL   , LOW         , CRITICAL, MEDIUM     ,  94,     18,        1631,        14, CRITICAL , POST_QUANTUM
+ 901, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  63,     13,        1986,        11, HIGH     , HYBRID
+ 902, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  88,     13,        1342,         8, MEDIUM   , CLASSICAL
+ 903, MEDIUM     , HIGH        , HIGH    , LOW        ,  80,     61,         385,         7, MEDIUM   , CLASSICAL
+ 904, HIGH       , HIGH        , CRITICAL, HIGH       ,  20,     11,        1088,        11, HIGH     , POST_QUANTUM
+ 905, LOW        , LOW         , MEDIUM  , HIGH       ,  31,     39,        1816,        10, HIGH     , HYBRID
+ 906, HIGH       , LOW         , HIGH    , CRITICAL   ,  50,     62,        1462,        14, CRITICAL , POST_QUANTUM
+ 907, HIGH       , LOW         , LOW     , CRITICAL   ,  93,     23,         255,        12, HIGH     , POST_QUANTUM
+ 908, LOW        , LOW         , HIGH    , LOW        ,  61,     28,        2251,         9, HIGH     , CLASSICAL
+ 909, LOW        , MEDIUM      , CRITICAL, LOW        ,  36,     56,        1278,         8, MEDIUM   , CLASSICAL
+ 910, HIGH       , HIGH        , CRITICAL, HIGH       ,  36,     25,        2284,        11, HIGH     , POST_QUANTUM
+ 911, HIGH       , LOW         , CRITICAL, CRITICAL   ,  23,     88,        1836,        15, CRITICAL , POST_QUANTUM
+ 912, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  76,     60,        3109,         8, MEDIUM   , CLASSICAL
+ 913, CRITICAL   , MEDIUM      , HIGH    , CRITICAL   ,  14,     43,        3347,        13, CRITICAL , POST_QUANTUM
+ 914, LOW        , MEDIUM      , MEDIUM  , HIGH       ,  12,     70,        1768,         8, MEDIUM   , CLASSICAL
+ 915, LOW        , LOW         , LOW     , LOW        ,  29,     58,        1492,         7, MEDIUM   , CLASSICAL
+ 916, MEDIUM     , MEDIUM      , LOW     , HIGH       ,  35,     32,         831,         8, MEDIUM   , CLASSICAL
+ 917, CRITICAL   , MEDIUM      , HIGH    , LOW        ,  70,     18,        3407,        10, HIGH     , HYBRID
+ 918, HIGH       , HIGH        , LOW     , MEDIUM     ,  57,     10,        2664,         7, MEDIUM   , CLASSICAL
+ 919, CRITICAL   , MEDIUM      , CRITICAL, HIGH       ,  35,     89,          90,        13, CRITICAL , POST_QUANTUM
+ 920, HIGH       , MEDIUM      , HIGH    , MEDIUM     ,  95,     64,        3106,        10, HIGH     , CLASSICAL
+ 921, LOW        , LOW         , CRITICAL, HIGH       ,  20,     55,        3528,        12, HIGH     , POST_QUANTUM
+ 922, MEDIUM     , MEDIUM      , HIGH    , CRITICAL   ,  75,     23,        3747,        11, HIGH     , POST_QUANTUM
+ 923, CRITICAL   , MEDIUM      , HIGH    , CRITICAL   ,  29,     79,        2418,        13, CRITICAL , POST_QUANTUM
+ 924, MEDIUM     , HIGH        , HIGH    , LOW        ,  13,     63,        3806,         7, MEDIUM   , CLASSICAL
+ 925, CRITICAL   , MEDIUM      , LOW     , LOW        ,  54,     79,         125,         8, MEDIUM   , CLASSICAL
+ 926, LOW        , HIGH        , HIGH    , CRITICAL   ,  72,     95,        1296,         9, HIGH     , CLASSICAL
+ 927, MEDIUM     , HIGH        , HIGH    , HIGH       ,  11,     30,        1030,         9, HIGH     , CLASSICAL
+ 928, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  74,     19,        3256,        11, HIGH     , POST_QUANTUM
+ 929, MEDIUM     , LOW         , HIGH    , CRITICAL   ,  29,     48,        2821,        13, CRITICAL , POST_QUANTUM
+ 930, CRITICAL   , LOW         , LOW     , LOW        ,  28,     62,        1636,        10, HIGH     , HYBRID
+ 931, CRITICAL   , LOW         , HIGH    , HIGH       ,  88,     86,        3517,        14, CRITICAL , POST_QUANTUM
+ 932, HIGH       , HIGH        , MEDIUM  , LOW        ,  26,     65,        3089,         7, MEDIUM   , CLASSICAL
+ 933, LOW        , MEDIUM      , MEDIUM  , LOW        ,  85,     58,        1262,         6, MEDIUM   , BASIC
+ 934, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  62,     87,         774,        10, HIGH     , CLASSICAL
+ 935, CRITICAL   , MEDIUM      , MEDIUM  , MEDIUM     ,  13,     84,        2960,        10, HIGH     , CLASSICAL
+ 936, HIGH       , LOW         , CRITICAL, CRITICAL   ,  42,     85,         415,        15, CRITICAL , POST_QUANTUM
+ 937, LOW        , HIGH        , CRITICAL, HIGH       ,  92,     52,        2424,         9, HIGH     , CLASSICAL
+ 938, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  46,     14,        1784,         8, MEDIUM   , CLASSICAL
+ 939, HIGH       , MEDIUM      , HIGH    , CRITICAL   ,  68,     90,        1727,        12, HIGH     , POST_QUANTUM
+ 940, MEDIUM     , MEDIUM      , HIGH    , HIGH       ,  50,     90,        2988,        10, HIGH     , CLASSICAL
+ 941, HIGH       , LOW         , MEDIUM  , HIGH       ,  68,     80,        3634,        12, HIGH     , CLASSICAL
+ 942, LOW        , LOW         , CRITICAL, HIGH       ,  27,     87,        1268,        12, HIGH     , POST_QUANTUM
+ 943, LOW        , HIGH        , HIGH    , HIGH       ,  14,     14,        1511,         8, MEDIUM   , CLASSICAL
+ 944, CRITICAL   , LOW         , HIGH    , CRITICAL   ,  19,     80,        1075,        15, CRITICAL , POST_QUANTUM
+ 945, CRITICAL   , HIGH        , CRITICAL, CRITICAL   ,  12,     77,        3370,        13, CRITICAL , POST_QUANTUM
+ 946, CRITICAL   , MEDIUM      , HIGH    , HIGH       ,  54,     95,        1615,        12, HIGH     , CLASSICAL
+ 947, MEDIUM     , HIGH        , MEDIUM  , LOW        ,  52,     26,        1326,         6, MEDIUM   , BASIC
+ 948, LOW        , MEDIUM      , CRITICAL, CRITICAL   ,  53,     63,         741,        11, HIGH     , POST_QUANTUM
+ 949, LOW        , LOW         , HIGH    , CRITICAL   ,  24,     95,        2929,        12, HIGH     , POST_QUANTUM
+ 950, CRITICAL   , LOW         , CRITICAL, CRITICAL   ,  87,     87,        2015,        16, CRITICAL , POST_QUANTUM
+ 951, MEDIUM     , MEDIUM      , HIGH    , MEDIUM     ,  82,     85,        3200,         9, HIGH     , CLASSICAL
+ 952, LOW        , LOW         , CRITICAL, MEDIUM     ,  47,     16,        1719,        11, HIGH     , POST_QUANTUM
+ 953, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  42,     43,        1870,        10, HIGH     , POST_QUANTUM
+ 954, MEDIUM     , MEDIUM      , CRITICAL, LOW        ,  90,     75,         646,         9, HIGH     , CLASSICAL
+ 955, HIGH       , HIGH        , HIGH    , CRITICAL   ,  40,     89,        3960,        11, HIGH     , POST_QUANTUM
+ 956, HIGH       , HIGH        , CRITICAL, LOW        ,  41,     61,        2259,         9, HIGH     , CLASSICAL
+ 957, LOW        , MEDIUM      , LOW     , CRITICAL   ,  64,     13,        1050,         8, MEDIUM   , CLASSICAL
+ 958, LOW        , MEDIUM      , HIGH    , HIGH       ,  28,     83,        3409,         9, HIGH     , CLASSICAL
+ 959, HIGH       , HIGH        , HIGH    , HIGH       ,  25,     68,        4013,        10, HIGH     , HYBRID
+ 960, MEDIUM     , LOW         , MEDIUM  , CRITICAL   ,  84,     71,        3496,        12, HIGH     , POST_QUANTUM
+ 961, MEDIUM     , HIGH        , HIGH    , CRITICAL   ,  73,     29,         806,        10, HIGH     , POST_QUANTUM
+ 962, CRITICAL   , HIGH        , LOW     , MEDIUM     ,  84,     80,         877,         8, MEDIUM   , CLASSICAL
+ 963, CRITICAL   , LOW         , MEDIUM  , LOW        ,  37,     11,         909,        11, HIGH     , HYBRID
+ 964, LOW        , HIGH        , MEDIUM  , MEDIUM     ,  75,     22,        2976,         6, MEDIUM   , BASIC
+ 965, HIGH       , HIGH        , CRITICAL, MEDIUM     ,  11,     77,        2618,        10, HIGH     , POST_QUANTUM
+ 966, CRITICAL   , LOW         , HIGH    , HIGH       ,  75,     25,        3879,        14, CRITICAL , POST_QUANTUM
+ 967, CRITICAL   , HIGH        , MEDIUM  , CRITICAL   ,  54,     63,         704,        11, HIGH     , POST_QUANTUM
+ 968, MEDIUM     , HIGH        , MEDIUM  , CRITICAL   ,  33,     71,         526,         9, HIGH     , CLASSICAL
+ 969, CRITICAL   , LOW         , HIGH    , HIGH       ,  19,     86,         930,        14, CRITICAL , POST_QUANTUM
+ 970, LOW        , MEDIUM      , MEDIUM  , LOW        ,  51,     79,        3800,         6, MEDIUM   , BASIC
+ 971, LOW        , LOW         , CRITICAL, MEDIUM     ,  33,     89,        2668,        11, HIGH     , POST_QUANTUM
+ 972, CRITICAL   , HIGH        , MEDIUM  , LOW        ,  85,     79,        3803,         8, MEDIUM   , CLASSICAL
+ 973, HIGH       , MEDIUM      , HIGH    , LOW        ,  30,     86,         996,         9, HIGH     , CLASSICAL
+ 974, LOW        , MEDIUM      , CRITICAL, CRITICAL   ,  86,     72,        2925,        11, HIGH     , POST_QUANTUM
+ 975, MEDIUM     , LOW         , LOW     , CRITICAL   ,  12,     75,         458,        11, HIGH     , POST_QUANTUM
+ 976, MEDIUM     , HIGH        , MEDIUM  , HIGH       ,  29,     58,         379,         8, MEDIUM   , CLASSICAL
+ 977, LOW        , MEDIUM      , LOW     , CRITICAL   ,  54,     33,        2698,         8, MEDIUM   , CLASSICAL
+ 978, LOW        , LOW         , CRITICAL, CRITICAL   ,  45,     59,         963,        13, CRITICAL , POST_QUANTUM
+ 979, HIGH       , HIGH        , CRITICAL, LOW        ,  46,     56,        2903,         9, HIGH     , CLASSICAL
+ 980, MEDIUM     , MEDIUM      , CRITICAL, CRITICAL   ,  58,     46,        3329,        12, HIGH     , POST_QUANTUM
+ 981, HIGH       , LOW         , HIGH    , LOW        ,  74,     20,        1489,        11, HIGH     , HYBRID
+ 982, MEDIUM     , MEDIUM      , HIGH    , MEDIUM     ,  64,     62,        3126,         9, HIGH     , CLASSICAL
+ 983, HIGH       , MEDIUM      , MEDIUM  , CRITICAL   ,  27,     27,        1709,        11, HIGH     , POST_QUANTUM
+ 984, HIGH       , HIGH        , CRITICAL, HIGH       ,  18,     51,         512,        11, HIGH     , POST_QUANTUM
+ 985, MEDIUM     , MEDIUM      , CRITICAL, HIGH       ,  10,     58,        3422,        11, HIGH     , POST_QUANTUM
+ 986, MEDIUM     , HIGH        , MEDIUM  , LOW        ,  94,     56,        3740,         6, MEDIUM   , BASIC
+ 987, MEDIUM     , LOW         , MEDIUM  , HIGH       ,  81,     67,         357,        11, HIGH     , CLASSICAL
+ 988, HIGH       , MEDIUM      , LOW     , CRITICAL   ,  75,     40,         659,        10, HIGH     , POST_QUANTUM
+ 989, LOW        , LOW         , HIGH    , HIGH       ,  24,     94,         534,        11, HIGH     , CLASSICAL
+ 990, LOW        , HIGH        , HIGH    , HIGH       ,  78,     70,        1341,         8, MEDIUM   , CLASSICAL
+ 991, HIGH       , HIGH        , LOW     , HIGH       ,  79,     63,        2178,         8, MEDIUM   , CLASSICAL
+ 992, MEDIUM     , LOW         , LOW     , CRITICAL   ,  76,     70,         791,        11, HIGH     , POST_QUANTUM
+ 993, HIGH       , LOW         , HIGH    , LOW        ,  28,     82,        1614,        11, HIGH     , CLASSICAL
+ 994, HIGH       , LOW         , MEDIUM  , HIGH       ,  81,     33,        3990,        12, HIGH     , CLASSICAL
+ 995, LOW        , HIGH        , LOW     , MEDIUM     ,  74,     71,        2864,         5, MEDIUM   , BASIC
+ 996, HIGH       , LOW         , HIGH    , MEDIUM     ,  39,     26,        3821,        12, HIGH     , HYBRID
+ 997, CRITICAL   , MEDIUM      , LOW     , MEDIUM     ,  35,     62,         565,         9, HIGH     , CLASSICAL
+ 998, HIGH       , LOW         , LOW     , HIGH       ,  83,     64,        3150,        11, HIGH     , CLASSICAL
+ 999, MEDIUM     , MEDIUM      , CRITICAL, HIGH       ,  43,     18,        2520,        11, HIGH     , POST_QUANTUM
+1000, HIGH       , MEDIUM      , LOW     , MEDIUM     ,  22,     70,        3679,         8, MEDIUM   , CLASSICAL
