@@ -85,18 +85,21 @@ class Link:
 
 
 class Monitors:
-    """Runtime state fed back into the policy engine (a simple version of the engine's monitors)."""
+    """Runtime state fed back into the policy engine: trust in the sender and the threat level.
+    (A simple version of the engine's own monitors in policy_engine/src/runtime_monitor.cpp.)"""
     def __init__(self):
-        self.trust = {}         # message type / sender -> trust score after feedback
-        self.threat_steps = 0   # how many levels the threat was raised by detected attacks
+        self.trust = None       # sender trust after feedback (None = nothing observed yet)
+        self.threat_steps = 0   # how many levels detected attacks have added to the threat
 
     def context(self, message):
-        trust = self.trust.get(message["type"], policy.TRUST_SCORES[message["trust"]])
+        trust = policy.TRUST_SCORES[message["trust"]]
+        if self.trust is not None:
+            trust = min(trust, self.trust)
         threat = THREATS[min(3, THREATS.index(message["threat"]) + self.threat_steps)]
         return dict(trust=trust, threat=threat, cpu=message["cpu"], memory=message["memory"])
 
     def attack_detected(self, message):
-        self.trust[message["type"]] = self.context(message)["trust"] / 2
+        self.trust = self.context(message)["trust"] / 2
         self.threat_steps += 1
 
 
