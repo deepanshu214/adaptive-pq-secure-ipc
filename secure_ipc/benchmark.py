@@ -89,6 +89,20 @@ def echo_peer(conn, key_dir):
         chan.send(msg)
 
 
+def repeated(profile, runs=20):
+    """Handshake and one 1 KB message (seal + open), each repeated `runs` times. Times in ms."""
+    handshakes, messages = [], []
+    payload = os.urandom(SMALL)
+    for _ in range(runs):
+        start = time.perf_counter()
+        a, b = local_pair(profile, KEY_DIR)
+        handshakes.append((time.perf_counter() - start) * 1000)
+        start = time.perf_counter()
+        b.open(a.seal(payload))
+        messages.append((time.perf_counter() - start) * 1000)
+    return handshakes, messages
+
+
 def handshake_memory_kb(profile):
     tracemalloc.start()
     local_pair(profile, KEY_DIR)
@@ -146,6 +160,14 @@ def main():
             r = results[transport, level] = bench(profile, transport)
             print(f"| {transport} | L{level} {profile.name} | {r['hs']:.1f} | {r['hs_bytes']} | {r['rtt']:.3f} | "
                   f"{r['tp']:.1f} | {r['cpu']:.0f} | {handshake_memory_kb(profile):.0f} |", flush=True)
+
+    print("\n## Repeated measurement (20 runs per level, both ends in one process, no IPC transport)\n")
+    print("| Level | Handshake median (ms) | Handshake min-max (ms) | 1 KB message median (ms) | 1 KB message min-max (ms) |")
+    print("|---|---|---|---|---|")
+    for level in LEVELS:
+        hs, msg = repeated(Profile.standard(level))
+        print(f"| L{level} {LEVELS[level][0]} | {statistics.median(hs):.2f} | {min(hs):.2f}-{max(hs):.2f} | "
+              f"{statistics.median(msg):.3f} | {min(msg):.3f}-{max(msg):.3f} |", flush=True)
 
     print("\n## Measured vs the policy engine's cost model (socket transport)\n")
     print("| Level | Handshake: model (us) | Handshake: measured (ms) | Handshake bytes: model | Handshake bytes: measured | "
