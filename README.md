@@ -125,6 +125,7 @@ secure_ipc/           Deepanshu - Secure IPC & PQC engine (Python) + integration
   demo.py             secure IPC engine alone, every level
   attacks.py          7 attacks x 5 levels
   benchmark.py        measurements per level, compared with the cost model
+docs/                 demo and viva guide for both team members
 Makefile              build / test / run for the whole project
 requirements.txt      Python libraries (pinned)
 ```
