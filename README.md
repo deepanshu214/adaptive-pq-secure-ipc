@@ -1,5 +1,11 @@
 # Adaptive Post-Quantum Secure IPC Framework
 
+![C++](https://img.shields.io/badge/C%2B%2B-14-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue.svg)
+![Tests](https://img.shields.io/badge/tests-64%20passed-brightgreen.svg)
+![Security](https://img.shields.io/badge/Post--Quantum-ML--KEM%20%7C%20ML--DSA-orange.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
 **with Dynamic Security Policy Selection** - group project of Aditya and Deepanshu.
 
 Not every message between two processes needs the same protection. A status update and an emergency
